@@ -6,7 +6,10 @@
   "author": "Ludo-code <lasagne.berthet@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "discord.js": "discordjs/discord.js"
+    "discord.js": "^11.5.1",
+    "mongoose": "^5.7.7",
+    "node-fetch": "^2.6.0",
+    "opusscript": "0.0.7"
   },
   "devDependencies": {
     "eslint": "^6.5.1",
@@ -27,7 +30,10 @@
         "error",
         2
       ],
-      "curly": "off"
+      "curly": "off",
+      "no-trailing-spaces": "off",
+      "prefer-template": "off",
+      "no-eval": "off"
     }
   }
 }
