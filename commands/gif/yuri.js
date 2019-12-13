@@ -5,12 +5,12 @@ module.exports = async (client, message) => {
   message
     .delete({ timeout: 3000 })
     .then(console.log("Un message a été supprimé !"));
-  const chat = await fetch("http://aws.random.cat/meow")
+  const neko = await fetch("https://nekos.life/api/v2/img/yuri")
     .then(res => res.json())
-    .then(json => json.file);
+    .then(json => json.url);
 
   const embed = new RichEmbed()
-    .setImage(chat)
+    .setImage(neko)
     .setFooter(`Demandé par ${message.author.username}`);
   message.channel.send(embed);
 };

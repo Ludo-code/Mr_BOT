@@ -9,6 +9,8 @@ module.exports = async (client, message) => {
     .then(res => res.json())
     .then(json => json.url);
 
-  const embed = new RichEmbed().setImage(meme);
+  const embed = new RichEmbed()
+    .setImage(meme)
+    .setFooter(`Demandé par ${message.author.username}`);
   message.channel.send(embed);
 };

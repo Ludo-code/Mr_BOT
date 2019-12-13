@@ -1,3 +1,6 @@
 module.exports = (client, message) => {
-  message.channel.send("Pong !");
+  const debut = Date.now();
+  message.channel
+    .send("Ping")
+    .then(m => m.edit(`Pong : **${Date.now() - debut}**ms`));
 };

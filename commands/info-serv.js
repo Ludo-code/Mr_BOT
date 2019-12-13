@@ -9,6 +9,7 @@ module.exports = (client, message) => {
     .addField("Nombres de membres :", message.guild.memberCount, true)
     .addField("Crée par : ", message.guild.owner.user.tag, true)
     .addField("Serveur crée le :", message.guild.createdAt)
-    .addField("Vous avez rejoint le :", message.member.joinedAt);
+    .addField("Vous avez rejoint le :", message.member.joinedAt)
+    .setFooter(`Demandé par ${message.author.username}`);
   message.channel.send(embed);
 };

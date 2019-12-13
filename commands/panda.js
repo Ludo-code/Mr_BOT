@@ -5,12 +5,12 @@ module.exports = async (client, message) => {
   message
     .delete({ timeout: 3000 })
     .then(console.log("Un message a été supprimé !"));
-  const chat = await fetch("http://aws.random.cat/meow")
+  const meme = await fetch("https://some-random-api.ml/img/panda")
     .then(res => res.json())
-    .then(json => json.file);
+    .then(json => json.link);
 
   const embed = new RichEmbed()
-    .setImage(chat)
+    .setImage(meme)
     .setFooter(`Demandé par ${message.author.username}`);
   message.channel.send(embed);
 };
