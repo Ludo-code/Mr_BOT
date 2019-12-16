@@ -25,17 +25,26 @@ client.commands.set("nekonue", require("./commands/neko_nsfw.js"));
 client.commands.set("effacer", require("./commands/clear.js"));
 client.commands.set("hentai", require("./commands/gif/hentai.js"));
 client.commands.set("yuri", require("./commands/gif/yuri.js"));
-client.commands.set("lesbienne", require("./commands/gif/lesbian.js"));
+client.commands.set("lesbi", require("./commands/gif/lesbian.js"));
 client.commands.set("ejac", require("./commands/gif/ejac.js"));
 
 client.on("ready", () => require("./events/ready.js")(client));
 client.on("message", msg => require("./events/message.js")(client, msg));
 client.on("guildMemberAdd", member =>
   require("./events/guildMemberAdd.js")(client, member));
-client.off("guildMemberRemove", member =>
-  require("./events/guildMemberRemove.js")(client, member));
 
 client.mongoose.init();
 client.login(TOKEN);
 client.on("error", console.error);
 client.on("warn", console.warn);
+
+
+client.on("ready", () => {
+  const activities = [" *aide", " *aide_nsfw", "En cours de développement...."];
+  client.setInterval(() => {
+    const index = Math.floor(Math.random() * activities.length);
+    client.user.setActivity(activities[index], {
+      type: "PLAYING"
+    });
+  }, 12000);
+});

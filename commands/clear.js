@@ -1,5 +1,5 @@
-module.exports = async (client, message, args, then) => {
-  if (![268432158262165504].includes(message.author.id)) then;
+module.exports = async (client, message, args) => {
+  if (!["268432158262165504"].includes(message.author.id)) return;
   try {
     await message.delete();
     const msgToDelete = args[0]
