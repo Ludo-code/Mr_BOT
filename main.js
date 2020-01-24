@@ -44,7 +44,7 @@ client.on("ready", () => {
   client.setInterval(() => {
     const index = Math.floor(Math.random() * activities.length);
     client.user.setActivity(activities[index], {
-      type: "PLAYING"
+      type: "WATCHING"
     });
   }, 12000);
 });

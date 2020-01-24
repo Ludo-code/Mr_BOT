@@ -32,5 +32,6 @@ module.exports = (client, message) => {
     .addField("Commande aide_nsfw :", "****aide_nsfw*** Envoie la page d'aide des commandes NSFW.")
     
     .setThumbnail(message.guild.iconURL);
-  message.channel.send(embed);
+  message.author.send(embed);
+  message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`).then(m => m.react("📩").then(m.react("✉")));
 };
