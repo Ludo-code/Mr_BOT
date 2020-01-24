@@ -22,7 +22,7 @@ client.commands.set("tapote", require("./commands/tapotte.js"));
 client.commands.set("crie", require("./commands/crie.js"));
 client.commands.set("gifle", require("./commands/gifle.js"));
 client.commands.set("nekonue", require("./commands/neko_nsfw.js"));
-client.commands.set("effacer", require("./commands/clear.js"));
+client.commands.set("effacer", require("./commands/efface.js"));
 client.commands.set("hentai", require("./commands/gif/hentai.js"));
 client.commands.set("yuri", require("./commands/gif/yuri.js"));
 client.commands.set("lesbi", require("./commands/gif/lesbian.js"));
