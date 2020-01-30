@@ -22,6 +22,18 @@ module.exports = (client, message) => {
 
     .addField("Commande cuni :", "****cuni*** Envoie une gif d'une personne qui fait un cuni.")
 
+    .addField("Commande tetons :", "****tetons*** Envoie une image de tétons de type féminin.")
+
+    .addField("Commande neko_gif :", "****neko_gif*** Envoie une gif de neko nue.")
+
+    .addField("Commande masturbation :", "****masturbation*** Envoie une gif de fille se masturbant.")
+
+    .addField("Commande rdm_hentai :", "****rdm_hentai*** Envoie une gif de hentai aléatoire.")
+
+    .addField("Commande pied_gif :", "****pied_gif*** Envoie une gif de pied.")
+
+    .addField("Commande pied :", "****pied*** Envoie une image de pied.")
+
     .addField("Commande seins :", "****seins*** Envoie une paire de seins.")
 
     .setThumbnail(message.guild.iconURL);

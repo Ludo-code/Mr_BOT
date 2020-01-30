@@ -28,6 +28,12 @@ client.commands.set("ejac", require("./commands/gif/nsfw/ejac.js"));
 client.commands.set("effacer", require("./commands/moderation/efface.js"));
 client.commands.set("chatte", require("./commands/image/nsfw/chatte_nsfw.js"));
 client.commands.set("cuni", require("./commands/gif/nsfw/kuni.js"));
+client.commands.set("tetons", require("./commands/image/nsfw/tetee.js"));
+client.commands.set("neko_gif", require("./commands/gif/nsfw/neko_gif.js"));
+client.commands.set("masturbation", require("./commands/gif/nsfw/masturb.js"));
+client.commands.set("rdm_hentai", require("./commands/gif/nsfw/rdm_hentai.js"));
+client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
+client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
 
 
 client.on("ready", () => require("./events/ready.js")(client));
