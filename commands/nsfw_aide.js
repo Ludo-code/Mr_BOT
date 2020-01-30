@@ -9,15 +9,17 @@ module.exports = (client, message) => {
       "Commande nekonue :",
       "****nekonue*** Envoie une image de neko nu."
     )
+
     .addField("Commande hentai :", "****hentai*** Envoie une image de hentai.")
+
     .addField("Commande yuri :", "****yuri*** Envoie une image de yuri.")
-    .addField(
-      "Commande lesbienne :",
-      "****lesbienne*** Envoie une image de lesbienne."
-    )
+
     .addField("Commande ejac :", "****ejac*** Permet d'éjaculer sur quelqu'un.")
+
     .addField("Commande chatte :", "****chatte*** Envoie une image de chatte.")
+
     .addField("Commande seins :", "****seins*** Envoie une paire de seins.")
+
     .setThumbnail(message.guild.iconURL);
   message.author.send(embed);
   message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`).then(m => m.react("✉").then(m.react("📩")));
