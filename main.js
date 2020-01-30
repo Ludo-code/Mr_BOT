@@ -27,11 +27,11 @@ client.commands.set("hentai", require("./commands/gif/hentai.js"));
 client.commands.set("yuri", require("./commands/gif/yuri.js"));
 client.commands.set("lesbi", require("./commands/gif/lesbian.js"));
 client.commands.set("ejac", require("./commands/gif/ejac.js"));
+client.commands.set("test", require("./commands/test.js"));
+
 
 client.on("ready", () => require("./events/ready.js")(client));
 client.on("message", msg => require("./events/message.js")(client, msg));
-client.on("guildMemberAdd", member =>
-  require("./events/guildMemberAdd.js")(client, member));
 
 client.mongoose.init();
 client.login(TOKEN);
