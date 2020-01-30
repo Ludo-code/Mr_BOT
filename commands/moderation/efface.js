@@ -1,4 +1,5 @@
 module.exports = async (client, message, args) => {
+  message.delete();
   if (!["268432158262165504", "398053300341309441"].includes(message.author.id))
     return message.channel.send(`Tu n'as pas les permissiosn suffisante ! ${message.author} désolé a toi.`);
   const nbdemsg = args.join(" ");
