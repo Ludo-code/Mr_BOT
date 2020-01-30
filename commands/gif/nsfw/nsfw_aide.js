@@ -16,7 +16,11 @@ module.exports = (client, message) => {
 
     .addField("Commande ejac :", "****ejac*** Permet d'éjaculer sur quelqu'un.")
 
+    .addField("Commande chatte_gif :", "****chatte_gif*** Envoie une gif de chatte.")
+
     .addField("Commande chatte :", "****chatte*** Envoie une image de chatte.")
+
+    .addField("Commande cuni :", "****cuni*** Envoie une gif d'une personne qui fait un cuni.")
 
     .addField("Commande seins :", "****seins*** Envoie une paire de seins.")
 
