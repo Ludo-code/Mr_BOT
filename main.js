@@ -27,7 +27,7 @@ client.commands.set("hentai", require("./commands/gif/hentai.js"));
 client.commands.set("yuri", require("./commands/gif/yuri.js"));
 client.commands.set("lesbi", require("./commands/gif/lesbian.js"));
 client.commands.set("ejac", require("./commands/gif/ejac.js"));
-client.commands.set("test", require("./commands/test.js"));
+client.commands.set("test", require("./commands/moderation/test.js"));
 
 
 client.on("ready", () => require("./events/ready.js")(client));
