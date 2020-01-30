@@ -1,4 +1,4 @@
-module.exports.run = async (client, message, args) => {
+module.exports = async (client, message, args) => {
   const nbdemsg = args.join(" ");
   if (!nbdemsg)
     return message.reply(
@@ -14,7 +14,5 @@ module.exports.run = async (client, message, args) => {
     );
   if (nbdemsg < 1)
     return message.reply("Vous devez effacer au moins 1 message !");
-  await message.channel.fetchMessage({ limit: nbdemsg }).then(messages => {
-    message.channel.bulkDelete(messages);
-  });
+  await message.channel.fetchMessage({ limit: nbdemsg }, message.channel.bulkDelete(nbdemsg));
 };

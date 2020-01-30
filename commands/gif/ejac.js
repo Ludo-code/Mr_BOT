@@ -7,12 +7,12 @@ module.exports = async (client, message, args) => {
   message
     .delete({ timeout: 3000 })
     .then(console.log("Un message a été supprimé !"));
-  const embrasse = await fetch("https://nekos.life/api/v2/img/cum")
+  const ejac = await fetch("https://nekos.life/api/v2/img/cum")
     .then(res => res.json())
     .then(json => json.url);
 
   const embed = new RichEmbed()
-    .setImage(embrasse)
+    .setImage(ejac)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} éjacule sur ${user.tag}`);
   message.channel.send(embed);
