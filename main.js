@@ -8,7 +8,7 @@ client.commands = new Collection();
 
 client.commands.set("info-serv", require("./commands/moderation/utilitaire/info-serv.js"));
 client.commands.set("aide", require("./commands/aide.js"));
-client.commands.set("aide_nsfw", require("./commands/gif/nsfw/nsfw_aide.js"));
+client.commands.set("aide_nsfw", require("./commands/nsfw_aide.js"));
 client.commands.set("ping", require("./commands/moderation/utilitaire/ping.js"));
 client.commands.set("chat", require("./commands/gif/chat.js"));
 client.commands.set("meme", require("./commands/gif/meme.js"));
@@ -47,7 +47,7 @@ client.on("warn", console.warn);
 
 
 client.on("ready", () => {
-  const activities = [" *aide", " *aide_nsfw", "En cours de développement...."];
+  const activities = [" *aide", " *aide_nsfw", "Travail en cours..."];
   client.setInterval(() => {
     const index = Math.floor(Math.random() * activities.length);
     client.user.setActivity(activities[index], {
