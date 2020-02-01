@@ -22,6 +22,10 @@ module.exports = (client, message) => {
       "****panda*** pour afficher une image de panda aléatoire."
     )
     .addField(
+      "Commande urss",
+      "****urss*** permet d'avoir une image et un texte en rapport avec le communisme."
+    )
+    .addField(
       "Commande info-serv",
       "****info-serv*** permet de savoir certaine informations sur le serveur comme sa date de création et son créateur."
     )
@@ -29,8 +33,11 @@ module.exports = (client, message) => {
       "Commande aide :",
       "****aide*** permet de montrer cet aide sur les commandes."
     )
-    .addField("Commande aide_nsfw :", "****aide_nsfw*** Envoie la page d'aide des commandes NSFW.")
-    
+    .addField(
+      "Commande aide_nsfw :",
+      "****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
+    )
+
     .setThumbnail(message.guild.iconURL);
   message.author.send(embed);
   message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`).then(m => m.react("📩").then(m.react("✉")));
