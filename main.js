@@ -47,7 +47,7 @@ client.on("warn", console.warn);
 
 
 client.on("ready", () => {
-  const activities = [" *aide", " *aide_nsfw", "Travail en cours..."];
+  const activities = [" m*aide", " m*aide_nsfw", "Travail en cours..."];
   client.setInterval(() => {
     const index = Math.floor(Math.random() * activities.length);
     client.user.setActivity(activities[index], {
