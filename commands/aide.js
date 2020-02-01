@@ -4,8 +4,14 @@ module.exports = (client, message) => {
   const embed = new RichEmbed()
     .setColor("#ff00dc")
     .setTitle(`Aide sur les commandes du serveur ${message.guild.name} :`)
-    .addField("Commande meme :", "m****meme*** pour afficher un meme aléatoire.")
-    .addField("Commande neko :", "m****neko*** pour afficher une image de neko.")
+    .addField(
+      "Commande meme :",
+      "m****meme*** pour afficher un meme aléatoire."
+    )
+    .addField(
+      "Commande neko :",
+      "m****neko*** pour afficher une image de neko."
+    )
     .addField(
       "Commande embrasse :",
       "m****embrasse*** pour embrasser quelqu'un."
@@ -34,11 +40,21 @@ module.exports = (client, message) => {
       "m****aide*** permet de montrer cet aide sur les commandes."
     )
     .addField(
+      "Commande tts :",
+      "m****tts*** permet de répéter ce qu'on a mis dans notre message et le dire en vocal."
+    )
+    .addField(
       "Commande aide_nsfw :",
       "m****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
     )
 
     .setThumbnail(message.guild.iconURL);
   message.author.send(embed);
-  message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`).then(m => m.react("📩").then(m.react("✉")));
+  message.channel.send(
+    `${message.author} La liste des commandes d'aide ta été envoyé en message privé !`
+  );
+  return message.react("✉")
+    .then(() => message.react("📩"))
+    .then(() => message.react("📫"))
+    .then(() => message.react("✅"));
 };

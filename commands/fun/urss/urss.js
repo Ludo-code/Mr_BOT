@@ -1,7 +1,9 @@
 module.exports = async (client, message) => {
   const imagerdm = [
     "./commands/fun/urss/image/poutine.jpg",
-    "./commands/fun/urss/image/drapeau-urss.jpg"
+    "./commands/fun/urss/image/drapeau-urss.jpg",
+    "./commands/fun/urss/image/ex-urss-mauvaise.jpg",
+    "./commands/fun/urss/image/histoire-urss.jpg"
   ];
   const phrasealeatoirecalc = [
     "Poutine meilleure président !!!",

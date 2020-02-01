@@ -1,8 +1,7 @@
 module.exports = async (client, message, args) => {
   message
-    .delete({ timeout: 0 })
+    .delete()
     .then(console.log("message éffacé !"));
-  message.delete();
   if (
     ![
       "268432158262165504",

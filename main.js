@@ -35,6 +35,7 @@ client.commands.set("rdm_hentai", require("./commands/gif/nsfw/rdm_hentai.js"));
 client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
 client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
 client.commands.set("urss", require("./commands/fun/urss/urss.js"));
+client.commands.set("tts", require("./commands/fun/tts/tts.js"));
 
 
 client.on("ready", () => require("./events/ready.js")(client));

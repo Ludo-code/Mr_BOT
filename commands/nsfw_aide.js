@@ -38,5 +38,9 @@ module.exports = (client, message) => {
 
     .setThumbnail(message.guild.iconURL);
   message.author.send(embed);
-  message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`).then(m => m.react("📩").then(m.react("✉")));
+  message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`);
+  return message.react("✉")
+    .then(() => message.react("📩"))
+    .then(() => message.react("📫"))
+    .then(() => message.react("✅"));
 };
