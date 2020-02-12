@@ -28,7 +28,7 @@ module.exports = (client, message) => {
 
     .addField("Commande masturbation :", "m****masturbation*** Envoie une gif de fille se masturbant.")
 
-    .addField("Commande rdm_hentai :", "m****rdm_hentai*** Envoie une gif de hentai aléatoire.")
+    .addField("Commande hentai_gif :", "m****hentai_gif*** Envoie une gif de hentai aléatoire.")
 
     .addField("Commande pied_gif :", "m****pied_gif*** Envoie une gif de pied.")
 
