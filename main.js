@@ -36,6 +36,7 @@ client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
 client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
 client.commands.set("urss", require("./commands/fun/urss/urss.js"));
 client.commands.set("tts", require("./commands/fun/tts/tts.js"));
+client.commands.set("reboot", require("./commands/moderation/reboot.js"));
 client.commands.set("test", require("./commands/test/test.js"));
 
 

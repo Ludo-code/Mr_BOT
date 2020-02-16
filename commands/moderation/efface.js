@@ -4,9 +4,7 @@ module.exports = async (client, message, args) => {
     .then(console.log("message éffacé !"));
   if (
     ![
-      "268432158262165504",
-      "398053300341309441",
-      "444494988240486401"
+      "268432158262165504"
     ].includes(message.author.id)
   )
     return message.channel.send(
@@ -28,4 +26,8 @@ module.exports = async (client, message, args) => {
   if (nbdemsg < 1)
     return message.reply("Vous devez effacer au moins 1 message !");
   await message.channel.fetchMessage({ limit: nbdemsg }, message.channel.bulkDelete(nbdemsg));
+
+  exports.help = {
+    name: "efface"
+  };
 };
