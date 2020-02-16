@@ -12,8 +12,8 @@ module.exports = async (client, message, args) => {
     .then(json => json.url);
 
   const embed = new RichEmbed()
+    .setTitle(`${message.author.tag} câline ${user.tag}`)
     .setImage(embrasse)
-    .setFooter(`Demandé par ${message.author.username}`)
-    .setTitle(`${message.author.tag} câline ${user.tag}`);
+    .setFooter(`Demandé par ${message.author.username}`);
   message.channel.send(embed);
 };
