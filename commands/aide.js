@@ -5,6 +5,14 @@ module.exports = (client, message) => {
     .setColor("#ff00dc")
     .setTitle("Aide sur les commandes du bot Mr_BOT [funny bot] :")
     .addField(
+      "Commande report :",
+      "m****report*** pour report un problème avec le bot."
+    )
+    .addField(
+      "Commande idee :",
+      "m****idee*** pour suggérer une idée d'amélioration au bot."
+    )
+    .addField(
       "Commande meme :",
       "m****meme*** pour afficher un meme aléatoire."
     )

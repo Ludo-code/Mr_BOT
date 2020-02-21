@@ -37,6 +37,8 @@ client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
 client.commands.set("urss", require("./commands/fun/urss/urss.js"));
 client.commands.set("tts", require("./commands/fun/tts/tts.js"));
 client.commands.set("test", require("./commands/test/test.js"));
+client.commands.set("report", require("./commands/moderation/utilitaire/report.js"));
+client.commands.set("idee", require("./commands/moderation/utilitaire/idée.js"));
 
 
 client.on("ready", () => require("./events/ready.js")(client));
