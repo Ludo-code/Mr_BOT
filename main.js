@@ -39,6 +39,8 @@ client.commands.set("tts", require("./commands/fun/tts/tts.js"));
 client.commands.set("test", require("./commands/test/test.js"));
 client.commands.set("report", require("./commands/moderation/utilitaire/report.js"));
 client.commands.set("idee", require("./commands/moderation/utilitaire/idée.js"));
+client.commands.set("changelog", require("./commands/moderation/utilitaire/changelog.js"));
+client.commands.set("info-bot", require("./commands/moderation/utilitaire/infobot.js"));
 
 
 client.on("ready", () => require("./events/ready.js")(client));

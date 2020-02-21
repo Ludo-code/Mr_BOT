@@ -13,6 +13,10 @@ module.exports = (client, message) => {
       "m****idee*** pour suggérer une idée d'amélioration au bot."
     )
     .addField(
+      "Commande changelog :",
+      "m****changelog*** pour avoir le log de la mise a jour du bot."
+    )
+    .addField(
       "Commande meme :",
       "m****meme*** pour afficher un meme aléatoire."
     )
@@ -54,6 +58,10 @@ module.exports = (client, message) => {
     .addField(
       "Commande aide_nsfw :",
       "m****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
+    )
+    .addField(
+      "Commande info-bot :",
+      "m****info-bot*** pour avoir des informations sur le bot et son créateur."
     );
   
   message.author.send(embed);

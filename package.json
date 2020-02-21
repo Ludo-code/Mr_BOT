@@ -2,7 +2,7 @@
   "name": "discord-bot",
   "version": "0.1.0",
   "main": "main.js",
-  "repository": "https://github.com/Ludo-code/discord-bots.git",
+  "repository": "https://github.com/Ludo-code/Mr_BOT.git",
   "author": "Ludo-code <lasagne.berthet@gmail.com>",
   "license": "MIT",
   "dependencies": {
