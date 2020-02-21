@@ -4,7 +4,8 @@ const { RichEmbed } = require("discord.js");
 module.exports = async (client, message) => {
   message
     .delete({ timeout: 3000 })
-    .then(console.log("Un message a été supprimé !"));
+    .then(console.log(`La commande cuni a été exécuté par ${message.author.username} de l'id : ${message.author}`));
+  if (!message.channel.nsfw) return message.channel.send(`Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`);
   const kuni = await fetch("https://nekos.life/api/v2/img/kuni")
     .then(res => res.json())
     .then(json => json.url);

@@ -3,7 +3,7 @@ const { RichEmbed } = require("discord.js");
 module.exports = (client, message) => {
   const embed = new RichEmbed()
     .setColor("#ff00dc")
-    .setTitle(`Aide sur les commandes du serveur ${message.guild.name} :`)
+    .setTitle("Aide sur les commandes du bot Mr_BOT [funny bot] :")
     .addField(
       "Commande meme :",
       "m****meme*** pour afficher un meme aléatoire."
@@ -46,9 +46,8 @@ module.exports = (client, message) => {
     .addField(
       "Commande aide_nsfw :",
       "m****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
-    )
-
-    .setThumbnail(message.guild.iconURL);
+    );
+  
   message.author.send(embed);
   message.channel.send(
     `${message.author} La liste des commandes d'aide ta été envoyé en message privé !`
