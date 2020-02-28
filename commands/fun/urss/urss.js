@@ -1,4 +1,5 @@
 module.exports = async (client, message) => {
+  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
   const imagerdm = [
     "./commands/fun/urss/image/poutine.jpg",
     "./commands/fun/urss/image/drapeau-urss.jpg",

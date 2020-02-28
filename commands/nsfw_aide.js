@@ -1,6 +1,7 @@
 const { RichEmbed } = require("discord.js");
 
 module.exports = (client, message) => {
+  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
   const embed = new RichEmbed()
     .setColor("#ff00dc")
     .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [funny bot] :")
