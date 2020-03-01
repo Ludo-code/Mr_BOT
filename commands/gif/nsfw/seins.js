@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const { RichEmbed } = require("discord.js");
 
 module.exports = async (client, message) => {
-  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
+  if (message.channel.type === "dm") return message.reply("Tu as raison rien de tel que une bonne paire de seins mais dans un serveur discord pas dans mes MP merci ! :joy:");
   message
     .delete({ timeout: 3000 })
     .then(console.log(`La commande seins a été exécuté par ${message.author.username} de l'id : ${message.author}`));

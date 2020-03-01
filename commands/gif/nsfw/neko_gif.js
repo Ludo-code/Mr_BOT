@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const { RichEmbed } = require("discord.js");
 
 module.exports = async (client, message) => {
-  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
+  if (message.channel.type === "dm") return message.reply("Oh un fan de neko après c'est vrai qu'ils sont minions avec leur petite oreille de chat mais tu n'as quand même pas le droit de le faire en MP ! :joy:");
   message
     .delete({ timeout: 3000 })
     .then(console.log(`La commande neko_gif a été exécuté par ${message.author.username} de l'id : ${message.author}`));

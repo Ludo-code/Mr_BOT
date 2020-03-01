@@ -1,7 +1,7 @@
 const { RichEmbed } = require("discord.js");
 
 module.exports = (client, message) => {
-  if (message.channel.type === "dm") return message.channel.send("Désolé mais tu ne peux pas faire de commande en message privé cela serait inutile :joy: !");
+  if (message.channel.type === "dm") return message.channel.send("Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:");
   const embed = new RichEmbed()
     .setColor("#ff00dc")
     .setTitle("Information sur le serveur :")

@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const { RichEmbed } = require("discord.js");
 
 module.exports = async (client, message, args) => {
-  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
+  if (message.channel.type === "dm") return message.reply("Oh tu veux faireun câlin c'est trop mignon mais juste a toi même tu dois vraiment être narcissique heuresement que la commande est non disponible en MP ! :joy:");
   const user =
     message.mentions.users.first() || message.guild.members.get(args[0]);
   message

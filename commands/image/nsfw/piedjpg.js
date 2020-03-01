@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const { RichEmbed } = require("discord.js");
 
 module.exports = async (client, message) => {
-  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
+  if (message.channel.type === "dm") return message.reply("Alors après les pieds en gif les voila maintenant en image on arrête donc pas un fétichiste ! :joy:");
   message
     .delete({ timeout: 3000 })
     .then(console.log(`La commande pied a été exécuté par ${message.author.username} de l'id : ${message.author}`));

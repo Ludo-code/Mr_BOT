@@ -1,5 +1,5 @@
 module.exports = async (client, message, args) => {
-  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
+  if (message.channel.type === "dm") return message.reply("Mais mais qu'essaye tu de cacher a mon maître pour vouloir effacer les messages que tu m'as envoyés ? ! :joy:");
   message
     .delete()
     .then(console.log("message éffacé !"));

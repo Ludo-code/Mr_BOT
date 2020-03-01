@@ -1,7 +1,7 @@
 const { RichEmbed } = require("discord.js");
 
 module.exports = (client, message) => {
-  if (message.channel.type === "dm") return message.reply("Alors on essaye de se cacher ! :joy:");
+  if (message.channel.type === "dm") return message.reply("L'aide pour les commandes nsfw directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide_nsfw ! :joy:");
   const embed = new RichEmbed()
     .setColor("#ff00dc")
     .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [funny bot] :")
