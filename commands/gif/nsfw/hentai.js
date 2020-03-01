@@ -2,7 +2,7 @@ const fetch = require("node-fetch");
 const { RichEmbed } = require("discord.js");
 
 module.exports = async (client, message) => {
-  if (message.channel.type === "dm") return message.reply("Oh du hentai mais en MP je suis pas d'accord ! :joy:");
+  if (message.channel.type === "dm") return message.reply("Eh bah maintenant aprés avoir tantés de faire des gifs de hentai en privé tu essaye les images alala tu est vriament incorigible mais toujours pas authorisé en MP ! :joy:");
   message
     .delete({ timeout: 3000 })
     .then(console.log(`La commande hentai a été exécuté par ${message.author.username} de l'id : ${message.author}`));
