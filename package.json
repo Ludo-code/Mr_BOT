@@ -1,0 +1,45 @@
+{
+  "name": "discord-bot",
+  "version": "0.1.0",
+  "main": "main.js",
+  "repository": "https://github.com/Ludo-code/Mr_BOT.git",
+  "author": "Ludo-code <lasagne.berthet@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "discord-akairo": "^8.0.0",
+    "discord.js": "^11.5.1",
+    "git": "^0.1.5",
+    "mongoose": "^5.9.1",
+    "nekos.life": "^2.0.5",
+    "node-fetch": "^2.6.0",
+    "opusscript": "0.0.7",
+    "snekfetch": "^4.0.4",
+    "superagent": "^5.2.1",
+    "yarn": "^1.22.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-aqua": "^7.2.1"
+  },
+  "eslintConfig": {
+    "extends": "aqua/node",
+    "rules": {
+      "linebreak-style": [
+        "error",
+        "windows"
+      ],
+      "quotes": [
+        "warn",
+        "double"
+      ],
+      "indent": [
+        "error",
+        2
+      ],
+      "curly": "off",
+      "no-trailing-spaces": "off",
+      "prefer-template": "off",
+      "no-eval": "off"
+    }
+  }
+}
