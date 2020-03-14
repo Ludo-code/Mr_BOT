@@ -1,6 +1,25 @@
-const { Client, Collection } = require("discord.js");
+const { Collection } = require("discord.js");
 const { TOKEN, PREFIX } = require("./config");
-const client = new Client({ disableEveryone: true });
+const { AkairoClient, CommandHandler, InhibitorHandler } = require("discord-akairo");
+
+class MyClient extends AkairoClient {
+  constructor() {
+    super({
+      ownerID: "268432158262165504"
+    }, {
+      disableEveryone: true
+    });
+
+    this.commandHandler = new CommandHandler(this, {
+      directory: "./commands/",
+      prefix: ["m*", "@"]
+    });
+
+    this.commandHandler.loadAll();
+  }
+}
+
+const client = new MyClient();
 
 client.PREFIX = PREFIX;
 client.mongoose = require("./util/mongoose");
@@ -34,8 +53,6 @@ client.commands.set("masturbation", require("./commands/gif/nsfw/masturb.js"));
 client.commands.set("hentai_gif", require("./commands/gif/nsfw/rdm_hentai.js"));
 client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
 client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
-client.commands.set("urss", require("./commands/fun/urss/urss.js"));
-client.commands.set("tts", require("./commands/fun/tts/tts.js"));
 client.commands.set("test", require("./commands/test/test.js"));
 client.commands.set("report", require("./commands/moderation/utilitaire/report.js"));
 client.commands.set("idee", require("./commands/moderation/utilitaire/idée.js"));

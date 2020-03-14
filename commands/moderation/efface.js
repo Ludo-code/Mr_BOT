@@ -23,8 +23,4 @@ module.exports = async (client, message, args) => {
   if (nbdemsg < 1)
     return message.reply("Vous devez effacer au moins 1 message !");
   await message.channel.fetchMessage({ limit: nbdemsg }, message.channel.bulkDelete(nbdemsg));
-
-  exports.help = {
-    name: "efface"
-  };
 };
