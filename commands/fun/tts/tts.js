@@ -6,7 +6,8 @@ class ttscommands extends Command {
       split: "sticky",
       args: [
         {
-          id: "une_banane"
+          id: "une_banane",
+          match: "content"
         }
       ]
     });

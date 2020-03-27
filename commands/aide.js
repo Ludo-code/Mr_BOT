@@ -72,5 +72,6 @@ module.exports = (client, message) => {
   return message.react("✉")
     .then(() => message.react("📩"))
     .then(() => message.react("📫"))
-    .then(() => message.react("✅"));
+    .then(() => message.react("✅"))
+    .then(console.log(`La commande aide a été exécuté par ${message.author.username} de l'id : ${message.author}`));
 };
