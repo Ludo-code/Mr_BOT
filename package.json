@@ -1,9 +1,9 @@
 {
   "name": "brobot",
   "version": "0.1.0",
-  "main": "brobot.js",
-  "repository": "https://github.com/BrozardOff/brobotV2.git",
-  "author": "BrozardOff <brozardoff@gmail.com>",
+  "main": "main.js.js",
+  "repository": "https://github.com/Ludo-code/Mr_BOT.git",
+  "author": "Mr_OSS117 <lasagne.berthet@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "acorn": "^7.1.1",
