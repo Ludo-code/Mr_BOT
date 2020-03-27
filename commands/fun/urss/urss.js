@@ -28,7 +28,7 @@ class ursscommands extends Command {
     };
     message
       .delete({ timeout: 3000 })
-      .then(console.log(`La commande chatte a été exécuté par ${message.author.username} de l'id : ${message.author}`));
+      .then(console.log(`La commande urss a été exécuté par ${message.author.username} de l'id : ${message.author}`));
     message.channel.send(calcul).then(m => m.edit(rep));
   }
 }

@@ -59,6 +59,7 @@ client.commands.set("idee", require("./commands/moderation/utilitaire/idée.js")
 client.commands.set("changelog", require("./commands/moderation/utilitaire/changelog.js"));
 client.commands.set("info-bot", require("./commands/moderation/utilitaire/infobot.js"));
 client.commands.set("loli", require("./commands/image/nsfw/loli.js"));
+client.commands.set("femdom", require("./commands/image/nsfw/femdom.js"));
 
 
 client.on("ready", () => require("./events/ready.js")(client));
