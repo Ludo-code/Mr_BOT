@@ -61,12 +61,17 @@ module.exports = (client, message) => {
     .addField(
       "Commande femdom :",
       "m****femdom*** Envoie une image de domination féminine."
-    );
+    )
+    .setTimestamp();
 
   message.author.send(embed);
   message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`);
-  return message.react("✉")
+  return message
+    .react("✉")
     .then(() => message.react("📩"))
     .then(() => message.react("📫"))
-    .then(() => message.react("✅"));
+    .then(() => message.react("✅"))
+    .then(
+      `La commande nsfw_aide a été exécuté par ${message.author.username} de l'id : ${message.author}`
+    );
 };

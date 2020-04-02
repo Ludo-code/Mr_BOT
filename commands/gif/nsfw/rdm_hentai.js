@@ -12,6 +12,7 @@ module.exports = async (client, message) => {
 
   const embed = new MessageEmbed()
     .setImage(rdmhen)
-    .setFooter(`Demandé par ${message.author.username}`);
+    .setFooter(`Demandé par ${message.author.username}`)
+    .setTimestamp();
   message.channel.send(embed);
 };

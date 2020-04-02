@@ -63,7 +63,8 @@ module.exports = (client, message) => {
     .addField(
       "Commande info-bot :",
       "m****info-bot*** pour avoir des informations sur le bot et son créateur."
-    );
+    )
+    .setTimestamp();
   
   message.author.send(embed);
   message.channel.send(

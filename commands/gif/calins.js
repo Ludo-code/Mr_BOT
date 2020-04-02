@@ -15,6 +15,7 @@ module.exports = async (client, message, args) => {
   const embed = new MessageEmbed()
     .setTitle(`${message.author.tag} câline ${user.tag}`)
     .setImage(embrasse)
-    .setFooter(`Demandé par ${message.author.username}`);
+    .setFooter(`Demandé par ${message.author.username}`)
+    .setTimestamp();
   message.channel.send(embed);
 };

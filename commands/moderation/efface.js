@@ -2,7 +2,11 @@ module.exports = async (client, message, args) => {
   if (message.channel.type === "dm") return message.reply("Mais mais qu'essaye tu de cacher a mon maître pour vouloir effacer les messages que tu m'as envoyés ? ! :joy:");
   message
     .delete()
-    .then(console.log("message éffacé !"));
+    .then(
+      console.log(
+        `La commande efface a été exécuté par ${message.author.username} de l'id : ${message.author}`
+      )
+    );
   if (!["268432158262165504"].includes(message.author.id))
     return message.channel.send(
       `Tu n'as pas les permissiosn suffisante ! ${message.author} désolé a toi.`

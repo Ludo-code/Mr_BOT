@@ -16,6 +16,7 @@ module.exports = async (client, message, args) => {
   const embed = new MessageEmbed()
     .setImage(ejac)
     .setFooter(`Demandé par ${message.author.username}`)
-    .setTitle(`${message.author.tag} éjacule sur ${user.tag}`);
+    .setTitle(`${message.author.tag} éjacule sur ${user.tag}`)
+    .setTimestamp();
   message.channel.send(embed);
 };

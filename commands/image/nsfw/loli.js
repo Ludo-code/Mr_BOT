@@ -25,6 +25,13 @@ module.exports = async (client, message) => {
     phrase_rdm_yes[Math.floor(Math.random() * phrase_rdm_yes.length)];
   message.channel.startTyping(3);
   client.setTimeout(() => {
-    message.channel.send(envoie).then(message.channel.stopTyping(true));
+    message.channel
+      .send(envoie)
+      .then(message.channel.stopTyping(true))
+      .then(
+        console.log(
+          `La commande loli a été exécuté par ${message.author.username} de l'id : ${message.author}`
+        )
+      );
   }, 3000);
 };
