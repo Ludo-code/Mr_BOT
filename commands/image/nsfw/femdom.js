@@ -10,7 +10,7 @@ module.exports = async (client, message) => {
     .delete({ timeout: 3000 })
     .then(
       console.log(
-        `La commande domination féminine a été exécuté par ${message.author.username} de l'id : ${message.author}`
+        `La commande domination féminine a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
   if (!message.channel.nsfw)

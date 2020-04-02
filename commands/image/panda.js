@@ -7,7 +7,7 @@ module.exports = async (client, message) => {
     .delete({ timeout: 3000 })
     .then(
       console.log(
-        `La commande panda a été exécuté par ${message.author.username} de l'id : ${message.author}`
+        `La commande panda a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
   const meme = await fetch("https://some-random-api.ml/img/panda")

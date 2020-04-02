@@ -1,7 +1,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = (client, message) => {
-  if (message.channel.type === "dm") return message.channel.send("Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:").then(`La commande info-serv a été exécuté par ${message.author.username} de l'id : ${message.author}`);
+  if (message.channel.type === "dm") return message.channel.send("Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:").then(`La commande info-serv a été exécuté par ${message.author.tag} de l'id : ${message.author}`);
   const embed = new MessageEmbed()
     .setColor("#ff00dc")
     .setTitle("Information sur le serveur :")
@@ -11,6 +11,7 @@ module.exports = (client, message) => {
     .addField("Crée par : ", message.guild.owner.user.tag, true)
     .addField("Serveur crée le :", message.guild.createdAt)
     .addField("Vous avez rejoint le :", message.member.joinedAt)
-    .setFooter(`Demandé par ${message.author.username}`);
+    .setFooter(`Demandé par ${message.author.username}`)
+    .setTimestamp();
   message.channel.send(embed);
 };

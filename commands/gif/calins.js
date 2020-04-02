@@ -7,7 +7,7 @@ module.exports = async (client, message, args) => {
     message.mentions.users.first() || message.guild.members.get(args[0]);
   message
     .delete({ timeout: 3000 })
-    .then(console.log("Un message a été supprimé !"));
+    .then(console.log(`La commande câlin a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
   const embrasse = await fetch("https://nekos.life/api/v2/img/hug")
     .then(res => res.json())
     .then(json => json.url);

@@ -17,7 +17,7 @@ class ttscommands extends Command {
     if (message.channel.type === "dm") return message.reply("Pas de tts en MP merci ! :joy:");
     message.delete({});
     const msgcontent = args.une_banane;
-    message.channel.send(`${msgcontent}`, { tts: true });
+    message.channel.send(`${msgcontent}`, { tts: true }).then(console.log(`La commande tts a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
   }
 }
 module.exports = ttscommands;

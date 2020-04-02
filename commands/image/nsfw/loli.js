@@ -30,7 +30,7 @@ module.exports = async (client, message) => {
       .then(message.channel.stopTyping(true))
       .then(
         console.log(
-          `La commande loli a été exécuté par ${message.author.username} de l'id : ${message.author}`
+          `La commande loli a été exécuté par ${message.author.tag} de l'id : ${message.author}`
         )
       );
   }, 3000);

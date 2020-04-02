@@ -9,7 +9,7 @@ module.exports = async (client, message, args) => {
     .delete({ timeout: 3000 })
     .then(
       console.log(
-        `La commande tapotte a été exécuté par ${message.author.username} de l'id : ${message.author}`
+        `La commande tapotte a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
   const embrasse = await fetch("https://neko-love.xyz/api/v1/pat")

@@ -67,12 +67,17 @@ module.exports = (client, message) => {
     .setTimestamp();
   
   message.author.send(embed);
-  message.channel.send(
-    `${message.author} La liste des commandes d'aide ta été envoyé en message privé !`
-  );
+  message.channel
+    .send(
+      `${message.author} La liste des commandes d'aide ta été envoyé en message privé !`
+    )
+    .then(
+      console.log(
+        `La commande aide a été exécuté par ${message.author.tag} de l'id : ${message.author}`
+      )
+    );
   return message.react("✉")
     .then(() => message.react("📩"))
     .then(() => message.react("📫"))
-    .then(() => message.react("✅"))
-    .then(console.log(`La commande aide a été exécuté par ${message.author.username} de l'id : ${message.author}`));
+    .then(() => message.react("✅"));
 };

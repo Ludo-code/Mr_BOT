@@ -4,7 +4,7 @@ module.exports = async (client, message, args) => {
     .delete()
     .then(
       console.log(
-        `La commande efface a été exécuté par ${message.author.username} de l'id : ${message.author}`
+        `La commande efface a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
   if (!["268432158262165504"].includes(message.author.id))
