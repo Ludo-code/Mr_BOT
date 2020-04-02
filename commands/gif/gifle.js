@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, message, args) => {
   if (message.channel.type === "dm") return message.reply("Une gifle, une gifle mais qui la mérite c'est impossible que ce soit moi donc c'est toi mais ça veux dire que tu est masochiste brrrr j'en ai des frisson pas de ça dans mes MP merci! :joy:");
@@ -12,7 +12,7 @@ module.exports = async (client, message, args) => {
     .then(res => res.json())
     .then(json => json.url);
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setImage(embrasse)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} gifle ${user.tag}`);

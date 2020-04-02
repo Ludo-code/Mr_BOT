@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, message, args) => {
   if (message.channel.type === "dm") return message.reply("Mais tu crier sur qui pas sur moi quand même ce serait impolie mais si tu te crie sur toi ce serait encore plus bizarre donc elle resteras bloqué dans les MP ! :joy:");
@@ -12,7 +12,7 @@ module.exports = async (client, message, args) => {
     .then(res => res.json())
     .then(json => json.url);
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setImage(embrasse)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} crie sur ${user.tag}`);

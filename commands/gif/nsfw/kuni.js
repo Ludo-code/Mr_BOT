@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, message) => {
   if (message.channel.type === "dm") return message.reply("Tient un fan de cuni qui n'assume pas et fais ça en MP allez t'inquiète pas je dirais rien ! :joy:");
@@ -11,7 +11,7 @@ module.exports = async (client, message) => {
     .then(res => res.json())
     .then(json => json.url);
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setImage(kuni)
     .setFooter(`Demandé par ${message.author.username}`);
   message.channel.send(embed);

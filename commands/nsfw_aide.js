@@ -1,8 +1,8 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = (client, message) => {
   if (message.channel.type === "dm") return message.reply("L'aide pour les commandes nsfw directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide_nsfw ! :joy:");
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setColor("#ff00dc")
     .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [funny bot] :")
 
@@ -58,7 +58,10 @@ module.exports = (client, message) => {
 
     .addField("Commande seins :", "m****seins*** Envoie une paire de seins.")
 
-    .addField("Commande femdom :", "m****femdom*** Envoie une image de domination féminine.");
+    .addField(
+      "Commande femdom :",
+      "m****femdom*** Envoie une image de domination féminine."
+    );
 
   message.author.send(embed);
   message.channel.send(`${message.author} La liste des commandes d'aide ta été envoyé en message privé !`);

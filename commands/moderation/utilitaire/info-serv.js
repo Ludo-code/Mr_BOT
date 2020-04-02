@@ -1,8 +1,8 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = (client, message) => {
   if (message.channel.type === "dm") return message.channel.send("Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:");
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setColor("#ff00dc")
     .setTitle("Information sur le serveur :")
     .addField("Nom du serveur :", message.guild.name)

@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, message, args) => {
   if (message.channel.type === "dm") return message.reply("Il va falloir que tu m'explique comment tu fais pour éjaculer sur personne dans les MP a moins que tu te fasse une faciale pour toi ! :joy:");
@@ -13,7 +13,7 @@ module.exports = async (client, message, args) => {
     .then(res => res.json())
     .then(json => json.url);
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setImage(ejac)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} éjacule sur ${user.tag}`);

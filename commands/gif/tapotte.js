@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, message, args) => {
   if (message.channel.type === "dm") return message.reply("Juste une tapotte pffff dommage que mon maître ne me laisse pas exécuter cette commande en MP ! :joy:");
@@ -12,7 +12,7 @@ module.exports = async (client, message, args) => {
     .then(res => res.json())
     .then(json => json.url);
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setImage(embrasse)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} fait une petite tappe a ${user.tag}`);

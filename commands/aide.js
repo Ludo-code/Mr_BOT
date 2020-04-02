@@ -1,8 +1,8 @@
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = (client, message) => {
   if (message.channel.type === "dm") return message.reply("L'aide directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide ! :joy:");
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setColor("#ff00dc")
     .setTitle("Aide sur les commandes du bot Mr_BOT [funny bot] :")
     .addField(

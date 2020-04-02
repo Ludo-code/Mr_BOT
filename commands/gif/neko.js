@@ -1,5 +1,5 @@
 const fetch = require("node-fetch");
-const { RichEmbed } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = async (client, message) => {
   if (message.channel.type === "dm") return message.reply("Oh un neko bon c'est des images un peux chaude défois mais ça ne t'authorise pas a l'exécuter en MP ! :joy:");
@@ -11,7 +11,7 @@ module.exports = async (client, message) => {
     .then(res => res.json())
     .then(json => json.url);
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setImage(neko)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTimestamp();
