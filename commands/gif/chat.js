@@ -11,6 +11,7 @@ module.exports = async (client, message) => {
     .then(json => json.file);
 
   const embed = new MessageEmbed()
+    .setTitle("L'image ne s'affiche pas clique ici !").setURL(`${chat}`)
     .setImage(chat)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTimestamp();

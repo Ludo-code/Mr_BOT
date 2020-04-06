@@ -17,12 +17,13 @@ module.exports = async (client, message) => {
     return message.channel.send(
       `Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`
     );
-  const chatteimg = await fetch("https://nekos.life/api/v2/img/femdom")
+  const femdom = await fetch("https://nekos.life/api/v2/img/femdom")
     .then(res => res.json())
     .then(json => json.url);
 
   const embed = new MessageEmbed()
-    .setImage(chatteimg)
+    .setTitle("L'image ne s'affiche pas clique ici !").setURL(`${femdom}`)
+    .setImage(femdom)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTimestamp();
   message.channel.send(embed);

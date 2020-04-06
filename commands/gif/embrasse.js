@@ -20,6 +20,7 @@ module.exports = async (client, message, args) => {
     .setImage(embrasse)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} embrasse ${user.tag}`)
+    .setDescription(`[L'image ne s'affiche pas clique ici !](${embrasse})`)
     .setTimestamp();
   message.channel.send(embed);
 };

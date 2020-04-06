@@ -10,12 +10,13 @@ module.exports = async (client, message) => {
         `La commande panda a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
-  const meme = await fetch("https://some-random-api.ml/img/panda")
+  const panda = await fetch("https://some-random-api.ml/img/panda")
     .then(res => res.json())
     .then(json => json.link);
 
   const embed = new MessageEmbed()
-    .setImage(meme)
+    .setTitle("L'image ne s'affiche pas clique ici !").setURL(`${panda}`)
+    .setImage(panda)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTimestamp();
   message.channel.send(embed);

@@ -14,6 +14,7 @@ module.exports = async (client, message, args) => {
     .then(json => json.url);
 
   const embed = new MessageEmbed()
+    .setTitle("L'image ne s'affiche pas clique ici !").setURL(`${ejac}`)
     .setImage(ejac)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} éjacule sur ${user.tag}`)

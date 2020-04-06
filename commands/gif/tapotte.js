@@ -12,14 +12,15 @@ module.exports = async (client, message, args) => {
         `La commande tapotte a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
-  const embrasse = await fetch("https://neko-love.xyz/api/v1/pat")
+  const tapotte = await fetch("https://neko-love.xyz/api/v1/pat")
     .then(res => res.json())
     .then(json => json.url);
 
   const embed = new MessageEmbed()
-    .setImage(embrasse)
+    .setImage(tapotte)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTitle(`${message.author.tag} fait une petite tappe a ${user.tag}`)
+    .setDescription(`[L'image ne s'affiche pas clique ici !](${tapotte})`)
     .setTimestamp();
   message.channel.send(embed);
 };

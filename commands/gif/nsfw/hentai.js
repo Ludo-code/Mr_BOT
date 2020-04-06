@@ -12,6 +12,7 @@ module.exports = async (client, message) => {
     .then(json => json.url);
 
   const embed = new MessageEmbed()
+    .setTitle("L'image ne s'affiche pas clique ici !").setURL(`${hentai}`)
     .setImage(hentai)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTimestamp();

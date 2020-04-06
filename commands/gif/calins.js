@@ -8,13 +8,14 @@ module.exports = async (client, message, args) => {
   message
     .delete({ timeout: 3000 })
     .then(console.log(`La commande câlin a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
-  const embrasse = await fetch("https://nekos.life/api/v2/img/hug")
+  const calin = await fetch("https://nekos.life/api/v2/img/hug")
     .then(res => res.json())
     .then(json => json.url);
 
   const embed = new MessageEmbed()
     .setTitle(`${message.author.tag} câline ${user.tag}`)
-    .setImage(embrasse)
+    .setDescription(`[L'image ne s'affiche pas clique ici !](${calin})`)
+    .setImage(calin)
     .setFooter(`Demandé par ${message.author.username}`)
     .setTimestamp();
   message.channel.send(embed);
