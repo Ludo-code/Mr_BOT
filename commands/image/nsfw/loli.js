@@ -1,4 +1,5 @@
 module.exports = async (client, message) => {
+  message.delete({});
   if (message.channel.type === "dm") return message.reply("Je veux bien du loli mais va dans un channel nsfw ! :joy:");
   if (!message.channel.nsfw) return message.channel.send(`Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`);
   const calcul_age = [

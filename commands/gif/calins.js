@@ -1,10 +1,9 @@
 const fetch = require("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
-module.exports = async (client, message, args) => {
+module.exports = async (client, message) => {
   if (message.channel.type === "dm") return message.reply("Oh tu veux faireun câlin c'est trop mignon mais juste a toi même tu dois vraiment être narcissique heuresement que la commande est non disponible en MP ! :joy:");
-  const user =
-    message.mentions.users.first() || message.guild.members.get(args[0]);
+  const user = message.mentions.users.first().username;
   message
     .delete({ timeout: 3000 })
     .then(console.log(`La commande câlin a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
@@ -13,7 +12,7 @@ module.exports = async (client, message, args) => {
     .then(json => json.url);
 
   const embed = new MessageEmbed()
-    .setTitle(`${message.author.tag} câline ${user.tag}`)
+    .setTitle(`${message.author.username} câline ${user}`)
     .setDescription(`[L'image ne s'affiche pas clique ici !](${calin})`)
     .setImage(calin)
     .setFooter(`Demandé par ${message.author.username}`)

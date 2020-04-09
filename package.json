@@ -13,7 +13,6 @@
     "git": "^0.1.5",
     "minimist": "^1.2.5",
     "mongoose": "^5.9.6",
-    "nekos.life": "^2.0.5",
     "node-fetch": "^2.6.0",
     "opusscript": "0.0.7",
     "snekfetch": "^4.0.4",

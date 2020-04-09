@@ -12,7 +12,7 @@ class MyClient extends AkairoClient {
 
     this.commandHandler = new CommandHandler(this, {
       directory: "./commands/",
-      prefix: ["m*", "@"]
+      prefix: ["m*", "@", "M*"]
     });
 
     this.commandHandler.loadAll();
@@ -25,8 +25,7 @@ client.PREFIX = PREFIX;
 client.mongoose = require("./util/mongoose");
 client.commands = new Collection();
 
-client.commands.set("info-serv", require("./commands/moderation/utilitaire/info-serv.js"));
-client.commands.set("aide", require("./commands/aide.js"));
+
 client.commands.set("aide_nsfw", require("./commands/nsfw_aide.js"));
 client.commands.set("ping", require("./commands/moderation/utilitaire/ping.js"));
 client.commands.set("chat", require("./commands/gif/chat.js"));
@@ -55,7 +54,6 @@ client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
 client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
 client.commands.set("test", require("./commands/test/test.js"));
 client.commands.set("report", require("./commands/moderation/utilitaire/report.js"));
-client.commands.set("idee", require("./commands/moderation/utilitaire/idée.js"));
 client.commands.set("changelog", require("./commands/moderation/utilitaire/changelog.js"));
 client.commands.set("info-bot", require("./commands/moderation/utilitaire/infobot.js"));
 client.commands.set("loli", require("./commands/image/nsfw/loli.js"));
