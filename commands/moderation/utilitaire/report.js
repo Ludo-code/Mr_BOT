@@ -1,11 +1,28 @@
-module.exports = async (client, message) => {
-  if (message.channel.type === "dm") return message.reply("Dans les MP cette commande oui mon maitre est d'accord mais comme il a pas finis de développé la commande correctement pour le moment il faut lui envoyer des MP (faut pas trop le spam sinon il va faire des choses méchante). C'est vraiment un mauvais développeurs (je rigole un bon développeur prend toujours son temps) ! :joy:");
-  message.channel.startTyping(3);
-  client.setTimeout(() => {
-    message.channel
-      .send(
-        `${message.author}, ceci est la commande pour report un problème avec le bot pour ce faire rien de plus simple il faut juste envoyer un message privé a Ludovic aka 🌊Mr_OSS117🔥#2795 et j'éssayerais de vous aidez et de résoudre le problème au plus vite !`
-      )
-      .then(message.channel.stopTyping(true));
-  }, 3000); 
-};
+const { Command } = require("discord-akairo");
+
+class reportcommands extends Command {
+  constructor() {
+    super("report", {
+      aliases: ["report"],
+      cooldown: 3600000,
+      split: "sticky",
+      args: [
+        {
+          id: "messagecontent",
+          match: "content"
+        }
+      ]
+    });
+  }
+
+  exec(message, args) {
+    if (message.channel.type === "dm") return message.reply("Tu ne peux pas faire de report en mp même si ça aurait été bien !");
+    const msgcontent = args.messagecontent;
+    if (message.attachments.size === 0) {
+      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est ${message.author.tag} qui a écrit ce rapport de bug !`)).then(message.channel.send("Votre report de bug a bien été reçu !"));
+    } else {
+      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est ${message.author.tag} qui a écrit ce rapport de bug ! ${message.attachments.first().url}`)).then(message.channel.send("Votre report de bug a bien été reçu !"));
+    }
+  }
+}
+module.exports = reportcommands;

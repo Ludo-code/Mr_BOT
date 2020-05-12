@@ -69,6 +69,10 @@ class aidefrcommands extends Command {
         "Commande info-bot :",
         "m****info-bot*** pour avoir des informations sur le bot et son créateur."
       )
+      .addField(
+        "Commande enculus-revulus :",
+        "m****enculus-revulus*** pour savoir qui est le plus gros enculus."
+      )
       .setTimestamp();
 
     message.author.send(embed);

@@ -1,10 +1,10 @@
 const { Command } = require("discord-akairo");
+
 class ideecommands extends Command {
   constructor() {
     super("idee", {
       aliases: ["idee"],
-      cooldown: 10000,
-      ratelimit: 2,
+      cooldown: 3600000,
       split: "sticky",
       args: [
         {
@@ -16,15 +16,13 @@ class ideecommands extends Command {
   }
 
   exec(message, args) {
+    if (message.channel.type === "dm") return message.reply("Commande bloqué en mp désolé, toute mes commandes le sont en mp !");
     const msgcontent = args.messagecontent;
-    if (!msgcontent)
-      return message.channel.send(
-        "Tu essaye d'évaluer du vide mais pourquoi :thinking: ?"
-      );
-
-    message.guild.members.fetch("268432158262165504").then(membres => {
-      membres.send(`${msgcontent} c'est ${message.author.tag} qui a écrit cette idée !`);
-    });
+    if (message.attachments.size === 0) {
+      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est ${message.author.tag} qui a écrit cette idée !`)).then(message.channel.send("Votre idée a bien été reçu !"));
+    } else {
+      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est ${message.author.tag} qui a écrit cette idée ! ${message.attachments.first().url}`)).then(message.channel.send("Votre idée a bien été reçu !"));
+    }
   }
 }
 module.exports = ideecommands;
