@@ -6,25 +6,24 @@
   "author": "Mr_OSS117 <lasagne.berthet@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "acorn": "^7.1.1",
+    "acorn": "^7.4.0",
     "beautify": "0.0.8",
-    "booru": "^2.2.3",
-    "discord-akairo": "^8.0.0",
-    "discord.js": "^12.2.0",
+    "booru": "^2.3.2",
+    "discord-akairo": "^8.1.0",
+    "discord.js": "^12.3.1",
     "git": "^0.1.5",
     "minimist": "^1.2.5",
-    "mongoose": "^5.9.11",
-    "node-fetch": "^2.6.0",
-    "nodemon": "^2.0.3",
+    "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.4",
     "opusscript": "0.0.7",
     "snekfetch": "^4.0.4",
-    "superagent": "^5.2.2",
+    "superagent": "^5.3.1",
     "util": "^0.12.3",
-    "yarn": "^1.22.4"
+    "yarn": "^1.22.10"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
-    "eslint-config-aqua": "^7.2.3"
+    "eslint-config-aqua": "^7.3.0"
   },
   "eslintConfig": {
     "extends": "aqua/node",

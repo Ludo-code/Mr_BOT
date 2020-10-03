@@ -33,7 +33,6 @@ class MyClient extends AkairoClient {
 const client = new MyClient();
 
 client.PREFIX = PREFIX;
-client.mongoose = require("./util/mongoose");
 client.commands = new Collection();
 
 
@@ -61,7 +60,6 @@ client.commands.set("femdom", require("./commands/image/nsfw/femdom.js"));
 client.on("ready", () => require("./events/ready.js")(client));
 client.on("message", msg => require("./events/message.js")(client, msg));
 
-client.mongoose.init();
 client.login(TOKEN);
 client.on("error", console.error);
 client.on("warn", console.warn);
