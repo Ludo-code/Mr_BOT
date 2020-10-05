@@ -36,8 +36,6 @@ client.PREFIX = PREFIX;
 client.commands = new Collection();
 
 
-client.commands.set("calin", require("./commands/gif/calins.js"));
-client.commands.set("embrasse", require("./commands/gif/embrasse.js"));
 client.commands.set("neko", require("./commands/gif/neko.js"));
 client.commands.set("tapote", require("./commands/gif/tapotte.js"));
 client.commands.set("crie", require("./commands/gif/crie.js"));

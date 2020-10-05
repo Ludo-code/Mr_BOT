@@ -6,7 +6,7 @@
   "author": "Mr_OSS117 <lasagne.berthet@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "acorn": "^7.4.0",
+    "acorn": "^7.4.1",
     "beautify": "0.0.8",
     "booru": "^2.3.2",
     "discord-akairo": "^8.1.0",
