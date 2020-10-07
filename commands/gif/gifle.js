@@ -11,7 +11,7 @@ module.exports = async (client, message) => {
         `La commande gifle a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
-  const gifle = await fetch("https://neko-love.xyz/api/v1/slap")
+  const gifle = await fetch("https://nekos.life/api/v2/img/slap")
     .then(res => res.json())
     .then(json => json.url);
 

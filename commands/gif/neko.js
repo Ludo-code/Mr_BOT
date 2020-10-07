@@ -8,7 +8,7 @@ module.exports = async (client, message) => {
     .then(console.log(`La commande neko a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
   if (!message.channel.nsfw) return message.channel.send(`Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`);
 
-  const neko = await fetch("https://neko-love.xyz/api/v1/neko")
+  const neko = await fetch("https://nekos.life/api/v2/img/neko")
     .then(res => res.json())
     .then(json => json.url);
 

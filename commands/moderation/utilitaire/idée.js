@@ -21,7 +21,7 @@ class ideecommands extends Command {
     if (message.attachments.size === 0) {
       message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit cette idée !`)).then(message.channel.send("Votre idée a bien été reçu !"));
     } else {
-      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est ${message.author.tag} qui a écrit cette idée ! ${message.attachments.first().url}`)).then(message.channel.send("Votre idée a bien été reçu !"));
+      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit cette idée ! ${message.attachments.first().url}`)).then(message.channel.send("Votre idée a bien été reçu !"));
     }
   }
 }

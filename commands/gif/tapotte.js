@@ -12,7 +12,7 @@ module.exports = async (client, message, args) => {
         `La commande tapotte a été exécuté par ${message.author.tag} de l'id : ${message.author}`
       )
     );
-  const tapotte = await fetch("https://neko-love.xyz/api/v1/pat")
+  const tapotte = await fetch("https://nekos.life/api/v2/img/pat")
     .then(res => res.json())
     .then(json => json.url);
 
