@@ -49,7 +49,6 @@ client.commands.set("masturbation", require("./commands/gif/nsfw/masturb.js"));
 client.commands.set("hentai_gif", require("./commands/gif/nsfw/rdm_hentai.js"));
 client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
 client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
-client.commands.set("info-bot", require("./commands/moderation/utilitaire/infobot.js"));
 client.commands.set("loli", require("./commands/image/nsfw/loli.js"));
 client.commands.set("femdom", require("./commands/image/nsfw/femdom.js"));
 
@@ -61,12 +60,15 @@ client.login(TOKEN);
 client.on("error", console.error);
 client.on("warn", console.warn);
 
+client.on("guildCreate", guild => {
+  guild.systemChannel.send("**Merci** de m'avoir ajouté :blush:. La commande d'aide est `m*aide`.")
+});
 
 client.on("ready", () => {
   const activities = [" m*aide", " m*aide_nsfw", `je suis sur ${client.guilds.cache.size} serveurs !`];
   client.setInterval(() => {
-    const index = Math.floor(Math.random() * activities.length);
-    client.user.setActivity(activities[index], {
+    const actiindex = Math.floor(Math.random() * activities.length);
+    client.user.setActivity(activities[actiindex], {
       type: "WATCHING"
     });
   }, 12000);
