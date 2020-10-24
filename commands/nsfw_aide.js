@@ -24,6 +24,8 @@ class nsfwaidecommands extends Command {
 
       .addField("Commande yuri :", "m****yuri*** Envoie une image de yuri.")
 
+      .addField("Commande yaoi :", "m****yaoi*** Envoie une image de yaoi.")
+
       .addField(
         "Commande ejac :",
         "m****ejac*** Permet d'éjaculer sur quelqu'un."
@@ -70,6 +72,14 @@ class nsfwaidecommands extends Command {
       .addField(
         "Commande femdom :",
         "m****femdom*** Envoie une image de domination féminine."
+      )
+      .addField(
+        "Commande suce :",
+        "m****suce*** Permet de pouvoir sucer quelqu'un."
+      )
+      .addField(
+        "Commande suce_img :",
+        "m****suce_img*** Affiche une image de quelqu'un entrain de se faire sucer."
       )
       .setTimestamp();
 

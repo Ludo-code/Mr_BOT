@@ -22,22 +22,48 @@ class infoutilisateurcommands extends Command {
 
       const avatarutilisateur = user.displayAvatarURL();
       const nommention = user.username;
-      const discriminateur = `#${user.discriminator}`;
+      const discriminateur = user.tag;
       const idmention = user.id;
-      const statutdelapersonne = user.presence.status;
+      let statutdelapersonne = user.presence.status;
       const inscription = message.guild.members.cache.get(user.id).user.createdAt;
+      const mois = [
+        "Janvier",
+        "Février",
+        "Mars",
+        "Avril",
+        "Mai",
+        "Juin",
+        "Juillet",
+        "Août",
+        "Septembre",
+        "Octobre",
+        "Novembre",
+        "Décembre"
+      ]
+      const dateformatee = inscription.getDate() + " " + mois[inscription.getMonth()] + " " + inscription.getFullYear();
+
+      const statusFr = {
+        dnd:"Ne pas déranger",
+        online:"En ligne",
+        idle:"AFK",
+        offline:"Déconnecté"
+      };
+
 
       const embed = new MessageEmbed()
         .setColor("#ff00dc")
         .addField("**Information sur :**", nommention)
+        .addField("Présence en ligne : ", statusFr[statutdelapersonne], true)
         .setThumbnail(avatarutilisateur)
-        .addField("Vous avez rejoint le :", arejointle, true)
-        .addField(`Id de : ${nommention}`, idmention, true)
+        .addField("À rejoint le :", arejointle)
+        .addField("Tag Discord", discriminateur)
+        .addField(`Id de : ${nommention}`, idmention)
+        .addField("Compte crée le : ", dateformatee)
         .setFooter(`Demandé par ${message.author.username}`)
         .setTimestamp();
       message
         .channel.send(embed)
-        .then(console.log(`La commande info-serv a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
+        .then(console.log(`La commande info-utilisateur a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
     });
   }
 }

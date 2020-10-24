@@ -1,6 +1,8 @@
 const { Collection } = require("discord.js");
 const { TOKEN, PREFIX } = require("./config");
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require("discord-akairo");
+const message = require("./events/message");
+const { DiscordAPIError } = require("discord.js");
 
 class MyClient extends AkairoClient {
   constructor() {
@@ -36,20 +38,16 @@ client.PREFIX = PREFIX;
 client.commands = new Collection();
 
 
-client.commands.set("neko", require("./commands/gif/neko.js"));
-client.commands.set("tapote", require("./commands/gif/tapotte.js"));
 client.commands.set("crie", require("./commands/gif/crie.js"));
 client.commands.set("gifle", require("./commands/gif/gifle.js"));
 client.commands.set("nekonue", require("./commands/image/nsfw/neko_img.js"));
 client.commands.set("yuri", require("./commands/gif/nsfw/yuri.js"));
-client.commands.set("chatte", require("./commands/image/nsfw/chatte_nsfw.js"));
 client.commands.set("tetons", require("./commands/image/nsfw/tetee.js"));
 client.commands.set("neko_gif", require("./commands/gif/nsfw/neko_gif.js"));
 client.commands.set("masturbation", require("./commands/gif/nsfw/masturb.js"));
 client.commands.set("hentai_gif", require("./commands/gif/nsfw/rdm_hentai.js"));
 client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
 client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
-client.commands.set("loli", require("./commands/image/nsfw/loli.js"));
 client.commands.set("femdom", require("./commands/image/nsfw/femdom.js"));
 
 
@@ -60,8 +58,18 @@ client.login(TOKEN);
 client.on("error", console.error);
 client.on("warn", console.warn);
 
+
 client.on("guildCreate", guild => {
-  guild.systemChannel.send("**Merci** de m'avoir ajouté :blush:. La commande d'aide est `m*aide`.")
+  let channelpardefaut = "";
+guild.channels.cache.forEach((channel) => {
+  if(channel.type == "text" && channelpardefaut == "") {
+    if(channel.permissionsFor(guild.me).has("SEND_MESSAGE")) {
+      channelpardefaut = channel;
+    }
+  }
+});
+  channelpardefaut.send("**Merci** de m'avoir ajouté :blush:. La commande d'aide est `m*aide`.").then(console.log(`Un nouveau serveur à été ajouté. ${guild.name}`))
+  client.channels.cache.get("682318351049294012").send("Un nouveau serveur à été ajouté et c'est : " + "`" + `${guild.name}` + "`");
 });
 
 client.on("ready", () => {
