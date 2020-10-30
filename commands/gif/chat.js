@@ -12,9 +12,7 @@ class chatcommands extends Command {
 
   async exec(message) {
     if (message.channel.type === "dm") return message.reply("Bon j'avoue tu veux un chat mais je suis désolé même cette commande je la bloque en MP ! :joy:");
-    message
-      .delete({ timeout: 3000 })
-      .then(console.log(`La commande chat a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
+
     const chat = await fetch("http://aws.random.cat/meow")
       .then(res => res.json())
       .then(json => json.file);
@@ -24,7 +22,7 @@ class chatcommands extends Command {
       .setImage(chat)
       .setFooter(`Demandé par ${message.author.username}`)
       .setTimestamp();
-    message.channel.send(embed);
+    message.channel.send(embed).then(console.log(`La commande chat a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
   }
 }
 module.exports = chatcommands;

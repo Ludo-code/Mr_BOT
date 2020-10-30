@@ -38,7 +38,7 @@ class aidefrcommands extends Command {
         "Commande embrasse :",
         "m****embrasse*** pour embrasser quelqu'un."
       )
-      .addField("Commande crie :", "m****crie*** pour crier sur quelqu'un.")
+      .addField("Commande pleure :", "m****pleure*** permet de pleurer.")
       .addField(
         "Commande tapote :",
         "m****tapote*** pour faire une petite tape a quelqu'un."
@@ -50,8 +50,20 @@ class aidefrcommands extends Command {
         "m****panda*** pour afficher une image de panda aléatoire."
       )
       .addField(
+        "Commande chat :",
+        "m****chat*** pour afficher une image de chat aléatoire."
+      )
+      .addField(
         "Commande info-serv",
         "m****info-serv*** permet de savoir certaine informations sur le serveur comme sa date de création et son créateur."
+      )
+      .addField(
+        "Commande info-utilisateur :",
+        "m****info-utilisateur*** pour avoir les informations de l'utilisateur demandé ou de sois même."
+      )
+      .addField(
+        "Commande avatar :",
+        "m****avatar*** pour avoir l'avatar de la personne demandé."
       )
       .addField(
         "Commande aide :",

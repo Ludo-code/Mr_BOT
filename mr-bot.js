@@ -38,17 +38,12 @@ client.PREFIX = PREFIX;
 client.commands = new Collection();
 
 
-client.commands.set("crie", require("./commands/gif/crie.js"));
-client.commands.set("gifle", require("./commands/gif/gifle.js"));
-client.commands.set("nekonue", require("./commands/image/nsfw/neko_img.js"));
-client.commands.set("yuri", require("./commands/gif/nsfw/yuri.js"));
 client.commands.set("tetons", require("./commands/image/nsfw/tetee.js"));
 client.commands.set("neko_gif", require("./commands/gif/nsfw/neko_gif.js"));
 client.commands.set("masturbation", require("./commands/gif/nsfw/masturb.js"));
 client.commands.set("hentai_gif", require("./commands/gif/nsfw/rdm_hentai.js"));
 client.commands.set("pied_gif", require("./commands/gif/nsfw/piedgif.js"));
 client.commands.set("pied", require("./commands/image/nsfw/piedjpg.js"));
-client.commands.set("femdom", require("./commands/image/nsfw/femdom.js"));
 
 
 client.on("ready", () => require("./events/ready.js")(client));

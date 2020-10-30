@@ -18,6 +18,7 @@ class sucegifcommands extends Command {
 
   async exec(message, args) {
     if (message.channel.type === "dm") return message.reply("Il va falloir que tu m'explique comment tu fais pour éjaculer sur personne dans les MP a moins que tu te fasse une faciale pour toi ! :joy:");
+    
     const nonmention = args.argument;
     if (!nonmention)
       return message.channel.send("merci de mentionner une personne \n Exemple : `m*suce @(la personne sans les parenthèses !)`");
