@@ -1,4 +1,4 @@
-const { TOKEN, PREFIX } = require("./config");
+const { TOKEN } = require("./config");
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require("discord-akairo");
 
 class MyClient extends AkairoClient {
@@ -11,7 +11,7 @@ class MyClient extends AkairoClient {
 
     this.commandHandler = new CommandHandler(this, {
       directory: "./commands/",
-      prefix: ["m*", "@", "M*"],
+      prefix: ["m*", "M*"],
       ignoreCooldown: ["268432158262165504"],
       defaultCooldown: 10000
     });
@@ -32,7 +32,6 @@ class MyClient extends AkairoClient {
 const client = new MyClient();
 module.exports = client;
 
-client.PREFIX = PREFIX;
 
 client.login(TOKEN);
 client.on("error", console.error);

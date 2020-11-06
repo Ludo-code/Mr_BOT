@@ -13,9 +13,9 @@ class memecommands extends Command {
   async exec(message) {
     if (message.channel.type === "dm") return message.reply("Un meme ça a rien de méchant mais je la bloque quand même dans mes MP désolé ! :joy:");
     console.log(`La commande meme a été exécuté par ${message.author.tag} de l'id : ${message.author}`);
-    const meme = await fetch("https://meme-api.herokuapp.com/gimme")
+    const meme = await fetch("https://some-random-api.ml/meme")
       .then(res => res.json())
-      .then(json => json.url);
+      .then(json => json.image);
 
     const embed = new MessageEmbed()
       .setTitle("L'image ne s'affiche pas clique ici !").setURL(`${meme}`)

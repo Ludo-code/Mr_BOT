@@ -8,8 +8,21 @@ class messageListener extends Listener {
         });
     }
 
-    exec() {
-        console.log('évnènement message déclenché');
+    exec(message) {
+
+        function fonctionmessageprefix() {
+            let prefix;
+            if (message.content.startsWith("m*")) {
+              prefix =  "m*"
+            } else if (message.content.startsWith("M*")) {
+              prefix = "M*"
+            }
+            return prefix;
+          }
+
+    if (!message.content.startsWith(fonctionmessageprefix()) || message.author.bot) return;
+
+    console.log(`évènement message déclenché par ${message.author.tag}`);
     }
 }
 

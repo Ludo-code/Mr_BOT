@@ -12,7 +12,7 @@ class testcommands extends Command {
   }
 
   async exec(message, client) {
-
+    process.exit()
 
   }
 }

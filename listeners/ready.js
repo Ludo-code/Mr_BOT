@@ -10,7 +10,7 @@ class readyListener extends Listener {
 
     exec() {
     const client = this.client;
-        console.log('Bot prêt au combats !!!');
+    client.channels.cache.get("682318351049294012").send("Le bot est en ligne !").then(console.log("Bot prêt au combats !!!"));
         const activitees = [" m*aide", " m*aide_nsfw", `je suis sur ${client.guilds.cache.size} serveurs !`];
         client.setInterval(() => {
           const actiindex = Math.floor(Math.random() * activitees.length);
