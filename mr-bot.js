@@ -1,5 +1,6 @@
 const { TOKEN } = require("./config");
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require("discord-akairo");
+const { Intents } = require("discord.js");
 
 class MyClient extends AkairoClient {
   constructor() {
@@ -29,7 +30,11 @@ class MyClient extends AkairoClient {
   }
 }
 
-const client = new MyClient();
+const client = new MyClient({
+ ws: { intents: [
+  "GUILDS", "GUILD_MEMBERS", "GUILD_EMOJIS", "GUILD_PRESENCES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"
+ ] }
+});
 module.exports = client;
 
 

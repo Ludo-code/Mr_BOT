@@ -19,9 +19,9 @@ class infoutilisateurcommands extends Command {
     };
     message.guild.members.fetch(user.id).then(utilisateur => {
       const arejointle = formateedate(utilisateur.joinedAt);
-
       const avatarutilisateur = user.displayAvatarURL();
       const nommention = user.username;
+      const utilisateurnickname = message.guild.members.cache.get(user.id).nickname;
       const discriminateur = user.tag;
       const idmention = user.id;
       let statutdelapersonne = user.presence.status;
@@ -48,11 +48,12 @@ class infoutilisateurcommands extends Command {
         idle:"AFK",
         offline:"Déconnecté"
       };
-
+      const nickornot = utilisateurnickname || "Aucun Pseudonyme";
 
       const embed = new MessageEmbed()
         .setColor("#ff00dc")
         .addField("**Information sur :**", nommention)
+        .addField("Pseudonyme : ", nickornot)
         .addField("Présence en ligne : ", statusFr[statutdelapersonne], true)
         .setThumbnail(avatarutilisateur)
         .addField("À rejoint le :", arejointle)

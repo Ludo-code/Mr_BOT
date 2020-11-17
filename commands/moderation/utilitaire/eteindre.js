@@ -9,7 +9,7 @@ class eteindrecommands extends Command {
       ownerOnly: true
     });
   }
-
+  
   async exec(message) {
     const client = this.client;
     function eteindrelebot()

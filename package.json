@@ -1,49 +1,24 @@
 {
   "name": "mr_bot",
-  "version": "0.1.0",
+  "version": "0.9.5",
   "main": "mr-bot.js",
   "repository": "https://github.com/Ludo-code/Mr_BOT.git",
   "author": "Mr_OSS117 <lasagne.berthet@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "acorn": "^7.4.1",
-    "beautify": "0.0.8",
-    "booru": "^2.3.3",
+    "acorn": "^8.0.4",
+    "beautify": "^0.0.8",
+    "booru": "^2.4.0",
     "discord-akairo": "^8.1.0",
     "discord.js": "^12.4.1",
     "git": "^0.1.5",
     "minimist": "^1.2.5",
     "node-fetch": "^2.6.1",
     "nodemon": "^2.0.6",
-    "opusscript": "0.0.7",
+    "opusscript": "^0.0.7",
     "snekfetch": "^4.0.4",
-    "superagent": "^5.3.1",
+    "superagent": "^6.1.0",
     "util": "^0.12.3",
     "yarn": "^1.22.10"
-  },
-  "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-aqua": "^7.3.0"
-  },
-  "eslintConfig": {
-    "extends": "aqua/node",
-    "rules": {
-      "linebreak-style": [
-        "error",
-        "windows"
-      ],
-      "quotes": [
-        "warn",
-        "double"
-      ],
-      "indent": [
-        "error",
-        2
-      ],
-      "curly": "off",
-      "no-trailing-spaces": "off",
-      "prefer-template": "off",
-      "no-eval": "off"
-    }
   }
 }
