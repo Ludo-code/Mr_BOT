@@ -25,8 +25,7 @@ class avatarcommands extends Command {
         .setFooter(`Demandé par ${message.author.username}`)
         .setTimestamp();
       message
-        .channel.send(embed)
-        .then(console.log(`La commande avatar a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
+        .channel.send(embed);
     });
   }
 }

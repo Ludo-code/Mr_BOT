@@ -34,9 +34,7 @@ class infoservcommands extends Command {
           .addField("Vous avez rejoint le :", message.member.joinedAt)
           .setFooter(`Demandé par ${message.author.username}`)
           .setTimestamp();
-        message
-          .channel.send(embed)
-          .then(console.log(`La commande info-serv a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
+        message.channel.send(embed);
       });
     });
   }

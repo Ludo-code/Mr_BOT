@@ -21,7 +21,7 @@ class reportcommands extends Command {
     if (message.attachments.size === 0) {
       message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit ce rapport de bug !`)).then(message.channel.send("Votre report de bug a bien été reçu !"));
     } else {
-      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit ce rapport de bug ! ${message.attachments.first().url}`)).then(message.channel.send("Votre report de bug a bien été reçu !"));
+      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit ce rapport de bug ! ${message.attachments.first().url}`));
     }
   }
 }

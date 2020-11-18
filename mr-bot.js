@@ -1,6 +1,5 @@
 const { TOKEN } = require("./config");
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require("discord-akairo");
-const { Intents } = require("discord.js");
 
 class MyClient extends AkairoClient {
   constructor() {

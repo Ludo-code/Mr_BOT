@@ -62,9 +62,7 @@ class infoutilisateurcommands extends Command {
         .addField("Compte crée le : ", dateformatee)
         .setFooter(`Demandé par ${message.author.username}`)
         .setTimestamp();
-      message
-        .channel.send(embed)
-        .then(console.log(`La commande info-utilisateur a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
+      message.channel.send(embed);
     });
   }
 }

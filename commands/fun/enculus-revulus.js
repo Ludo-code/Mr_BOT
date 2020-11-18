@@ -21,7 +21,6 @@ class enculusrevuluscommands extends Command {
     collector.on("end", collected => {
       console.log(`Collected ${collected.size} items`);
     });
-    console.log(`La commande enculus-revulus a été exécuté par ${message.author.tag} de l'id : ${message.author}`);
   }
 }
 module.exports = enculusrevuluscommands;

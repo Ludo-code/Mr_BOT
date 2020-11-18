@@ -15,6 +15,18 @@ class aidefrcommands extends Command {
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes du bot Mr_BOT [funny bot] :")
       .addField(
+        "**Information Importante :**",
+        "Vous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
+      )
+      .addField(
+        "Commande aide :",
+        "m****aide*** Affiche cette page d'aide."
+      )
+      .addField(
+        "Commande aide_nsfw :",
+        "m****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
+      )
+      .addField(
         "Commande report :",
         "m****report*** pour report un problème avec le bot."
       )
@@ -25,6 +37,14 @@ class aidefrcommands extends Command {
       .addField(
         "Commande changelog :",
         "m****changelog*** pour avoir le log de la mise a jour du bot."
+      )
+      .addField(
+        "Commande ping :",
+        "m****ping*** permet de voir la latence du bot."
+      )
+      .addField(
+        "Commande loli :",
+        "m****loli*** affiche des phrases **humoristique** sur les loli"
       )
       .addField(
         "Commande meme :",
@@ -45,6 +65,7 @@ class aidefrcommands extends Command {
       )
       .addField("Commande gifle :", "m****gifle*** pour gifler quelqu'un.")
       .addField("Commande calin :", "m****calin*** pour câliner quelqu'un.")
+      .addField("Commande bonne nuit :", "m****bonne_nuit*** permet de souhaiter bonne nuit a un utilisateur spécifié ou a tous le monde.")
       .addField(
         "Commande panda :",
         "m****panda*** pour afficher une image de panda aléatoire."
@@ -70,12 +91,8 @@ class aidefrcommands extends Command {
         "m****aide*** permet de montrer cet aide sur les commandes."
       )
       .addField(
-        "Commande tts :",
-        "m****tts*** permet de répéter ce qu'on a mis dans notre message et le dire en vocal."
-      )
-      .addField(
-        "Commande aide_nsfw :",
-        "m****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
+        "Commande dire :",
+        "m****dire*** ou m****dis*** permet de répéter ce qu'on a mis dans notre message."
       )
       .addField(
         "Commande info-bot :",
@@ -84,6 +101,14 @@ class aidefrcommands extends Command {
       .addField(
         "Commande enculus-revulus :",
         "m****enculus-revulus*** pour savoir qui est le plus gros enculus."
+      )
+      .addField(
+        "Commande effacer :",
+        "m****effacer*** ou m****efface*** permet d'effacer le nombre de message désiré."
+      )
+      .addField(
+        "Commande efface_complet :",
+        "m****efface_complet*** permet d'effacer tout les messages d'un salon."
       )
       .setTimestamp();
 

@@ -12,7 +12,6 @@ class memecommands extends Command {
 
   async exec(message) {
     if (message.channel.type === "dm") return message.reply("Un meme ça a rien de méchant mais je la bloque quand même dans mes MP désolé ! :joy:");
-    console.log(`La commande meme a été exécuté par ${message.author.tag} de l'id : ${message.author}`);
     const meme = await fetch("https://some-random-api.ml/meme")
       .then(res => res.json())
       .then(json => json.image);
