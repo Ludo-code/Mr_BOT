@@ -3,7 +3,7 @@
   "version": "0.9.5",
   "main": "mr-bot.js",
   "repository": "https://github.com/Ludo-code/Mr_BOT.git",
-  "author": "Mr_OSS117 <lasagne.berthet@gmail.com>",
+  "author": "Ludo-Code <ludovic.berthet9492@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "acorn": "^8.0.4",

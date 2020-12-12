@@ -16,6 +16,7 @@ class infoservcommands extends Command {
       const botutilisateur = fetchedMembers.filter(membre => membre.user.bot === true);
       message.guild.members.fetch().then(membresfetch => {
         const enligne = membresfetch.filter(membre => membre.presence.status !== "offline");
+
         const embed = new MessageEmbed()
           .setColor("#ff00dc")
           .setTitle("Information sur le serveur :")
@@ -23,8 +24,9 @@ class infoservcommands extends Command {
           .addField("Id du serveur :", message.guild.id, true)
           .setThumbnail(message.guild.iconURL())
           .addField("Nombres de membres :", message.guild.memberCount)
-          .addField("Nombre de bot :", botutilisateur.size, true)
-          .addField("membres en ligne :", enligne.size, true)
+          .addField("Nombres de membres sans les bots:", message.guild.memberCount - botutilisateur.size)
+          .addField("Nombre de bot :", botutilisateur.size)
+          .addField("membres en ligne :", enligne.size)
           .addField("Propiétaire actuelle : ", message.guild.owner.user.tag)
           .addField("Nombre de salon :", message.guild.channels.cache.filter(salon => salon.type !== "category").size, true)
           .addField("Nombre de salon textuelles :", message.guild.channels.cache.filter(salon => salon.type === "text").size, true)

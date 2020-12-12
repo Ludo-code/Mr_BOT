@@ -3,7 +3,7 @@ const fetch = require("node-fetch");
 
 class eteindrecommands extends Command {
   constructor() {
-    super("eteindre", {
+    super("éteindre", {
       aliases: ["eteindre", "éteindre"],
       split: "sticky",
       ownerOnly: true

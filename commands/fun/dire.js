@@ -14,7 +14,7 @@ class direcommands extends Command {
   }
 
   exec(message, args) {
-    if (message.channel.type === "dm") return message.reply("Pas de tts en MP merci ! :joy:");
+    if (message.channel.type === "dm") return message.reply("Interdit de répéter les message en mp ! :joy:");
     message.delete({});
     const msgcontent = args.contenutxt;
     if (!msgcontent) 
