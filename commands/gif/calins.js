@@ -6,16 +6,23 @@ class calincommands extends Command {
   constructor() {
     super("calin", {
       aliases: ["calin", "câlin"],
-      split: "sticky"
+      split: "sticky",
+      args: [
+        {
+          id: "contenumessage",
+          match: "content"
+        }
+      ]
     });
   }
 
-  async exec(message) {
+  async exec(message, args) {
     if (message.channel.type === "dm")
       return message.reply(
         "Oh tu veux faire un câlin c'est trop mignon mais juste a toi même tu dois vraiment être narcissique heuresement que la commande est non disponible en MP ! :joy:"
       );
-      
+
+      const msgcontent = args.contenumessage;
 
       function userfunction() {
         let nickornot;
@@ -23,14 +30,17 @@ class calincommands extends Command {
           const user =  message.mentions.users.first();
           const utilisateurnickname = message.guild.members.cache.get(user.id).nickname;
           nickornot = utilisateurnickname || message.mentions.users.first().username;
+        } else if (!msgcontent) {
+          nickornot = " ";
         } else {
-          nickornot = " "
+          nickornot = msgcontent;
         }
         return nickornot;
       }
       const userauthor =  message.author;
+      console.log(userauthor)
       const utilisateurnickname2 = message.guild.members.cache.get(userauthor.id).nickname;
-      const nickornot2 = utilisateurnickname2 || message.author.nickname;
+      const nickornot2 = utilisateurnickname2 || userauthor.username;
 
     const calin = await fetch("https://nekos.life/api/v2/img/hug")
       .then(res => res.json())
@@ -44,11 +54,6 @@ class calincommands extends Command {
       .setTimestamp();
     message.channel
       .send(embed)
-      .then(
-        console.log(
-          `La commande câlin a été exécuté par ${message.author.tag} de l'id : ${message.author}`
-        )
-      );
   }
 }
 module.exports = calincommands;
