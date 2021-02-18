@@ -19,7 +19,7 @@ class guildcreateListener extends Listener {
           }
         });
           channelpardefaut.send("**Merci** de m'avoir ajouté :blush:. La commande d'aide est `m*aide`.").then(console.log(`Un nouveau serveur à été ajouté. ${guild.name}`))
-          client.channels.cache.get("682318351049294012").send("Un nouveau serveur à été ajouté et c'est : " + "`" + `${guild.name}` + "`");
+          client.channels.cache.get("797562341385961524").send("Un nouveau serveur à été ajouté et c'est : " + "`" + `${guild.name}` + "`");
     }
 }
 

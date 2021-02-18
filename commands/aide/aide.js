@@ -27,8 +27,8 @@ class aidefrcommands extends Command {
         "m****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
       )
       .addField(
-        "Commande report :",
-        "m****report*** pour report un problème avec le bot."
+        "Commande bug :",
+        "m****bug*** pour envoyer un message si vous avez un problème avec le bot."
       )
       .addField(
         "Commande idee :",
@@ -116,12 +116,8 @@ class aidefrcommands extends Command {
     message.channel
       .send(
         `${message.author} La liste des commandes d'aide ta été envoyé en message privé !`
-      )
-      .then(
-        console.log(
-          `La commande aide a été exécuté par ${message.author.tag} de l'id : ${message.author}`
-        )
       );
+      
     return message.react("✉")
       .then(() => message.react("📩"))
       .then(() => message.react("📫"))

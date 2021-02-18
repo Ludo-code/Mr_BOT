@@ -1,5 +1,6 @@
 const { TOKEN } = require("./config");
 const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require("discord-akairo");
+const enmap = require("enmap")
 
 class MyClient extends AkairoClient {
   constructor() {
@@ -34,8 +35,15 @@ const client = new MyClient({
   "GUILDS", "GUILD_MEMBERS", "GUILD_EMOJIS", "GUILD_PRESENCES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"
  ] }
 });
-module.exports = client;
 
+client.ticketsystem = new enmap({
+  name: "ticketsystem",
+  autoFetch: true,
+  cloneLevel: "deep",
+  fetchAll: true
+});
+
+module.exports = client;
 
 client.login(TOKEN);
 client.on("error", console.error);

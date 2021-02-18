@@ -38,7 +38,6 @@ class calincommands extends Command {
         return nickornot;
       }
       const userauthor =  message.author;
-      console.log(userauthor)
       const utilisateurnickname2 = message.guild.members.cache.get(userauthor.id).nickname;
       const nickornot2 = utilisateurnickname2 || userauthor.username;
 
