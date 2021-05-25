@@ -13,7 +13,7 @@ class listenercooldown extends Listener {
     const secondes = Math.floor(number / 1000) % 60;
     
     const minutes = Math.floor(number / 60000) % 60;
-    message.channel.send(`La commande \`${Command}\` est en cooldown merci d'attendre **${minutes} minutes, ${secondes} secondes et ${number} centièmes.**`);
+    message.channel.send(`La commande \`${Command}\` est en cooldown merci d'attendre **${minutes} minutes, ${secondes} secondes.**`);
   }
 }
 

@@ -7,20 +7,27 @@ class bonnenuitcommands extends Command {
   constructor() {
     super("Bonne Nuit", {
       aliases: ["bonne_nuit"],
-      split: "sticky"
+      split: "sticky",
+      args: [
+        {
+          id: "contenumessage",
+          match: "content"
+        }
+      ]
     });
   }
 
-  async exec(message) {
-
-    const lmt = 50;
-    const search = "good night"
+  async exec(message, args) {
 
     if (message.channel.type === "dm")
       return message.reply(
         "Désolé tu ne purras pas te dire bonne nuit a toi même ou bien même à moi :wink:"
       );
-      
+
+      const lmt = 50;
+      const search = "good night"
+
+      const msgcontent = args.contenumessage;
 
       function userfunction() {
         let nickornot;
@@ -28,14 +35,16 @@ class bonnenuitcommands extends Command {
           const user =  message.mentions.users.first();
           const utilisateurnickname = message.guild.members.cache.get(user.id).nickname;
           nickornot = utilisateurnickname || message.mentions.users.first().username;
+        } else if (!msgcontent) {
+          nickornot = "tous le monde";
         } else {
-          nickornot = "tous le monde"
+          nickornot = msgcontent;
         }
         return nickornot;
       }
       const userauthor =  message.author;
       const utilisateurnickname2 = message.guild.members.cache.get(userauthor.id).nickname;
-      const nickornot2 = utilisateurnickname2 || message.author.nickname;
+      const nickornot2 = utilisateurnickname2 || userauthor.username;
 
       const bonnenuit = await fetch(`https://api.tenor.com/v1/random?key=${apikey}&q=${search}&limit=${lmt}`)
       .then(res => res.json())

@@ -4,7 +4,8 @@ class removeuserdbcommands extends Command {
   constructor() {
     super("retirer", {
       aliases: ["retirer",],
-      split: "sticky"
+      split: "sticky",
+	  ownerOnly: true
     });
   }
 

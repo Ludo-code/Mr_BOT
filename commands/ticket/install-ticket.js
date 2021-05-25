@@ -36,59 +36,6 @@ class installticketcommands extends Command {
       client.ticketsystem.set(`${message.guild.id}-id-message`, sent.id);
 
       message.channel.send("Salon de ticket bien installer.");
-
-
-
-
-      client.on('messageReactionAdd', async (reaction, user) => {
-        if(user.partial) await user.fetch();
-        if(reaction.partial) await reaction.fetch();
-        if(reaction.message.partial) await reaction.message.fetch();
-    
-        if(user.bot) return;
-
-
-        const utilisateur = user.id;
-        const utilisateurid = client.ticketsystem.get(`id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateur}`);
-
-
-
-
-        
-        const utilisateursetid = client.ticketsystem.set(`id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateur}`, utilisateur);  
-            
-        let ticketid = await client.ticketsystem.get(`${reaction.message.guild.id}-id-message`);
-
-        if(!ticketid) return;
-    
-        if(reaction.message.id === ticketid && reaction.emoji.name == '🎫') {
-            reaction.users.remove(user);
-
-            if(utilisateur === utilisateurid) {
-              reaction.users.remove(user)
-              user.send("Tu as déjà un ticket ouvert.")
-              return;
-          }
-            client.ticketsystem.set(`id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateur}`, utilisateur);
-
-    
-            reaction.message.guild.channels.create(`ticket-de-${user.username}`, {
-                permissionOverwrites: [
-                    {
-                        id: user.id,
-                        allow: ["SEND_MESSAGES", "VIEW_CHANNEL"]
-                    },
-                    {
-                        id: reaction.message.guild.roles.everyone,
-                        deny: ["VIEW_CHANNEL"]
-                    }
-                ],
-                type: 'text'
-            }).then(async channel => {
-                channel.send(`<@${user.id}>`, new MessageEmbed().setTitle("Bienvenue sur votre ticket !").setDescription("Un modérateur essayeras de vous répondre le plus rapidement possible.").setColor("00ff00"))
-            })
-        }
-      });
   }
 }
 module.exports = installticketcommands;

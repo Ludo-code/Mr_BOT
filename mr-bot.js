@@ -7,7 +7,8 @@ class MyClient extends AkairoClient {
     super({
       ownerID: "268432158262165504"
     }, {
-      disableEveryone: true
+      disableMentions: "everyone",
+      partials: ["MESSAGE", "CHANNEL", "REACTION", "USER", "GUILD_MEMBER"],
     });
 
     this.commandHandler = new CommandHandler(this, {
@@ -31,16 +32,25 @@ class MyClient extends AkairoClient {
 }
 
 const client = new MyClient({
- ws: { intents: [
+  ws: { intents: [
   "GUILDS", "GUILD_MEMBERS", "GUILD_EMOJIS", "GUILD_PRESENCES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"
  ] }
 });
 
 client.ticketsystem = new enmap({
+  persistent: true,
   name: "ticketsystem",
-  autoFetch: true,
-  cloneLevel: "deep",
-  fetchAll: true
+  dataDir: "./ticketdb",
+  fetchAll: true,
+  autoFetch: true
+});
+
+client.levelingsystem = new enmap({
+  persistent: true,
+  name: "levelingsystem",
+  dataDir: "./leveldb",
+  fetchAll: true,
+  autoFetch: true
 });
 
 module.exports = client;

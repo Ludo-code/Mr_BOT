@@ -1,5 +1,5 @@
 const { Listener } = require("discord-akairo");
-
+//ICI pour système de niveau.
 class messageListener extends Listener {
     constructor() {
         super("message", {
@@ -9,7 +9,7 @@ class messageListener extends Listener {
     }
 
     exec(message) {
-
+      
         function fonctionmessageprefix() {
             let prefix;
             if (message.content.startsWith("m*")) {

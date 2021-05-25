@@ -24,8 +24,9 @@ class suppticketcommands extends Command {
           return;
         } else {
           client.ticketsystem.delete(`id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`)
-          message.channel.delete();
           message.channel.send("Le ticket a bien été fermée !")
+          message.channel.delete();
+          
         }
         
       } else {

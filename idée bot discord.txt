@@ -1,2 +1,3 @@
---- Système de level up (peut être a voire)
---- emoji interserveur
+--- Système de level up
+--- Système d'économie 
+--- rendre les commandes plus vivante a l'aide des emoji

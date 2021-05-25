@@ -31,7 +31,7 @@ class calincommands extends Command {
           const utilisateurnickname = message.guild.members.cache.get(user.id).nickname;
           nickornot = utilisateurnickname || message.mentions.users.first().username;
         } else if (!msgcontent) {
-          nickornot = " ";
+          nickornot = "tous le monde";
         } else {
           nickornot = msgcontent;
         }

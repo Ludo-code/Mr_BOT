@@ -1,5 +1,6 @@
 const { MessageEmbed } = require("discord.js");
 const { Command } = require("discord-akairo");
+const paginationEmbed = require("discord.js-pagination");
 
 class nsfwaidecommands extends Command {
   constructor() {
@@ -11,15 +12,18 @@ class nsfwaidecommands extends Command {
 
   exec(message) {
     if (message.channel.type === "dm") return message.reply("L'aide pour les commandes nsfw directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide_nsfw ! :joy:");
-    const embed = new MessageEmbed()
+    
+    
+    const page1 = new MessageEmbed()
       .setColor("#ff00dc")
-      .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [funny bot] :")
-
+      .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [page 1] :")
+      .setDescription(
+        "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
+      )
       .addField(
         "Commande nekonue :",
         "m****nekonue*** Envoie une image de neko nu."
       )
-
       .addField("Commande hentai :", "m****hentai*** Envoie une image de hentai.")
 
       .addField("Commande yuri :", "m****yuri*** Envoie une image de yuri.")
@@ -30,7 +34,14 @@ class nsfwaidecommands extends Command {
         "Commande ejac :",
         "m****ejac*** Permet d'éjaculer sur quelqu'un."
       )
+      .setTimestamp();
 
+      const page2 = new MessageEmbed()
+      .setColor("#ff00dc")
+      .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [page 2] :")
+      .setDescription(
+        "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
+      )
       .addField(
         "Commande chatte_gif :",
         "m****chatte_gif*** Envoie une gif de chatte."
@@ -52,7 +63,14 @@ class nsfwaidecommands extends Command {
         "Commande neko_gif :",
         "m****neko_gif*** Envoie une gif de neko nue."
       )
+      .setTimestamp();
 
+      const page3 = new MessageEmbed()
+      .setColor("#ff00dc")
+      .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [page 3] :")
+      .setDescription(
+        "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
+      )
       .addField(
         "Commande masturbation :",
         "m****masturbation*** Envoie une gif de fille se masturbant."
@@ -68,7 +86,14 @@ class nsfwaidecommands extends Command {
       .addField("Commande pied :", "m****pied*** Envoie une image de pied.")
 
       .addField("Commande seins :", "m****seins*** Envoie une paire de seins.")
-
+      .setTimestamp();
+      
+      const page4 = new MessageEmbed()
+      .setColor("#ff00dc")
+      .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [page 4] :")
+      .setDescription(
+        "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
+      )
       .addField(
         "Commande femdom :",
         "m****femdom*** Envoie une image de domination féminine."
@@ -83,19 +108,18 @@ class nsfwaidecommands extends Command {
       )
       .setTimestamp();
 
-    message.author.send(embed);
-    message.channel
-      .send(
-        `${message.author} La liste des commandes d'aide ta été envoyé en message privé !`
-      )
-      .then(console.log(
-        `La commande nsfw_aide a été exécuté par ${message.author.tag} de l'id : ${message.author}`
-      ));
-    return message
-      .react("✉")
-      .then(() => message.react("📩"))
-      .then(() => message.react("📫"))
-      .then(() => message.react("✅"));
+      const pages = [
+        page1,
+        page2,
+        page3,
+        page4
+    ];
+
+    const emoji = ["⏪", "⏩"];
+
+    const timeout = "30000";
+    
+    paginationEmbed(message, pages, emoji, timeout);
   }
 }
 module.exports = nsfwaidecommands;

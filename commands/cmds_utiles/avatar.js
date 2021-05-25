@@ -1,6 +1,5 @@
 const { MessageEmbed } = require("discord.js");
 const { Command } = require("discord-akairo");
-const { options } = require("snekfetch");
 
 class avatarcommands extends Command {
   constructor() {

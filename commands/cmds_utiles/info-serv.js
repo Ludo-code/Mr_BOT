@@ -32,7 +32,6 @@ class infoservcommands extends Command {
           .addField("Nombre de salon textuelles :", message.guild.channels.cache.filter(salon => salon.type === "text").size, true)
           .addField("Nombre de salon vocaux :", message.guild.channels.cache.filter(salon => salon.type === "voice").size, true)
           .addField("Nombre de rôle :", message.guild.roles.cache.size)
-          .addField("Tout les rôles disponible :", message.guild.roles.cache.map(role => role.name).join(", ") || "none")
           .addField("Vous avez rejoint le :", message.member.joinedAt)
           .setFooter(`Demandé par ${message.author.username}`)
           .setTimestamp();
