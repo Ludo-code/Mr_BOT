@@ -8,7 +8,7 @@ class listenerfincommande extends Listener {
     });
   }
 
-  exec(message, Command, number) {
+  exec(message, Command) {
 
     console.log(`La commande ${Command} à été exécutée par ${message.author.tag} de l'id : ${message.author}`);
   }

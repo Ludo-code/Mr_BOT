@@ -8,7 +8,7 @@ class listenermessageblockee extends Listener {
     });
   }
 
-  exec(message, Command, number) {
+  exec(message, Command) {
     console.log("commandBlocked");
 
     message.channel.send(`La commande \`${Command}\` n'as pas pu's être exécuté du fait qu'elle est bloquée.`);
