@@ -8,8 +8,8 @@ class listenerpasdeperms extends Listener {
     });
   }
 
-  exec(message, command, missing) {
-    message.channel.send(`La commande \`${command}\` n'as pas pu's être exécuté à cause d'un manque de permission \`${missing}\`.`);
+  exec(message, Command, Missing, type) {
+    message.channel.send(`La commande \`${Command}\` n'as pas pu être exécuté à cause d'un manque de permission \`${Missing}\`.`);
   }
 }
 
