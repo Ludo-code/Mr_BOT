@@ -9,7 +9,9 @@ class listenerpasdeperms extends Listener {
   }
 
   exec(message, Command, Missing, type) {
+    console.log("test ok");
     message.channel.send(`La commande \`${Command}\` n'as pas pu être exécuté à cause d'un manque de permission \`${Missing}\`.`);
+
   }
 }
 
