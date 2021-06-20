@@ -34,7 +34,7 @@ class removeuserdbcommands extends Command {
         message.channel.send("n'oublie pas de mettre l'id de la guild et ensuite l'id de l'utilisateur")
       }
           let splittedargs = idguildargs.split(" ");
-          client.ticketsystem.delete(`id-de-guild-${splittedargs[0]}-id-de-utilisateur-${splittedargs[1]}`)
+          await client.ticketsystem.delete(`id-de-guild-${splittedargs[0]}-id-de-utilisateur-${splittedargs[1]}`)
           message.channel.send("Utilisateur supprimé !")
 
   }
