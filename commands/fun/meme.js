@@ -6,7 +6,8 @@ class memecommands extends Command {
   constructor() {
     super("meme", {
       aliases: ["meme"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

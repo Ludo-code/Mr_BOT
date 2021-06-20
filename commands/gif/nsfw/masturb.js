@@ -6,7 +6,8 @@ class masturbcommands extends Command {
   constructor() {
     super("masturbation", {
       aliases: ["masturbation"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

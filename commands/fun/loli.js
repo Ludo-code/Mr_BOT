@@ -4,7 +4,8 @@ class lolicommands extends Command {
   constructor() {
     super("loli", {
       aliases: ["loli"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES"]
     });
   }
 

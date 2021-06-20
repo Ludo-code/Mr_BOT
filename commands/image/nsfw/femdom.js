@@ -6,7 +6,8 @@ class femdomcommands extends Command {
   constructor() {
     super("femdom", {
       aliases: ["femdom"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

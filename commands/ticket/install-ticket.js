@@ -5,7 +5,8 @@ class installticketcommands extends Command {
   constructor() {
     super("ticket-install", {
       aliases: ["ticket-install",],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "MANAGE_CHANNELS", "ADD_REACTIONS"]
     });
   }
 

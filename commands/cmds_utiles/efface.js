@@ -4,20 +4,18 @@ class effacecommands extends Command {
   constructor() {
     super("effacer", {
       aliases: ["effacer", "efface"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "MANAGE_MESSAGES", "READ_MESSAGE_HISTORY"]
     });
   }
 
   async exec(message) {
     message.delete();
     const member = message.member;
-    if (message.channel.type === "dm") { 
+    if (message.channel.type === "dm") {
       message.reply("Mais mais qu'essaye tu de cacher a mon maître pour vouloir effacer les messages que tu m'as envoyés ? ! :joy:");
     }
-    if (!member.guild.me.hasPermission("ADMINISTRATOR", "MANAGE_MESSAGES")) {
-      message.channel.send(`${message.author}, tu n'as pas laissé assez de permission au bot.`); return;
-    }
-    
+
     if (!member.hasPermission("ADMINISTRATOR", "MANAGE_MESSAGES")) {
       message.channel.send(`${message.author}, désolé mais tu n'as pas les permissions requise.`); return;
     }

@@ -6,7 +6,8 @@ class teteecommands extends Command {
   constructor() {
     super("tetons", {
       aliases: ["tetons"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

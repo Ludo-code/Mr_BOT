@@ -6,7 +6,8 @@ class suceimgcommands extends Command {
   constructor() {
     super("suce_img", {
       aliases: ["suce_img"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

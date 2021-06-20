@@ -6,7 +6,8 @@ class pleurecommands extends Command {
   constructor() {
     super("pleure", {
       aliases: ["pleure"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

@@ -6,7 +6,8 @@ class chattensfwcommands extends Command {
   constructor() {
     super("chatte", {
       aliases: ["chatte"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

@@ -12,17 +12,18 @@ class sucegifcommands extends Command {
           id: "argument",
           match: "content"
         }
-      ]
+      ],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 
   async exec(message, args) {
     if (message.channel.type === "dm") return message.reply("Il va falloir que tu m'explique comment tu fais pour éjaculer sur personne dans les MP a moins que tu te fasse une faciale pour toi ! :joy:");
-    
+
     const nonmention = args.argument;
     if (!nonmention)
       return message.channel.send("merci de mentionner une personne \n Exemple : `m*suce @(la personne sans les parenthèses !)`");
-      
+
     const user = message.mentions.users.first().username;
     if (!message.channel.nsfw) return message.channel.send(`Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`);
     const sucegif = await fetch("https://nekos.life/api/v2/img/bj")

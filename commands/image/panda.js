@@ -6,7 +6,8 @@ class pandacommands extends Command {
   constructor() {
     super("panda", {
       aliases: ["panda"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

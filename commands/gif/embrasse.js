@@ -12,7 +12,8 @@ class embrassercommands extends Command {
           id: "argument",
           match: "content"
         }
-      ]
+      ],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

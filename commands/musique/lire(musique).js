@@ -10,7 +10,8 @@ class lirecommands extends Command {
           id: "messagecontent",
           match: "content"
         }
-      ]
+      ],
+      ownerOnly: true
     });
   }
 

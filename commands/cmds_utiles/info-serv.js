@@ -5,12 +5,13 @@ class infoservcommands extends Command {
   constructor() {
     super("info-serv", {
       aliases: ["info-serv"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 
   exec(message) {
-    if (message.channel.type === "dm") return message.channel.send("Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:").then(`La commande info-serv a été exécuté par ${message.author.tag} de l'id : ${message.author}`);
+    if (message.channel.type === "dm") return message.channel.send("Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:");
 
     message.guild.members.fetch().then(fetchedMembers => {
       const botutilisateur = fetchedMembers.filter(membre => membre.user.bot === true);

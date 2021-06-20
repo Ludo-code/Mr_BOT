@@ -6,7 +6,8 @@ class nekogifcommands extends Command {
   constructor() {
     super("neko_gif", {
       aliases: ["neko_gif"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

@@ -6,7 +6,8 @@ class rdmhentaicommands extends Command {
   constructor() {
     super("hentai_gif", {
       aliases: ["hentai_gif"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

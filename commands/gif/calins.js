@@ -12,7 +12,8 @@ class calincommands extends Command {
           id: "contenumessage",
           match: "content"
         }
-      ]
+      ],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

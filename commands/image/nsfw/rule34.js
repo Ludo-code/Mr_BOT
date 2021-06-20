@@ -6,7 +6,8 @@ class rule34commands extends Command {
   constructor() {
     super("rule34", {
       aliases: ["rule34", "r34"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

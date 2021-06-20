@@ -6,7 +6,8 @@ class kunicommands extends Command {
   constructor() {
     super("cuni", {
       aliases: ["cuni"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

@@ -6,7 +6,8 @@ class yuricommands extends Command {
   constructor() {
     super("yuri", {
       aliases: ["yuri"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

@@ -6,7 +6,8 @@ class piedjpgcommands extends Command {
   constructor() {
     super("pied", {
       aliases: ["pied"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

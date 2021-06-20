@@ -6,14 +6,15 @@ class nsfwaidecommands extends Command {
   constructor() {
     super("aide_nsfw", {
       aliases: ["aide_nsfw"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS"]
     });
   }
 
   exec(message) {
     if (message.channel.type === "dm") return message.reply("L'aide pour les commandes nsfw directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide_nsfw ! :joy:");
-    
-    
+
+
     const page1 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [page 1] :")
@@ -87,7 +88,7 @@ class nsfwaidecommands extends Command {
 
       .addField("Commande seins :", "m****seins*** Envoie une paire de seins.")
       .setTimestamp();
-      
+
       const page4 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes nsfw du bot Mr_BOT [page 4] :")
@@ -118,7 +119,7 @@ class nsfwaidecommands extends Command {
     const emoji = ["⏪", "⏩"];
 
     const timeout = "30000";
-    
+
     paginationEmbed(message, pages, emoji, timeout);
   }
 }

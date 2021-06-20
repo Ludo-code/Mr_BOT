@@ -5,7 +5,8 @@ class avatarcommands extends Command {
   constructor() {
     super("avatar", {
       aliases: ["avatar"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES"]
     });
   }
 

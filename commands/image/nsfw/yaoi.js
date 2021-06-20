@@ -7,7 +7,8 @@ class yaoicommands extends Command {
   constructor() {
     super("yaoi", {
       aliases: ["yaoi"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

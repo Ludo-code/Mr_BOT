@@ -6,15 +6,16 @@ class aidefrcommands extends Command {
   constructor() {
     super("aide", {
       aliases: ["aide"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS"]
     });
   }
 
   exec(message) {
-    
+
     if (message.channel.type === "dm") return message.reply("L'aide directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide ! :joy:");
-    
-    
+
+
     const page1 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes du bot Mr_BOT [page 1] :")
@@ -158,8 +159,8 @@ class aidefrcommands extends Command {
 		    "m****fermer*** permet a un administrateur de fermer le ticket."
 	    )
 	    .setTimestamp();
-      
-      
+
+
       const pages = [
         page1,
         page2,
@@ -172,7 +173,7 @@ class aidefrcommands extends Command {
     const emoji = ["⏪", "⏩"];
 
     const timeout = "30000";
-    
+
     paginationEmbed(message, pages, emoji, timeout);
   }
 }

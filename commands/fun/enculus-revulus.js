@@ -6,7 +6,8 @@ class enculusrevuluscommands extends Command {
   constructor() {
     super("enculus-revulus", {
       aliases: ["enculus-revulus"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES"]
     });
   }
 

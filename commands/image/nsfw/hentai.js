@@ -6,7 +6,8 @@ class hentaiimgcommands extends Command {
   constructor() {
     super("hentai", {
       aliases: ["hentai", "hentaiimg"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

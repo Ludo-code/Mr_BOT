@@ -5,13 +5,20 @@ class removeuserdbcommands extends Command {
     super("retirer", {
       aliases: ["retirer",],
       split: "sticky",
-	  ownerOnly: true
+	    ownerOnly: true,
+      args: [
+        {
+          id: "idguildargs",
+          match: "content"
+        }
+      ],
     });
   }
 
-  async exec(message) {
+  async exec(message, args) {
     const client = this.client;
     const member = message.member;
+    const idguildargs = args.idguildargs;
 
 
     if (message.channel.type === "dm")
@@ -23,22 +30,12 @@ class removeuserdbcommands extends Command {
         message.channel.send(`${message.author}, désolé mais tu n'as pas les permissions requise.`); return;
       }
 
-
-      if (message.mentions.users.first()) {
-        const utilisateurid = message.mentions.users.first()
-        const utilisateurid2 = utilisateurid.id
-        if (!client.ticketsystem.get(`id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`)) {
-          message.channel.send("Auncun utilisateur trouvé !")
-          return;
-        } else {
-          client.ticketsystem.delete(`id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`)
-          message.channel.send("Utilisateur supprimé !")
-        }
-        
-      } else {
-        message.channel.send("Tu n'as mentionné personne.")
+      if(!idguildargs) {
+        message.channel.send("n'oublie pas de mettre l'id de la guild et ensuite l'id de l'utilisateur")
       }
-
+          let splittedargs = idguildargs.split(" ");
+          client.ticketsystem.delete(`id-de-guild-${splittedargs[0]}-id-de-utilisateur-${splittedargs[1]}`)
+          message.channel.send("Utilisateur supprimé !")
 
   }
 }

@@ -5,7 +5,8 @@ class infoutilisateurcommands extends Command {
   constructor() {
     super("info-utilisateur", {
       aliases: ["info-utilisateur"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

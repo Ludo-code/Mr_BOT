@@ -12,7 +12,8 @@ class ejaccommands extends Command {
           id: "argument",
           match: "content"
         }
-      ]
+      ],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 
@@ -21,7 +22,7 @@ class ejaccommands extends Command {
     const nonmention = args.argument;
     if (!nonmention)
       return message.channel.send("merci de mentionner une personne \n Exemple : `m*ejac @(la personne sans les parenthèses !)`");
-      
+
     const user = message.mentions.users.first().username;
     if (!message.channel.nsfw) return message.channel.send(`Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`);
     const ejac = await fetch("https://nekos.life/api/v2/img/cum")

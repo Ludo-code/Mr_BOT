@@ -11,7 +11,8 @@ class changelogcommands extends Command {
           id: "messagecontent",
           match: "content"
         }
-      ]
+      ],
+      clientPermissions: ["SEND_MESSAGES"]
     });
   }
 

@@ -6,7 +6,8 @@ class seinscommands extends Command {
   constructor() {
     super("seins", {
       aliases: ["seins"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

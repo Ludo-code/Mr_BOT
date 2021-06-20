@@ -6,7 +6,8 @@ class chatcommands extends Command {
   constructor() {
     super("chat", {
       aliases: ["chat"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

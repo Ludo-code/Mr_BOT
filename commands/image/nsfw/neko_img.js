@@ -6,7 +6,8 @@ class nekonuecommands extends Command {
   constructor() {
     super("nekonue", {
       aliases: ["nekonue"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

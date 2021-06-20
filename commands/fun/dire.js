@@ -10,14 +10,15 @@ class direcommands extends Command {
           id: "contenutxt",
           match: "content"
         }
-      ]
+      ],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
   exec(message, args) {
     if (message.channel.type === "dm") return message.reply("Interdit de répéter les message en mp ! :joy:");
-    
+
     const msgcontent = args.contenutxt;
-    if (!msgcontent) 
+    if (!msgcontent)
       return message.channel.send("Tu essaye de ne rien dire mais pourquoi :thinking: ?");
 
 
@@ -34,7 +35,7 @@ class direcommands extends Command {
         .setDescription(`${msgcontent}`)
         .setFooter(`Demandé par ${message.author.username}`)
         .setTimestamp();
-      
+
       message.channel.send(embed);
   }
 }

@@ -6,7 +6,8 @@ class nekocommands extends Command {
   constructor() {
     super("neko", {
       aliases: ["neko"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 

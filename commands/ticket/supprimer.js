@@ -4,7 +4,8 @@ class suppticketcommands extends Command {
   constructor() {
     super("fermer", {
       aliases: ["fermer",],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "MANAGE_CHANNELS"]
     });
   }
 
@@ -14,7 +15,7 @@ class suppticketcommands extends Command {
       return message.reply(
         "Supprimer un ticket en DM est inutile !"
       );
-            
+
       if(!message.channel.name.includes("ticket-")) return message.channel.send("Désolé tu ne peux pas utiliser cette commande ici.")
       if (message.mentions.users.first()) {
         const utilisateurid = message.mentions.users.first()
@@ -26,9 +27,9 @@ class suppticketcommands extends Command {
           client.ticketsystem.delete(`id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`)
           message.channel.send("Le ticket a bien été fermée !")
           message.channel.delete();
-          
+
         }
-        
+
       } else {
         message.channel.send("Tu n'as mentionné personne.")
       }

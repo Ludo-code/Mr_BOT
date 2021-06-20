@@ -6,7 +6,8 @@ class piedgifcommands extends Command {
   constructor() {
     super("pied_gif", {
       aliases: ["pied_gif"],
-      split: "sticky"
+      split: "sticky",
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
     });
   }
 
