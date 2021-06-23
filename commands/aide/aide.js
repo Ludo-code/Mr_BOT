@@ -51,8 +51,8 @@ class aidefrcommands extends Command {
         "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
       )
       .addField(
-        "Commande ping :",
-        "m****ping*** permet de voir la latence du bot."
+        "Commande vote :",
+        "m****vote*** permet de votez pour le bot"
       )
       .addField(
         "Commande loli :",
@@ -158,6 +158,10 @@ class aidefrcommands extends Command {
 		    "Commande fermer : ",
 		    "m****fermer*** permet a un administrateur de fermer le ticket."
 	    )
+      .addField(
+        "Commande ping :",
+        "m****ping*** permet de voir la latence du bot."
+      )
 	    .setTimestamp();
 
 
