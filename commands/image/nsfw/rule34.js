@@ -7,7 +7,7 @@ class rule34commands extends Command {
     super("rule34", {
       aliases: ["rule34", "r34"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     });
   }
 
@@ -31,7 +31,7 @@ class rule34commands extends Command {
     booru
       .search("rule34", [query], { nsfw: true, limit: 1, random: true })
       .then(booru)
-      .then(images => {
+      .then((images) => {
         for (const image of images) {
           const embed = new MessageEmbed()
             .setTitle("L'image ne s'affiche pas clique ici !")
@@ -48,7 +48,7 @@ class rule34commands extends Command {
             );
         }
       })
-      .catch(err => {
+      .catch((err) => {
         if (err.name === "booruError") {
           message.channel.send(`Aucun résultat trouvé pour : **${query}**`);
         } else {

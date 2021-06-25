@@ -5,18 +5,21 @@ class effacecompletcommands extends Command {
     super("efface complet", {
       aliases: ["efface_complet"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "MANAGE_MESSAGES", "MANAGE_CHANNELS"]
+      clientPermissions: [
+        "SEND_MESSAGES",
+        "MANAGE_MESSAGES",
+        "MANAGE_CHANNELS",
+      ],
     });
   }
 
   async exec(message) {
-
-    message.channel.send("Commande en construction, inutilisable pour le moment.")
+    message.channel.send(
+      "Commande en construction, inutilisable pour le moment."
+    );
     if (message.channel.type === "dm") {
       message.reply("Inutile en mp !");
     }
-
-
   }
 }
 module.exports = effacecompletcommands;

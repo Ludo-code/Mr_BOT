@@ -1,29 +1,37 @@
 const { TOKEN } = require("./config");
-const { AkairoClient, CommandHandler, InhibitorHandler, ListenerHandler } = require("discord-akairo");
-const enmap = require("enmap")
+const {
+  AkairoClient,
+  CommandHandler,
+  InhibitorHandler,
+  ListenerHandler,
+} = require("discord-akairo");
+const enmap = require("enmap");
 
 class MyClient extends AkairoClient {
   constructor() {
-    super({
-      ownerID: "268432158262165504"
-    }, {
-      disableMentions: "everyone",
-      partials: ["MESSAGE", "CHANNEL", "REACTION", "USER", "GUILD_MEMBER"],
-    });
+    super(
+      {
+        ownerID: "268432158262165504",
+      },
+      {
+        disableMentions: "everyone",
+        partials: ["MESSAGE", "CHANNEL", "REACTION", "USER", "GUILD_MEMBER"],
+      }
+    );
 
     this.commandHandler = new CommandHandler(this, {
       directory: "./commands/",
       prefix: ["m*", "M*"],
       ignoreCooldown: ["268432158262165504"],
-      defaultCooldown: 10000
+      defaultCooldown: 10000,
     });
     this.listenerHandler = new ListenerHandler(this, {
-      directory: "./listeners/"
+      directory: "./listeners/",
     });
 
     this.listenerHandler.setEmitters({
       commandHandler: this.commandHandler,
-      listenerHandler: this.listenerHandler
+      listenerHandler: this.listenerHandler,
     });
     this.commandHandler.useListenerHandler(this.listenerHandler);
     this.listenerHandler.loadAll();
@@ -32,9 +40,18 @@ class MyClient extends AkairoClient {
 }
 
 const client = new MyClient({
-  ws: { intents: [
-  "GUILDS", "GUILD_MEMBERS", "GUILD_EMOJIS", "GUILD_PRESENCES", "GUILD_MESSAGES", "GUILD_MESSAGE_REACTIONS", "DIRECT_MESSAGES", "DIRECT_MESSAGE_REACTIONS"
- ] }
+  ws: {
+    intents: [
+      "GUILDS",
+      "GUILD_MEMBERS",
+      "GUILD_EMOJIS",
+      "GUILD_PRESENCES",
+      "GUILD_MESSAGES",
+      "GUILD_MESSAGE_REACTIONS",
+      "DIRECT_MESSAGES",
+      "DIRECT_MESSAGE_REACTIONS",
+    ],
+  },
 });
 
 client.ticketsystem = new enmap({
@@ -42,7 +59,7 @@ client.ticketsystem = new enmap({
   name: "ticketsystem",
   dataDir: "./ticketdb",
   fetchAll: true,
-  autoFetch: true
+  autoFetch: true,
 });
 
 client.levelingsystem = new enmap({
@@ -50,7 +67,7 @@ client.levelingsystem = new enmap({
   name: "levelingsystem",
   dataDir: "./leveldb",
   fetchAll: true,
-  autoFetch: true
+  autoFetch: true,
 });
 
 module.exports = client;

@@ -8,15 +8,13 @@ class lirecommands extends Command {
       args: [
         {
           id: "messagecontent",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
-      ownerOnly: true
+      ownerOnly: true,
     });
   }
 
-  exec(message, args) {
-
-  }
+  exec(message, args) {}
 }
 module.exports = lirecommands;

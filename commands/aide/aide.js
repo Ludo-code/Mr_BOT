@@ -7,14 +7,15 @@ class aidefrcommands extends Command {
     super("aide", {
       aliases: ["aide"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS"]
+      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS"],
     });
   }
 
   exec(message) {
-
-    if (message.channel.type === "dm") return message.reply("L'aide directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide ! :joy:");
-
+    if (message.channel.type === "dm")
+      return message.reply(
+        "L'aide directement dans les MP non je t'invite plutôt a allez dans un serveur ou je suis présent et tu exécute la commande m*aide ! :joy:"
+      );
 
     const page1 = new MessageEmbed()
       .setColor("#ff00dc")
@@ -22,10 +23,7 @@ class aidefrcommands extends Command {
       .setDescription(
         "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
       )
-      .addField(
-        "Commande aide :",
-        "m****aide*** Affiche cette page d'aide."
-      )
+      .addField("Commande aide :", "m****aide*** Affiche cette page d'aide.")
       .addField(
         "Commande aide_nsfw :",
         "m****aide_nsfw*** Envoie la page d'aide des commandes NSFW."
@@ -44,16 +42,13 @@ class aidefrcommands extends Command {
       )
       .setTimestamp();
 
-      const page2 = new MessageEmbed()
+    const page2 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes du bot Mr_BOT [page 2] :")
       .setDescription(
         "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
       )
-      .addField(
-        "Commande vote :",
-        "m****vote*** permet de votez pour le bot"
-      )
+      .addField("Commande vote :", "m****vote*** permet de votez pour le bot")
       .addField(
         "Commande loli :",
         "m****loli*** affiche des phrases **humoristique** sur les loli"
@@ -72,7 +67,7 @@ class aidefrcommands extends Command {
       )
       .setTimestamp();
 
-      const page3 = new MessageEmbed()
+    const page3 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes du bot Mr_BOT [page 3] :")
       .setDescription(
@@ -85,10 +80,13 @@ class aidefrcommands extends Command {
       )
       .addField("Commande gifle :", "m****gifle*** pour gifler quelqu'un.")
       .addField("Commande calin :", "m****calin*** pour câliner quelqu'un.")
-      .addField("Commande bonne nuit :", "m****bonne_nuit*** permet de souhaiter bonne nuit a un utilisateur spécifié ou a tous le monde.")
+      .addField(
+        "Commande bonne nuit :",
+        "m****bonne_nuit*** permet de souhaiter bonne nuit a un utilisateur spécifié ou a tous le monde."
+      )
       .setTimestamp();
 
-      const page4 = new MessageEmbed()
+    const page4 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes du bot Mr_BOT [page 4] :")
       .setDescription(
@@ -116,7 +114,7 @@ class aidefrcommands extends Command {
       )
       .setTimestamp();
 
-      const page5 = new MessageEmbed()
+    const page5 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes du bot Mr_BOT [page 5] :")
       .setDescription(
@@ -134,7 +132,7 @@ class aidefrcommands extends Command {
         "Commande enculus-revulus :",
         "m****enculus-revulus*** pour savoir qui est le plus gros enculus."
       )
-	    .addField(
+      .addField(
         "Commande effacer :",
         "m****effacer*** ou m****efface*** permet d'effacer le nombre de message désiré."
       )
@@ -144,35 +142,27 @@ class aidefrcommands extends Command {
       )
       .setTimestamp();
 
-      const page6 = new MessageEmbed()
+    const page6 = new MessageEmbed()
       .setColor("#ff00dc")
       .setTitle("Aide sur les commandes du bot Mr_BOT [page 6] :")
       .setDescription(
         "**Information Importante :**\nVous pouvez utiliser M* à la place de m* si vous êtes sur mobile ou pas."
       )
-	    .addField(
-		    "Commande ticket-install : ",
-		    "m****ticket-install*** permet d'initialiser le système de ticket sur le serveur."
-	    )
-	    .addField(
-		    "Commande fermer : ",
-		    "m****fermer*** permet a un administrateur de fermer le ticket."
-	    )
+      .addField(
+        "Commande ticket-install : ",
+        "m****ticket-install*** permet d'initialiser le système de ticket sur le serveur."
+      )
+      .addField(
+        "Commande fermer : ",
+        "m****fermer*** permet a un administrateur de fermer le ticket."
+      )
       .addField(
         "Commande ping :",
         "m****ping*** permet de voir la latence du bot."
       )
-	    .setTimestamp();
+      .setTimestamp();
 
-
-      const pages = [
-        page1,
-        page2,
-        page3,
-        page4,
-        page5,
-        page6
-    ];
+    const pages = [page1, page2, page3, page4, page5, page6];
 
     const emoji = ["⏪", "⏩"];
 

@@ -1,5 +1,5 @@
 const { Command } = require("discord-akairo");
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js");
 class direcommands extends Command {
   constructor() {
     super("dire", {
@@ -8,35 +8,37 @@ class direcommands extends Command {
       args: [
         {
           id: "contenutxt",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     });
   }
   exec(message, args) {
-    if (message.channel.type === "dm") return message.reply("Interdit de répéter les message en mp ! :joy:");
+    if (message.channel.type === "dm")
+      return message.reply("Interdit de répéter les message en mp ! :joy:");
 
     const msgcontent = args.contenutxt;
     if (!msgcontent)
-      return message.channel.send("Tu essaye de ne rien dire mais pourquoi :thinking: ?");
+      return message.channel.send(
+        "Tu essaye de ne rien dire mais pourquoi :thinking: ?"
+      );
 
+    message.delete({});
 
-      message.delete({});
+    const userauthor = message.author;
+    const utilisateurnickname2 = message.guild.members.cache.get(userauthor.id)
+      .nickname;
+    const nickornot2 = utilisateurnickname2 || userauthor.username;
 
+    const embed = new MessageEmbed()
+      .setColor("#ff00dc")
+      .setAuthor(`${nickornot2} dis :`)
+      .setDescription(`${msgcontent}`)
+      .setFooter(`Demandé par ${message.author.username}`)
+      .setTimestamp();
 
-      const userauthor =  message.author;
-      const utilisateurnickname2 = message.guild.members.cache.get(userauthor.id).nickname;
-      const nickornot2 = utilisateurnickname2 || userauthor.username;
-
-      const embed = new MessageEmbed()
-        .setColor("#ff00dc")
-        .setAuthor(`${nickornot2} dis :`)
-        .setDescription(`${msgcontent}`)
-        .setFooter(`Demandé par ${message.author.username}`)
-        .setTimestamp();
-
-      message.channel.send(embed);
+    message.channel.send(embed);
   }
 }
 module.exports = direcommands;

@@ -6,17 +6,24 @@ class infoservcommands extends Command {
     super("info-serv", {
       aliases: ["info-serv"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     });
   }
 
   exec(message) {
-    if (message.channel.type === "dm") return message.channel.send("Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:");
+    if (message.channel.type === "dm")
+      return message.channel.send(
+        "Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:"
+      );
 
-    message.guild.members.fetch().then(fetchedMembers => {
-      const botutilisateur = fetchedMembers.filter(membre => membre.user.bot === true);
-      message.guild.members.fetch().then(membresfetch => {
-        const enligne = membresfetch.filter(membre => membre.presence.status !== "offline");
+    message.guild.members.fetch().then((fetchedMembers) => {
+      const botutilisateur = fetchedMembers.filter(
+        (membre) => membre.user.bot === true
+      );
+      message.guild.members.fetch().then((membresfetch) => {
+        const enligne = membresfetch.filter(
+          (membre) => membre.presence.status !== "offline"
+        );
 
         const embed = new MessageEmbed()
           .setColor("#ff00dc")
@@ -25,13 +32,34 @@ class infoservcommands extends Command {
           .addField("Id du serveur :", message.guild.id, true)
           .setThumbnail(message.guild.iconURL())
           .addField("Nombres de membres :", message.guild.memberCount)
-          .addField("Nombres de membres sans les bots:", message.guild.memberCount - botutilisateur.size)
+          .addField(
+            "Nombres de membres sans les bots:",
+            message.guild.memberCount - botutilisateur.size
+          )
           .addField("Nombre de bot :", botutilisateur.size)
           .addField("membres en ligne :", enligne.size)
           .addField("Propiétaire actuelle : ", message.guild.owner.user.tag)
-          .addField("Nombre de salon :", message.guild.channels.cache.filter(salon => salon.type !== "category").size, true)
-          .addField("Nombre de salon textuelles :", message.guild.channels.cache.filter(salon => salon.type === "text").size, true)
-          .addField("Nombre de salon vocaux :", message.guild.channels.cache.filter(salon => salon.type === "voice").size, true)
+          .addField(
+            "Nombre de salon :",
+            message.guild.channels.cache.filter(
+              (salon) => salon.type !== "category"
+            ).size,
+            true
+          )
+          .addField(
+            "Nombre de salon textuelles :",
+            message.guild.channels.cache.filter(
+              (salon) => salon.type === "text"
+            ).size,
+            true
+          )
+          .addField(
+            "Nombre de salon vocaux :",
+            message.guild.channels.cache.filter(
+              (salon) => salon.type === "voice"
+            ).size,
+            true
+          )
           .addField("Nombre de rôle :", message.guild.roles.cache.size)
           .addField("Vous avez rejoint le :", message.member.joinedAt)
           .setFooter(`Demandé par ${message.author.username}`)

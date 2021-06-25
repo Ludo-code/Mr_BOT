@@ -10,15 +10,18 @@ class tapotecommands extends Command {
       args: [
         {
           id: "argument",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     });
   }
 
   async exec(message, args) {
-    if (message.channel.type === "dm") return message.reply("Juste une tapotte pffff dommage que mon maître ne me laisse pas exécuter cette commande en MP ! :joy:");
+    if (message.channel.type === "dm")
+      return message.reply(
+        "Juste une tapotte pffff dommage que mon maître ne me laisse pas exécuter cette commande en MP ! :joy:"
+      );
 
     const nonmention = args.argument;
     if (!nonmention)
@@ -28,8 +31,8 @@ class tapotecommands extends Command {
 
     const user = message.mentions.users.first().username;
     const tapote = await fetch("https://nekos.life/api/v2/img/pat")
-      .then(res => res.json())
-      .then(json => json.url);
+      .then((res) => res.json())
+      .then((json) => json.url);
 
     const embed = new MessageEmbed()
       .setImage(tapote)

@@ -10,10 +10,10 @@ class embrassercommands extends Command {
       args: [
         {
           id: "argument",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     });
   }
 
@@ -30,8 +30,8 @@ class embrassercommands extends Command {
 
     const user = message.mentions.users.first().username;
     const embrasse = await fetch("https://nekos.life/api/v2/img/kiss")
-      .then(res => res.json())
-      .then(json => json.url);
+      .then((res) => res.json())
+      .then((json) => json.url);
 
     const embed = new MessageEmbed()
       .setImage(embrasse)

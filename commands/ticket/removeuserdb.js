@@ -3,14 +3,14 @@ const { Command } = require("discord-akairo");
 class removeuserdbcommands extends Command {
   constructor() {
     super("retirer", {
-      aliases: ["retirer",],
+      aliases: ["retirer"],
       split: "sticky",
-	    ownerOnly: true,
+      ownerOnly: true,
       args: [
         {
           id: "idguildargs",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
     });
   }
@@ -20,23 +20,26 @@ class removeuserdbcommands extends Command {
     const member = message.member;
     const idguildargs = args.idguildargs;
 
-
     if (message.channel.type === "dm")
-      return message.reply(
-        "Les tickets en DM sont inutile !"
+      return message.reply("Les tickets en DM sont inutile !");
+
+    if (!member.hasPermission("ADMINISTRATOR")) {
+      message.channel.send(
+        `${message.author}, désolé mais tu n'as pas les permissions requise.`
       );
+      return;
+    }
 
-      if (!member.hasPermission("ADMINISTRATOR")) {
-        message.channel.send(`${message.author}, désolé mais tu n'as pas les permissions requise.`); return;
-      }
-
-      if(!idguildargs) {
-        message.channel.send("n'oublie pas de mettre l'id de la guild et ensuite l'id de l'utilisateur")
-      }
-          let splittedargs = idguildargs.split(" ");
-          await client.ticketsystem.delete(`id-de-guild-${splittedargs[0]}-id-de-utilisateur-${splittedargs[1]}`)
-          message.channel.send("Utilisateur supprimé !")
-
+    if (!idguildargs) {
+      message.channel.send(
+        "n'oublie pas de mettre l'id de la guild et ensuite l'id de l'utilisateur"
+      );
+    }
+    let splittedargs = idguildargs.split(" ");
+    await client.ticketsystem.delete(
+      `id-de-guild-${splittedargs[0]}-id-de-utilisateur-${splittedargs[1]}`
+    );
+    message.channel.send("Utilisateur supprimé !");
   }
 }
 module.exports = removeuserdbcommands;

@@ -5,17 +5,14 @@ class reloadcommands extends Command {
     super("reload", {
       aliases: ["reload"],
       split: "sticky",
-      ownerOnly: true
+      ownerOnly: true,
     });
   }
 
   async exec(message) {
+    this.handler.reloadAll();
 
-this.handler.reloadAll();
-
-await message.channel.send("Toute les commandes ont été rechargé !")
-
-
+    await message.channel.send("Toute les commandes ont été rechargé !");
   }
 }
 module.exports = reloadcommands;

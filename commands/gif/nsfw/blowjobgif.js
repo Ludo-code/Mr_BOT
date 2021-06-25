@@ -10,25 +10,33 @@ class sucegifcommands extends Command {
       args: [
         {
           id: "argument",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     });
   }
 
   async exec(message, args) {
-    if (message.channel.type === "dm") return message.reply("Il va falloir que tu m'explique comment tu fais pour éjaculer sur personne dans les MP a moins que tu te fasse une faciale pour toi ! :joy:");
+    if (message.channel.type === "dm")
+      return message.reply(
+        "Il va falloir que tu m'explique comment tu fais pour éjaculer sur personne dans les MP a moins que tu te fasse une faciale pour toi ! :joy:"
+      );
 
     const nonmention = args.argument;
     if (!nonmention)
-      return message.channel.send("merci de mentionner une personne \n Exemple : `m*suce @(la personne sans les parenthèses !)`");
+      return message.channel.send(
+        "merci de mentionner une personne \n Exemple : `m*suce @(la personne sans les parenthèses !)`"
+      );
 
     const user = message.mentions.users.first().username;
-    if (!message.channel.nsfw) return message.channel.send(`Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`);
+    if (!message.channel.nsfw)
+      return message.channel.send(
+        `Désolé ${message.author} mais tu ne peux faire cette commande que dans un salon nsfw !`
+      );
     const sucegif = await fetch("https://nekos.life/api/v2/img/bj")
-      .then(res => res.json())
-      .then(json => json.url);
+      .then((res) => res.json())
+      .then((json) => json.url);
 
     const embed = new MessageEmbed()
       .setImage(sucegif)
@@ -36,7 +44,13 @@ class sucegifcommands extends Command {
       .setFooter(`Demandé par ${message.author.username}`)
       .setTitle(`${message.author.username} suce ${user}`)
       .setTimestamp();
-    message.channel.send(embed).then(console.log(`La commande suce a été exécuté par ${message.author.tag} de l'id : ${message.author}`));
+    message.channel
+      .send(embed)
+      .then(
+        console.log(
+          `La commande suce a été exécuté par ${message.author.tag} de l'id : ${message.author}`
+        )
+      );
   }
 }
 module.exports = sucegifcommands;

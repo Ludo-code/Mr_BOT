@@ -4,14 +4,17 @@ class listenerpasdeperms extends Listener {
   constructor() {
     super("missingPermissions", {
       emitter: "commandHandler",
-      event: "missingPermissions"
+      event: "missingPermissions",
     });
   }
 
   exec(message, command, type, missing) {
-let msgperm = type === 'user' ? `Il te manque la permission **${missing}** ` : `Il manque la permission **${missing}** au bot.`
+    let msgperm =
+      type === "user"
+        ? `Il te manque la permission **${missing}** `
+        : `Il manque la permission **${missing}** au bot.`;
 
-message.channel.send(msgperm)
+    message.channel.send(msgperm);
   }
 }
 

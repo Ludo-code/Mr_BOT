@@ -10,15 +10,18 @@ class giflecommands extends Command {
       args: [
         {
           id: "argument",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"]
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
     });
   }
 
   async exec(message, args) {
-    if (message.channel.type === "dm") return message.reply("Une gifle, une gifle mais qui la mérite c'est impossible que ce soit moi donc c'est toi mais ça veux dire que tu est masochiste brrrr j'en ai des frisson pas de ça dans mes MP merci! :joy:");
+    if (message.channel.type === "dm")
+      return message.reply(
+        "Une gifle, une gifle mais qui la mérite c'est impossible que ce soit moi donc c'est toi mais ça veux dire que tu est masochiste brrrr j'en ai des frisson pas de ça dans mes MP merci! :joy:"
+      );
 
     const nonmention = args.argument;
     if (!nonmention)
@@ -28,8 +31,8 @@ class giflecommands extends Command {
 
     const user = message.mentions.users.first().username;
     const gifle = await fetch("https://nekos.life/api/v2/img/slap")
-      .then(res => res.json())
-      .then(json => json.url);
+      .then((res) => res.json())
+      .then((json) => json.url);
 
     const embed = new MessageEmbed()
       .setImage(gifle)

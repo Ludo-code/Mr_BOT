@@ -9,22 +9,42 @@ class ideecommands extends Command {
       args: [
         {
           id: "messagecontent",
-          match: "content"
-        }
+          match: "content",
+        },
       ],
-      clientPermissions: ["SEND_MESSAGES"]
+      clientPermissions: ["SEND_MESSAGES"],
     });
   }
 
   exec(message, args) {
-    if (message.channel.type === "dm") return message.reply("Commande bloqué en mp désolé, toute mes commandes le sont en mp !");
+    if (message.channel.type === "dm")
+      return message.reply(
+        "Commande bloqué en mp désolé, toute mes commandes le sont en mp !"
+      );
     const msgcontent = args.messagecontent;
     if (!msgcontent)
-    return message.channel.send("Tu essaye d'envoyer une idée vide mais pourquoi :thinking: ?");
+      return message.channel.send(
+        "Tu essaye d'envoyer une idée vide mais pourquoi :thinking: ?"
+      );
     if (message.attachments.size === 0) {
-      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit cette idée !`)).then(message.channel.send("Votre idée a bien été reçu !"));
+      message.client.channels
+        .fetch("669192672132595716")
+        .then((salondm) =>
+          salondm.send(
+            `${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit cette idée !`
+          )
+        )
+        .then(message.channel.send("Votre idée a bien été reçu !"));
     } else {
-      message.client.channels.fetch("669192672132595716").then(salondm => salondm.send(`${msgcontent} \n\n c'est \`${message.author.tag}\` qui a écrit cette idée ! ${message.attachments.first().url}`));
+      message.client.channels
+        .fetch("669192672132595716")
+        .then((salondm) =>
+          salondm.send(
+            `${msgcontent} \n\n c'est \`${
+              message.author.tag
+            }\` qui a écrit cette idée ! ${message.attachments.first().url}`
+          )
+        );
     }
   }
 }
