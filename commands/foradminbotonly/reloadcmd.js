@@ -8,7 +8,7 @@ class reloadcommands extends Command {
       ownerOnly: true
     });
   }
-  
+
   async exec(message) {
 
 this.handler.reloadAll();
