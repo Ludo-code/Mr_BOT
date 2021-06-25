@@ -29,11 +29,13 @@ class suppticketcommands extends Command {
         message.channel.send("Auncun utilisateur trouvé !");
         return;
       } else {
-        client.ticketsystem.delete(
-          `id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`
-        );
-        message.channel.send("Le ticket a bien été fermée !");
-        message.channel.delete();
+        setTimeout(function () {
+          message.channel.send("Le ticket a bien été fermée !");
+          message.channel.delete();
+          client.ticketsystem.delete(
+            `id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`
+          );
+        }, 5000);
       }
     } else {
       message.channel.send("Tu n'as mentionné personne.");
