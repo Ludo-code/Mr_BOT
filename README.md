@@ -1,10 +1,6 @@
 # Mon bot discord
 
-  - Bot off 📴 pour le moment plus de motivation. 
+  - Projet de nouveaux actif.
 
   - toute les api utilisé sont gratuite !
-# Mon bot discord
-
-  - Bot off 📴 pour le moment plus de motivation. 
-
-  - toute les api utilisé sont gratuite !
+  - crée de toute main !
