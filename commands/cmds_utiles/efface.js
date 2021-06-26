@@ -9,6 +9,7 @@ class effacecommands extends Command {
         "SEND_MESSAGES",
         "MANAGE_MESSAGES",
         "READ_MESSAGE_HISTORY",
+        "VIEW_CHANNEL",
       ],
     });
   }

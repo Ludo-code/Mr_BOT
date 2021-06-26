@@ -5,7 +5,7 @@ class lolicommands extends Command {
     super("loli", {
       aliases: ["loli"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES"],
+      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 

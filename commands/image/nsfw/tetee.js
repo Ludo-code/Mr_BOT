@@ -7,7 +7,7 @@ class teteecommands extends Command {
     super("tetons", {
       aliases: ["tetons"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

@@ -7,7 +7,7 @@ class suceimgcommands extends Command {
     super("suce_img", {
       aliases: ["suce_img"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

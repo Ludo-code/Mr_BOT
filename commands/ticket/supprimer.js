@@ -5,7 +5,7 @@ class suppticketcommands extends Command {
     super("fermer", {
       aliases: ["fermer"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "MANAGE_CHANNELS"],
+      clientPermissions: ["SEND_MESSAGES", "MANAGE_CHANNELS", "VIEW_CHANNEL"],
     });
   }
 

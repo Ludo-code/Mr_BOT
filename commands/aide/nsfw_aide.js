@@ -7,7 +7,7 @@ class nsfwaidecommands extends Command {
     super("aide_nsfw", {
       aliases: ["aide_nsfw"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS"],
+      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS", "VIEW_CHANNEL"],
     });
   }
 

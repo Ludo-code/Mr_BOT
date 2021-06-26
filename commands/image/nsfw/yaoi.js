@@ -7,7 +7,7 @@ class yaoicommands extends Command {
     super("yaoi", {
       aliases: ["yaoi"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

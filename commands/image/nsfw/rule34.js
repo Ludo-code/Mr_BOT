@@ -7,7 +7,7 @@ class rule34commands extends Command {
     super("rule34", {
       aliases: ["rule34", "r34"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

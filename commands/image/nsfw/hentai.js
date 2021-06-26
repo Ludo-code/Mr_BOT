@@ -7,7 +7,7 @@ class hentaiimgcommands extends Command {
     super("hentai", {
       aliases: ["hentai", "hentaiimg"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

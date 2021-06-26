@@ -7,7 +7,7 @@ class femdomcommands extends Command {
     super("femdom", {
       aliases: ["femdom"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

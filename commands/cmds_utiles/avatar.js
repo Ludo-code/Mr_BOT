@@ -6,7 +6,7 @@ class avatarcommands extends Command {
     super("avatar", {
       aliases: ["avatar"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

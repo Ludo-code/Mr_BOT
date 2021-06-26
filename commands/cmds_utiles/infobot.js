@@ -5,7 +5,7 @@ class infobotcommands extends Command {
     super("info-bot", {
       aliases: ["info-bot"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES"],
+      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 

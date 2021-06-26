@@ -11,6 +11,7 @@ class installticketcommands extends Command {
         "EMBED_LINKS",
         "MANAGE_CHANNELS",
         "ADD_REACTIONS",
+        "VIEW_CHANNEL",
       ],
     });
   }

@@ -7,7 +7,7 @@ class pleurecommands extends Command {
     super("pleure", {
       aliases: ["pleure"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

@@ -7,7 +7,7 @@ class memecommands extends Command {
     super("meme", {
       aliases: ["meme"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

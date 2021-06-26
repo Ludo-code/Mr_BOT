@@ -7,7 +7,7 @@ class aidefrcommands extends Command {
     super("aide", {
       aliases: ["aide"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS"],
+      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS", "VIEW_CHANNEL"],
     });
   }
 

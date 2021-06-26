@@ -7,7 +7,7 @@ class pandacommands extends Command {
     super("panda", {
       aliases: ["panda"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

@@ -22,10 +22,11 @@ class messageListener extends Listener {
     if (
       !message.content.startsWith(fonctionmessageprefix()) ||
       message.author.bot
-    )
+    ) {
       return;
-
-    console.log(`évènement message déclenché par ${message.author.tag}`);
+    } else {
+      console.log(`évènement message déclenché par ${message.author.tag}`);
+    }
   }
 }
 

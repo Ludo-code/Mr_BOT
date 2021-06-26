@@ -47,7 +47,14 @@ class listenerpasdeperms extends Listener {
       USE_PUBLIC_THREADS: "Uniquement dans l'api v9 de discord",
       USE_PRIVATE_THREADS: "Uniquement dans l'api v9 de discord",
     };
-    let msgperm =
+
+    if (
+      !message.guild.me.permissionsIn(message.channel.id).has("SEND_MESSAGES")
+    ) {
+      return;
+    }
+
+    const msgperm =
       type === "user"
         ? `Il te manque la permission \`${permissionFr[missing]}\`.`
         : `Il manque la permission \`${permissionFr[missing]}\` au bot.`;

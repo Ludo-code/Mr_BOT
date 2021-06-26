@@ -6,7 +6,7 @@ class infoutilisateurcommands extends Command {
     super("info-utilisateur", {
       aliases: ["info-utilisateur"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

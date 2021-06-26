@@ -10,7 +10,7 @@ class bugcommands extends Command {
         {
           id: "messagecontent",
           match: "content",
-          clientPermissions: ["SEND_MESSAGES"],
+          clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
         },
       ],
     });

@@ -7,7 +7,7 @@ class nekocommands extends Command {
     super("neko", {
       aliases: ["neko"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

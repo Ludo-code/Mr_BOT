@@ -7,7 +7,7 @@ class chatcommands extends Command {
     super("chat", {
       aliases: ["chat"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

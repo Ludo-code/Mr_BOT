@@ -9,6 +9,7 @@ class effacecompletcommands extends Command {
         "SEND_MESSAGES",
         "MANAGE_MESSAGES",
         "MANAGE_CHANNELS",
+        "VIEW_CHANNEL",
       ],
     });
   }

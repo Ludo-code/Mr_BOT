@@ -6,7 +6,7 @@ class infoservcommands extends Command {
     super("info-serv", {
       aliases: ["info-serv"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

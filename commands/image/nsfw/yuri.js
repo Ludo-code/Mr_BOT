@@ -7,7 +7,7 @@ class yuricommands extends Command {
     super("yuri", {
       aliases: ["yuri"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

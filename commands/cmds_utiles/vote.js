@@ -5,7 +5,7 @@ class votecommands extends Command {
     super("vote", {
       aliases: ["vote"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES"],
+      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 

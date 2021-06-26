@@ -7,7 +7,7 @@ class chattegcommands extends Command {
     super("chatte_gif", {
       aliases: ["chatteg", "chatte_gif"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS"],
+      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 
