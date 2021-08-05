@@ -8,6 +8,7 @@ class masturbcommands extends Command {
       aliases: ["masturbation"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

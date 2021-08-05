@@ -8,6 +8,7 @@ class piedjpgcommands extends Command {
       aliases: ["pied"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

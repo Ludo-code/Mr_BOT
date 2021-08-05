@@ -8,6 +8,7 @@ class kunicommands extends Command {
       aliases: ["cuni"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

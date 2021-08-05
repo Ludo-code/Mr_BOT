@@ -12,13 +12,9 @@ class infoutilisateurcommands extends Command {
 
   exec(message) {
     if (message.channel.type === "dm")
-      return message.channel
-        .send(
-          "Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:"
-        )
-        .then(
-          `La commande info-serv a été exécuté par ${message.author.tag} de l'id : ${message.author}`
-        );
+      return message.channel.send(
+        "Ah ah c'était donc toi le petit mâlin qui essayais de faire crasher mon bot mais maintenant je te tient ! :joy:"
+      );
 
     const user = message.mentions.users.first() || message.author;
     const formateedate = function (date) {

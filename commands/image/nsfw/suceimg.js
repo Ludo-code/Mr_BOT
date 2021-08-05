@@ -8,6 +8,7 @@ class suceimgcommands extends Command {
       aliases: ["suce_img"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

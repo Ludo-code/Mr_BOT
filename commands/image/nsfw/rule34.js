@@ -8,6 +8,7 @@ class rule34commands extends Command {
       aliases: ["rule34", "r34"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

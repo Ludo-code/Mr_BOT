@@ -34,16 +34,23 @@ class installticketcommands extends Command {
     if (!channel)
       return message.reply("Utilisation : `m*ticket-install #salon`");
 
-    let sent = await channel.send(
-      new MessageEmbed()
-        .setTitle("Ticket pour le support !")
-        .setDescription("Réagis afin de crée ton ticket !")
-        .setFooter("Ticket support")
-        .setColor("00ff00")
+    const embed = new MessageEmbed()
+      .setTitle("Ticket pour le support !")
+      .setDescription("Réagis afin de crée ton ticket !")
+      .setFooter("Ticket support")
+      .setColor("00ff00");
+
+    let sent = await channel.send(embed);
+
+    client.connection.query(
+      `DELETE FROM ticketsystem WHERE id_guild = ${sent.guild.id}`
+    );
+    client.connection.query(
+      `INSERT INTO ticketsystem (id_message, id_guild)
+      VALUES (${sent.id}, ${sent.guild.id})`
     );
 
     sent.react("🎫");
-    client.ticketsystem.set(`${message.guild.id}-id-message`, sent.id);
 
     message.channel.send("Salon de ticket bien installer.");
   }

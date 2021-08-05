@@ -1,11 +1,19 @@
-const { TOKEN } = require("./config");
+const {
+  TOKEN,
+  ipdb,
+  portdb,
+  nomdb,
+  nomutilisateur,
+  motdepasse,
+} = require("./config.js");
+const ticketsystem = require("./db-modele/modele-ticket.js");
+const { Sequelize } = require("sequelize");
 const {
   AkairoClient,
   CommandHandler,
   InhibitorHandler,
   ListenerHandler,
 } = require("discord-akairo");
-const enmap = require("enmap");
 
 class MyClient extends AkairoClient {
   constructor() {
@@ -53,22 +61,23 @@ const client = new MyClient({
     ],
   },
 });
-
-client.ticketsystem = new enmap({
-  persistent: true,
-  name: "ticketsystem",
-  dataDir: "./ticketdb",
-  fetchAll: true,
-  autoFetch: true,
+client.db = new Sequelize({
+  username: nomutilisateur,
+  password: motdepasse,
+  database: nomdb,
+  host: ipdb,
+  port: portdb,
+  dialect: "mysql",
 });
 
-client.levelingsystem = new enmap({
-  persistent: true,
-  name: "levelingsystem",
-  dataDir: "./leveldb",
-  fetchAll: true,
-  autoFetch: true,
-});
+client.db
+  .authenticate()
+  .then(() => {
+    console.log("Base de donnée connecté");
+    ticketsystem.init(client.db);
+    ticketsystem.sync();
+  })
+  .catch((err) => console.log(err));
 
 module.exports = client;
 

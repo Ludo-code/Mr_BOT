@@ -8,6 +8,7 @@ class piedgifcommands extends Command {
       aliases: ["pied_gif"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

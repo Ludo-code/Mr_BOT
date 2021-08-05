@@ -29,8 +29,8 @@ class suppticketcommands extends Command {
         message.channel.send("Auncun utilisateur trouvé !");
         return;
       } else {
+        message.channel.send("Le ticket seras fermer dans quelque seconde.");
         setTimeout(function () {
-          message.channel.send("Le ticket a bien été fermée !");
           message.channel.delete();
           client.ticketsystem.delete(
             `id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`

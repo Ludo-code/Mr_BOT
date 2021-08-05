@@ -14,6 +14,7 @@ class sucegifcommands extends Command {
         },
       ],
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

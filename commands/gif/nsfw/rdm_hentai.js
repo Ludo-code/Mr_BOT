@@ -8,6 +8,7 @@ class rdmhentaicommands extends Command {
       aliases: ["hentai_gif"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 
