@@ -7,6 +7,7 @@ const {
   motdepasse,
 } = require("./config.js");
 const ticketsystem = require("./db-modele/modele-ticket.js");
+const parametreguilds = require("./db-modele/modele-parametreguilds.js");
 const { Sequelize } = require("sequelize");
 const {
   AkairoClient,
@@ -75,7 +76,9 @@ client.db
   .then(() => {
     console.log("Base de donnée connecté");
     ticketsystem.init(client.db);
+    parametreguilds.init(client.db);
     ticketsystem.sync();
+    parametreguilds.sync();
   })
   .catch((err) => console.log(err));
 

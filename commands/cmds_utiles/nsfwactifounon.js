@@ -1,4 +1,5 @@
 const { Command } = require("discord-akairo");
+const parametreguilds = require("C:/Users/lasag/Documents/Mr_BOT/db-modele/modele-parametreguilds.js");
 
 class nsfwcommands extends Command {
   constructor() {
@@ -14,7 +15,7 @@ class nsfwcommands extends Command {
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
-  exec(message, args) {
+  async exec(message, args) {
     const member = message.member;
     if (message.channel.type === "dm")
       return message.reply("Les mps ne sont pas un serveurs désolé.");
@@ -34,6 +35,14 @@ class nsfwcommands extends Command {
 
     if (msgcontent === "actif") {
       message.channel.send("Les paramètres du serveur on été mis sur actif.");
+      await parametreguilds.update(
+        { nsfw: "actif" },
+        {
+          where: {
+            nsfw: "inactif",
+          },
+        }
+      );
       return;
     } else if (msgcontent === "inactif") {
       message.channel.send(
