@@ -9,59 +9,34 @@ const {
 const ticketsystem = require("./db-modele/modele-ticket.js");
 const parametreguilds = require("./db-modele/modele-parametreguilds.js");
 const { Sequelize } = require("sequelize");
-const {
-  AkairoClient,
-  CommandHandler,
-  InhibitorHandler,
-  ListenerHandler,
-} = require("discord-akairo");
+const { ShewenyClient } = require("sheweny");
 
-class MyClient extends AkairoClient {
-  constructor() {
-    super(
-      {
-        ownerID: "268432158262165504",
-      },
-      {
-        disableMentions: "everyone",
-        partials: ["MESSAGE", "CHANNEL", "REACTION", "USER", "GUILD_MEMBER"],
-      }
-    );
-
-    this.commandHandler = new CommandHandler(this, {
-      directory: "./commands/",
+const client = new ShewenyClient({
+  intents: [
+    "GUILDS",
+    "GUILD_MESSAGES",
+    "GUILD_MEMBERS",
+    "GUILD_EMOJIS_AND_STICKERS",
+    "GUILD_PRESENCES",
+    "GUILD_MESSAGE_REACTIONS",
+    "DIRECT_MESSAGES",
+    "GUILD_INTEGRATIONS",
+  ],
+  admins: ["268432158262165504"],
+  mode: "development",
+  allowedMentions: { parse: ["everyone"] },
+  managers: {
+    commands: {
+      directory: "./commands",
       prefix: ["m*", "M*"],
-      ignoreCooldown: ["268432158262165504"],
-      defaultCooldown: 10000,
-    });
-    this.listenerHandler = new ListenerHandler(this, {
-      directory: "./listeners/",
-    });
-
-    this.listenerHandler.setEmitters({
-      commandHandler: this.commandHandler,
-      listenerHandler: this.listenerHandler,
-    });
-    this.commandHandler.useListenerHandler(this.listenerHandler);
-    this.listenerHandler.loadAll();
-    this.commandHandler.loadAll();
-  }
-}
-
-const client = new MyClient({
-  ws: {
-    intents: [
-      "GUILDS",
-      "GUILD_MEMBERS",
-      "GUILD_EMOJIS",
-      "GUILD_PRESENCES",
-      "GUILD_MESSAGES",
-      "GUILD_MESSAGE_REACTIONS",
-      "DIRECT_MESSAGES",
-      "DIRECT_MESSAGE_REACTIONS",
-    ],
+      guildId: "797562340807409704",
+    },
+    events: {
+      directory: "./listeners",
+    },
   },
 });
+
 client.db = new Sequelize({
   username: nomutilisateur,
   password: motdepasse,

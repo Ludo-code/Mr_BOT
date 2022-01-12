@@ -1,5 +1,5 @@
 const { Command } = require("discord-akairo");
-const parametreguilds = require("C:/Users/lasag/Documents/Mr_BOT/db-modele/modele-parametreguilds.js");
+const parametreguilds = require("../../db-modele/modele-parametreguilds.js");
 
 class nsfwcommands extends Command {
   constructor() {
