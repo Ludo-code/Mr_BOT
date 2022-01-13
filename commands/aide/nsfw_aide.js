@@ -124,7 +124,7 @@ class nsfwaidecommands extends Command {
 
     const emoji = ["⏪", "⏩"];
 
-    const timeout = "30000";
+    const timeout = "60000";
 
     paginationEmbed(message, pages, emoji, timeout);
   }
