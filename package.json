@@ -3,7 +3,7 @@
   "version": "2.0.0",
   "main": "mr-bot.js",
   "repository": "https://github.com/Ludo-code/Mr_BOT.git",
-  "author": "Ludo-Code <ludovic.berthet9492@gmail.com>",
+  "author": "Ludo-Code <mr_oss117@tech-ludo.fr>",
   "license": "MIT",
   "dependencies": {
     "booru": "^2.4.0",

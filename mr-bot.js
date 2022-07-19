@@ -32,7 +32,7 @@ const client = new ShewenyClient({
       guildId: "797562340807409704",
     },
     events: {
-      directory: "./listeners",
+      directory: "./events",
     },
   },
 });

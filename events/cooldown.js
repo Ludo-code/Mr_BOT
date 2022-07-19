@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 
-class listenercooldown extends Listener {
+class eventcooldown extends Event {
   constructor() {
     super("cooldown", {
       emitter: "commandHandler",
-      event: "cooldown",
+      event: "cooldownlimit",
     });
   }
 
@@ -19,4 +19,4 @@ class listenercooldown extends Listener {
   }
 }
 
-module.exports = listenercooldown;
+module.exports = eventcooldown;
