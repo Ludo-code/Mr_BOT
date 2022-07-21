@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 
-class guildmemberremoveListener extends Listener {
-  constructor() {
-    super("guildMemberRemove", {
-      emitter: "client",
-      event: "guildMemberRemove",
+class eventguildmemberremove extends Event {
+  constructor(client) {
+    super(client, "guildMemberRemove", {
+      description: "Quand un utilisateur quitte un serveur",
+      once: false,
     });
   }
 
@@ -20,4 +20,4 @@ class guildmemberremoveListener extends Listener {
   }
 }
 
-module.exports = guildmemberremoveListener;
+module.exports = eventguildmemberremove;

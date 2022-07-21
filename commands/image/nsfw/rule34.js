@@ -1,13 +1,15 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 const { MessageEmbed } = require("discord.js");
 const booru = require("booru");
 
 class rule34commands extends Command {
-  constructor() {
-    super("rule34", {
+  constructor(client) {
+    super(client, {
+      name: "rule34",
+      description: "Permet de rechercher une image sur rule34",
       aliases: ["rule34", "r34"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
       category: "nsfw",
     });
   }

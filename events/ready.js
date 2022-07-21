@@ -1,11 +1,11 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 const { version } = require("../package.json");
 
-class readyListener extends Listener {
-  constructor() {
-    super("ready", {
-      emitter: "client",
-      event: "ready",
+class eventready extends Event {
+  constructor(client) {
+    super(client, "ready", {
+      description: "Quand le bot est prêt.",
+      once: false,
     });
   }
 
@@ -31,4 +31,4 @@ class readyListener extends Listener {
   }
 }
 
-module.exports = readyListener;
+module.exports = eventready;

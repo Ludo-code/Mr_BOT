@@ -1,8 +1,10 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 const { MessageEmbed } = require("discord.js");
 class direcommands extends Command {
-  constructor() {
-    super("dire", {
+  constructor(client) {
+    super(client, {
+      name: "dire",
+      description: "Permet de dire quelque chose",
       aliases: ["dire", "dis"],
       split: "sticky",
       args: [
@@ -11,7 +13,7 @@ class direcommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
   exec(message, args) {

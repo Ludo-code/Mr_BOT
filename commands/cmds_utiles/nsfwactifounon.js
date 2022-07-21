@@ -1,9 +1,11 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 const parametreguilds = require("../../db-modele/modele-parametreguilds.js");
 
 class nsfwcommands extends Command {
-  constructor() {
-    super("nsfw", {
+  constructor(client) {
+    super(client, {
+      name: "nsfw",
+      description: "Permet de changer le paramètre nsfw",
       aliases: ["nsfw"],
       split: "sticky",
       args: [
@@ -12,7 +14,7 @@ class nsfwcommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
   async exec(message, args) {

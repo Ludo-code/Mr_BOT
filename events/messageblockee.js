@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 
-class listenermessageblockee extends Listener {
-  constructor() {
-    super("commandBlocked", {
-      emitter: "commandHandler",
-      event: "commandBlocked",
+class eventcommandblocked extends Event {
+  constructor(CommandsManager) {
+    super(CommandsManager, "CommandBlocked", {
+      description: "Quand une commande est bloquée",
+      once: false,
     });
   }
 
@@ -17,4 +17,4 @@ class listenermessageblockee extends Listener {
   }
 }
 
-module.exports = listenermessageblockee;
+module.exports = eventcommandblocked;

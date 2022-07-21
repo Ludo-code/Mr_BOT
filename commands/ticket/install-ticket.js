@@ -1,12 +1,14 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 const { MessageEmbed } = require("discord.js");
 
 class installticketcommands extends Command {
-  constructor() {
-    super("ticket-install", {
+  constructor(client) {
+    super(client, {
+      name: "ticket-install",
+      description: "Permet de lier un salon de ticket",
       aliases: ["ticket-install"],
       split: "sticky",
-      clientPermissions: [
+      userPermissions: [
         "SEND_MESSAGES",
         "EMBED_LINKS",
         "MANAGE_CHANNELS",

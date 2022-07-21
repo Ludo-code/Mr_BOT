@@ -1,13 +1,15 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class chattegcommands extends Command {
-  constructor() {
-    super("chatte_gif", {
+  constructor(client) {
+    super(client, {
+      name: "chatte_gif",
+      description : "Permet d'envoyer un gif de chatte",
       aliases: ["chatteg", "chatte_gif"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
       category: "nsfw",
     });
   }

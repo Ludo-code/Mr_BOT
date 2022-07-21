@@ -1,11 +1,13 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class infobotcommands extends Command {
-  constructor() {
-    super("info-bot", {
+  constructor(client) {
+    super(client, {
+      name: "info-bot",
+      description: "Affiche des informations sur le bot",
       aliases: ["info-bot"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 

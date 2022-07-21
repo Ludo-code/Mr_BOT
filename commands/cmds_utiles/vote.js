@@ -1,11 +1,13 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class votecommands extends Command {
-  constructor() {
-    super("vote", {
+  constructor(client) {
+    super(client, {
+      name: "vote",
+      description: "Permet de voter pour le bot",
       aliases: ["vote"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 

@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 
-class guildmemberaddListener extends Listener {
-  constructor() {
-    super("guildMemberAdd", {
-      emitter: "client",
-      event: "guildMemberAdd",
+class eventguildmemberadd extends Event {
+  constructor(client) {
+    super(client, "guildMemberAdd", {
+      description: "Quand un utilisateur rejoint un serveur",
+      once: false,
     });
   }
 
@@ -22,4 +22,4 @@ class guildmemberaddListener extends Listener {
   }
 }
 
-module.exports = guildmemberaddListener;
+module.exports = eventguildmemberadd;

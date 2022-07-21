@@ -1,10 +1,12 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class yuricommands extends Command {
-  constructor() {
-    super("yuri", {
+  constructor(client) {
+    super(client, {
+      name: "yuri",
+      description: "Permet d'envoyer une image de yuri aléatoire",
       aliases: ["yuri"],
       split: "sticky",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],

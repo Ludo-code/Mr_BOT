@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 
-class listenerfincommande extends Listener {
-  constructor() {
-    super("fincommande", {
-      emitter: "commandHandler",
-      event: "commandFinished",
+class eventcommandfinished extends Event {
+  constructor(CommandsManager) {
+    super(CommandsManager, "commandFinished", {
+      description: "Quand une commande est terminée",
+      once: false,
     });
   }
 
@@ -15,4 +15,4 @@ class listenerfincommande extends Listener {
   }
 }
 
-module.exports = listenerfincommande;
+module.exports = eventcommandfinished;

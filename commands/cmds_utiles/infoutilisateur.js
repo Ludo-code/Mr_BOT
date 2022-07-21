@@ -1,12 +1,14 @@
 const { MessageEmbed } = require("discord.js");
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class infoutilisateurcommands extends Command {
-  constructor() {
-    super("info-utilisateur", {
+  constructor(client) {
+    super(client, {
+      name: "info-utilisateur",
+      description: "Affiche les informations d'un utilisateur",
       aliases: ["info-utilisateur"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

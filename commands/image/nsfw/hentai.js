@@ -1,13 +1,15 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class hentaiimgcommands extends Command {
-  constructor() {
-    super("hentai", {
+  constructor(client) {
+    super(client, {
+      name: "hentai",
+      description: "Permet d'envoyer une image de hentai aléatoire",
       aliases: ["hentai", "hentaiimg"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
       category: "nsfw",
     });
   }

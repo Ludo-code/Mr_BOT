@@ -1,8 +1,8 @@
 const { Event, Command } = require("sheweny");
 
 class eventcooldown extends Event {
-  constructor(client) {
-    super(client, "cooldownLimit", {
+  constructor(CommandsManager) {
+    super(CommandsManager, "cooldownLimit", {
       description: "Limite cooldown",
       once: false,
     });

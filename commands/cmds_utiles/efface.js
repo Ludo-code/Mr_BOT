@@ -1,11 +1,13 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class effacecommands extends Command {
-  constructor() {
-    super("effacer", {
+  constructor(client) {
+    super(client, {
+      name: "efface",
+      description: "Efface un nombre de messages",
       aliases: ["effacer", "efface"],
       split: "sticky",
-      clientPermissions: [
+      userPermissions: [
         "SEND_MESSAGES",
         "MANAGE_MESSAGES",
         "READ_MESSAGE_HISTORY",

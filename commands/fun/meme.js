@@ -1,13 +1,15 @@
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
-const { Command } = require("discord-akairo");
 
 class memecommands extends Command {
-  constructor() {
-    super("meme", {
+  constructor(client) {
+    super(client, {
+      name: "meme",
+      description: "Permet d'envoyer une image de meme aléatoire",
       aliases: ["meme"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

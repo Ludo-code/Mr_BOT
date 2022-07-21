@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 
-class listenerpasdeperms extends Listener {
-  constructor() {
-    super("missingPermissions", {
-      emitter: "commandHandler",
-      event: "missingPermissions",
+class eventusermissingpermissions extends Event {
+  constructor(CommandsManager) {
+    super(CommandsManager, "userMissingPermissions", {
+      description: "Quand un utilisateur manque une permission",
+      once: false,
     });
   }
 
@@ -54,13 +54,10 @@ class listenerpasdeperms extends Listener {
       return;
     }
 
-    const msgperm =
-      type === "user"
-        ? `Il te manque la permission \`${permissionFr[missing]}\`.`
-        : `Il manque la permission \`${permissionFr[missing]}\` au bot.`;
+    const msgperm = `Il manque la permission \`${permissionFr[missing]}\` au bot.`;
 
     message.channel.send(msgperm);
   }
 }
 
-module.exports = listenerpasdeperms;
+module.exports = eventusermissingpermissions;

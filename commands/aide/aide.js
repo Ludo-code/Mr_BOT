@@ -1,13 +1,15 @@
 ﻿const { MessageEmbed } = require("discord.js");
-const { Command } = require("discord-akairo");
-const paginationEmbed = require("discord.js-pagination");
+const { Command } = require("sheweny");
+const paginationEmbed = "../autre/embedpagination.js";
 
 class aidefrcommands extends Command {
-  constructor() {
-    super("aide", {
+  constructor(client) {
+    super(client, {
+      name: "aide",
       aliases: ["aide"],
+      description: "Commande d'aide",
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "ADD_REACTIONS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "ADD_REACTIONS", "VIEW_CHANNEL"],
     });
   }
 

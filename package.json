@@ -1,6 +1,6 @@
 {
   "name": "mr_bot",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "main": "mr-bot.js",
   "repository": "https://github.com/Ludo-code/Mr_BOT.git",
   "author": "Ludo-Code <mr_oss117@tech-ludo.fr>",
@@ -8,7 +8,6 @@
   "dependencies": {
     "booru": "^2.4.0",
     "discord.js": "^13.5.1",
-    "discord.js-pagination": "^1.0.3",
     "mysql2": "^2.2.5",
     "node-fetch": "^3.1.0",
     "sequelize": "^6.6.4",

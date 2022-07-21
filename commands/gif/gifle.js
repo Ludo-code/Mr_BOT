@@ -1,10 +1,12 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class giflecommands extends Command {
-  constructor() {
-    super("gifle", {
+  constructor(client) {
+    super(client, {
+      name: "gifle",
+      description: "Permet de gifler quelqu'un",
       aliases: ["gifle"],
       split: "sticky",
       args: [
@@ -13,7 +15,7 @@ class giflecommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

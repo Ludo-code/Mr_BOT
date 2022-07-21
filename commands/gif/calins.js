@@ -1,10 +1,12 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class calincommands extends Command {
-  constructor() {
-    super("calin", {
+  constructor(client) {
+    super(client, {
+      name: "calin",
+      description: "Permet de câler un utilisateur",
       aliases: ["calin", "câlin"],
       split: "sticky",
       args: [
@@ -13,7 +15,7 @@ class calincommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

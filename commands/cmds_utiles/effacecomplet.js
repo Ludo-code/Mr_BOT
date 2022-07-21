@@ -1,11 +1,13 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class effacecompletcommands extends Command {
-  constructor() {
-    super("efface complet", {
+  constructor(client) {
+    super(client, {
+      name: "effacecomplet",
+      description: "Efface tout le contenu d'un channel",
       aliases: ["efface_complet"],
       split: "sticky",
-      clientPermissions: [
+      userPermissions: [
         "SEND_MESSAGES",
         "MANAGE_MESSAGES",
         "MANAGE_CHANNELS",

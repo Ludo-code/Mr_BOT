@@ -1,13 +1,15 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class seinscommands extends Command {
-  constructor() {
-    super("seins", {
+  constructor(client) {
+    super(client, {
+      name: "seins",
+      description: "Permet d'envoyer une image de seins aléatoire",
       aliases: ["seins"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
       category: "nsfw",
     });
   }

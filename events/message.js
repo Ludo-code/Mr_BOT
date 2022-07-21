@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
-//ICI pour système de niveau.
-class messageListener extends Listener {
-  constructor() {
-    super("message", {
-      emitter: "client",
-      event: "message",
+const { Event } = require("sheweny");
+
+class eventmessage extends Event {
+  constructor(client) {
+    super(client, "message", {
+      description: "Quand le bot est appelé.",
+      once: false,
     });
   }
 
@@ -30,4 +30,4 @@ class messageListener extends Listener {
   }
 }
 
-module.exports = messageListener;
+module.exports = eventmessage;

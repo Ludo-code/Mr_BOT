@@ -1,18 +1,20 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class changelogcommands extends Command {
-  constructor() {
-    super("changelog", {
-      aliases: ["changelog"],
-      cooldown: 10000,
+  constructor(client) {
+    super(client, {
+      name: "changelog",
       split: "sticky",
+      aliases: ["changelog"],
+      description: "Permet de voir le journal des mises à jour",
+      cooldown: 10000,
       args: [
         {
           id: "messagecontent",
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 
