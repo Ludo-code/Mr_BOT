@@ -1,11 +1,13 @@
 const { MessageEmbed } = require("discord.js");
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class avatarcommands extends Command {
-  constructor() {
-    super("avatar", {
-      aliases: ["avatar"],
+  constructor(client) {
+    super(client, {
+      name: "avatar",
       split: "sticky",
+      aliases: ["avatar"],
+      description: "Afficher l'avatar d'un utilisateur",
       clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }

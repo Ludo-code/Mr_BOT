@@ -1,10 +1,10 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 
-class guildcreateListener extends Listener {
-  constructor() {
-    super("guildCreate", {
-      emitter: "client",
-      event: "guildCreate",
+class eventguildcreate extends Event {
+  constructor(client) {
+    super(client, "guildCreate", {
+      description: "ajout du bot dans un serveur",
+      once: false,
     });
   }
 
@@ -34,4 +34,4 @@ class guildcreateListener extends Listener {
   }
 }
 
-module.exports = guildcreateListener;
+module.exports = eventguildcreate;

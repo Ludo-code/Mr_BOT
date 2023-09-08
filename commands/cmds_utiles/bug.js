@@ -1,18 +1,20 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class bugcommands extends Command {
-  constructor() {
-    super("bug", {
-      aliases: ["bug"],
-      cooldown: 3600000,
+  constructor(client) {
+    super(client, {
+      name: "bug",
       split: "sticky",
+      aliases: ["bug"],
+      description: "Permet de signaler un bug",
+      cooldown: 3600000,
       args: [
         {
           id: "messagecontent",
           match: "content",
-          clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
         },
       ],
+      userPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 

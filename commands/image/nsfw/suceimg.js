@@ -1,13 +1,16 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class suceimgcommands extends Command {
-  constructor() {
-    super("suce_img", {
+  constructor(client) {
+    super(client, {
+      name: "suce_img",
+      description: "Permet de sucer quelqu'un",
       aliases: ["suce_img"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

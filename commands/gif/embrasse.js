@@ -1,10 +1,12 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class embrassercommands extends Command {
-  constructor() {
-    super("embrasse", {
+  constructor(client) {
+    super(client, {
+      name: "embrasse",
+      description: "Permet d'embrasser une personne",
       aliases: ["embrasse"],
       split: "sticky",
       args: [
@@ -13,7 +15,7 @@ class embrassercommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

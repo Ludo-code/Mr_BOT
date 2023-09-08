@@ -1,13 +1,15 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageCollector } = require("discord.js");
 
 class enculusrevuluscommands extends Command {
-  constructor() {
-    super("enculus-revulus", {
+  constructor(client) {
+    super(client, {
+      name: "enculus-revulus",
+      description: "Permet de troller un utilisateur",
       aliases: ["enculus-revulus"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 

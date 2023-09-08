@@ -1,13 +1,16 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class chattensfwcommands extends Command {
-  constructor() {
-    super("chatte", {
+  constructor(client) {
+    super(client, {
+      name: "chatte",
+      description: "Permet d'envoyer une image de chatte aléatoire",
       aliases: ["chatte"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

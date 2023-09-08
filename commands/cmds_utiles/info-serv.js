@@ -1,12 +1,14 @@
 const { MessageEmbed } = require("discord.js");
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class infoservcommands extends Command {
-  constructor() {
-    super("info-serv", {
+  constructor(client) {
+    super(client, {
+      name: "infoserv",
+      description: "Affiche des informations sur le serveur",
       aliases: ["info-serv"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

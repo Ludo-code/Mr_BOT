@@ -1,13 +1,15 @@
-const fetch = require("node-fetch");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class nekocommands extends Command {
-  constructor() {
-    super("neko", {
+  constructor(client) {
+    super(client, {
+      name: "neko",
+      description: "Permet d'envoyer une image de neko aléatoire",
       aliases: ["neko"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

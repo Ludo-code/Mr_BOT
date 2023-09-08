@@ -1,10 +1,12 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class tapotecommands extends Command {
-  constructor() {
-    super("tapote", {
+  constructor(client) {
+    super(client, {
+      name: "tapote",
+      description: "Permet de faire une petite tapotte à une personne",
       aliases: ["tapote"],
       split: "sticky",
       args: [
@@ -13,7 +15,7 @@ class tapotecommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

@@ -1,11 +1,13 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class suppticketcommands extends Command {
-  constructor() {
-    super("fermer", {
+  constructor(client) {
+    super(client, {
+      name: "fermer",
+      description: "Permet de fermer un ticket",
       aliases: ["fermer"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "MANAGE_CHANNELS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "MANAGE_CHANNELS", "VIEW_CHANNEL"],
     });
   }
 
@@ -29,8 +31,8 @@ class suppticketcommands extends Command {
         message.channel.send("Auncun utilisateur trouvé !");
         return;
       } else {
+        message.channel.send("Le ticket seras fermer dans quelque seconde.");
         setTimeout(function () {
-          message.channel.send("Le ticket a bien été fermée !");
           message.channel.delete();
           client.ticketsystem.delete(
             `id-de-guild-${message.guild.id}-id-de-utilisateur-${utilisateurid2}`

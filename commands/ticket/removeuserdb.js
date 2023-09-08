@@ -1,8 +1,10 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class removeuserdbcommands extends Command {
-  constructor() {
-    super("retirer", {
+  constructor(client) {
+    super(client, {
+      name: "retirer",
+      description: "Permet de retirer un utilisateur de la base de données",
       aliases: ["retirer"],
       split: "sticky",
       ownerOnly: true,

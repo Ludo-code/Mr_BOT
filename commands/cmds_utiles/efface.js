@@ -1,11 +1,13 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class effacecommands extends Command {
-  constructor() {
-    super("effacer", {
+  constructor(client) {
+    super(client, {
+      name: "efface",
+      description: "Efface un nombre de messages",
       aliases: ["effacer", "efface"],
       split: "sticky",
-      clientPermissions: [
+      userPermissions: [
         "SEND_MESSAGES",
         "MANAGE_MESSAGES",
         "READ_MESSAGE_HISTORY",
@@ -15,7 +17,7 @@ class effacecommands extends Command {
   }
 
   async exec(message) {
-    message.delete();
+    await message.delete();
 
     const member = message.member;
     if (message.channel.type === "dm") {
@@ -37,31 +39,32 @@ class effacecommands extends Command {
         message.channel.send(
           `${message.author}, aucun nombre de message n'as été entré.`
         );
-      }
-      if (isNaN(nombre)) {
+        return;
+      } else if (isNaN(nombre)) {
         message.channel.send(
           `${message.author}, désolé vous n'avez pas écrit un nombre.`
         );
-      }
-      if (nombre < 1) {
+        return;
+      } else if (nombre < 1) {
         message.channel.send(
           `${message.author}, tu dois au moins effacer un message.`
         );
-      }
-      if (nombre > 100) {
+        return;
+      } else if (nombre > 100) {
         message.channel.send(
           `${message.author}, vous ne pouvez pas effacer plus de 100 messages par commande.`
         );
+        return;
       } else {
-        setTimeout(function () {
-          const messageefface = message.channel.bulkDelete(nombre, true);
-          const messageefface2 = messageefface.size;
-          if (messageefface2 === 0) {
+        try {
+          await message.channel.bulkDelete(nombre);
+        } catch (err) {
+          if (err) {
             message.channel.send(
               "Vous ne pouvez pas effacer des messages de plus de 14 jours pour cause des réstrictions d'api de discord. \n\n Utilisez plutôt `m*efface_complet` ou `M*efface_complet` afin d'éffacer tout les messages."
             );
           }
-        }, 2000);
+        }
       }
     }
   }

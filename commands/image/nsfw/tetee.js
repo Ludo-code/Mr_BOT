@@ -1,13 +1,16 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class teteecommands extends Command {
-  constructor() {
-    super("tetons", {
+  constructor(client) {
+    super(client, {
+      name: "tetons",
+      description: "Permet d'envoyer des image de tétons",
       aliases: ["tetons"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

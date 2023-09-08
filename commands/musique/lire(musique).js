@@ -1,7 +1,9 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 class lirecommands extends Command {
-  constructor() {
-    super("lire", {
+  constructor(client) {
+    super(client, {
+      name: "lire",
+      description: "Permet de lire une musique",
       aliases: ["lire"],
       cooldown: 10000,
       split: "sticky",

@@ -1,10 +1,12 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class ejaccommands extends Command {
-  constructor() {
-    super("ejac", {
+  constructor(client) {
+    super(client, {
+      name: "ejac",
+      description: "Permet d'éjaculer sur une personne",
       aliases: ["ejac"],
       split: "sticky",
       args: [
@@ -13,7 +15,8 @@ class ejaccommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

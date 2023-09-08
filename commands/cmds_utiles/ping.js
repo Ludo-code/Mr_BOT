@@ -1,12 +1,14 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 const { MessageEmbed } = require("discord.js");
 
 class pingcommands extends Command {
-  constructor() {
-    super("ping", {
+  constructor(client) {
+    super(client, {
+      name: "ping",
+      description: "Permet de voir le ping du bot",
       aliases: ["ping"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
     });
   }
 

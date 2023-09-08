@@ -1,11 +1,11 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 const { MessageEmbed } = require("discord.js");
 
-class messagereactionaddListener extends Listener {
-  constructor() {
-    super("messageReactionAdd", {
-      emitter: "client",
-      event: "messageReactionAdd",
+class eventmessagereactionadd extends Event {
+  constructor(client) {
+    super(client, "messageReactionAdd", {
+      description: "Quand il y a une réaction à un message",
+      once: false,
     });
   }
 
@@ -85,4 +85,4 @@ class messagereactionaddListener extends Listener {
   }
 }
 
-module.exports = messagereactionaddListener;
+module.exports = eventmessagereactionadd;

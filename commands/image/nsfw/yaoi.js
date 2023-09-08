@@ -1,13 +1,16 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 const { MessageEmbed } = require("discord.js");
 const booru = require("booru");
 
 class yaoicommands extends Command {
-  constructor() {
-    super("yaoi", {
+  constructor(client) {
+    super(client, {
+      name: "yaoi",
+      description: "Permet d'envoyer une image de yaoi aléatoire",
       aliases: ["yaoi"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

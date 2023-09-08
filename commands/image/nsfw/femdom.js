@@ -1,13 +1,16 @@
-const fetch = require("node-fetch");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class femdomcommands extends Command {
-  constructor() {
-    super("femdom", {
+  constructor(client) {
+    super(client, {
+      name: "femdom",
+      description: "Permet d'envoyer une image de femdom aléatoire",
       aliases: ["femdom"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

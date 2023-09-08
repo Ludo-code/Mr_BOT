@@ -1,13 +1,16 @@
-const { Command } = require("discord-akairo");
-const fetch = require("node-fetch");
+const { Command } = require("sheweny");
+const fetch = import("node-fetch");
 const { MessageEmbed } = require("discord.js");
 
 class masturbcommands extends Command {
-  constructor() {
-    super("masturbation", {
+  constructor(client) {
+    super(client, {
+      name: "masturbation",
+      description: "Permet d'envoyer une image de masturbation aléatoire",
       aliases: ["masturbation"],
       split: "sticky",
-      clientPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "EMBED_LINKS", "VIEW_CHANNEL"],
+      category: "nsfw",
     });
   }
 

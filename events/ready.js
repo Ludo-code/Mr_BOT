@@ -1,21 +1,21 @@
-const { Listener } = require("discord-akairo");
+const { Event } = require("sheweny");
 const { version } = require("../package.json");
 
-class readyListener extends Listener {
-  constructor() {
-    super("ready", {
-      emitter: "client",
-      event: "ready",
+class eventready extends Event {
+  constructor(client) {
+    super(client, "ready", {
+      description: "Quand le bot est prêt.",
+      once: false,
     });
   }
 
   exec() {
     console.log(version);
     const client = this.client;
-    client.channels.cache
-      .get("797562341385961524")
-      .send("Le bot est en ligne !")
-      .then(console.log("Bot prêt au combats !!!"));
+    //client.channels.cache
+    //.get("797562341385961524")
+    //.send("Le bot est en ligne !")
+    //.then(console.log("Bot prêt au combats !!!"));
     const activitees = [
       " m*aide",
       " m*aide_nsfw",
@@ -31,4 +31,4 @@ class readyListener extends Listener {
   }
 }
 
-module.exports = readyListener;
+module.exports = eventready;

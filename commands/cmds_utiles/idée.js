@@ -1,8 +1,10 @@
-const { Command } = require("discord-akairo");
+const { Command } = require("sheweny");
 
 class ideecommands extends Command {
-  constructor() {
-    super("idée", {
+  constructor(client) {
+    super(client, {
+      name: "idee",
+      description: "Envoie une idée à l'équipe",
       aliases: ["idee", "idée"],
       cooldown: 3600000,
       split: "sticky",
@@ -12,7 +14,7 @@ class ideecommands extends Command {
           match: "content",
         },
       ],
-      clientPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
+      userPermissions: ["SEND_MESSAGES", "VIEW_CHANNEL"],
     });
   }
 
