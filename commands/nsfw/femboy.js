@@ -4,7 +4,8 @@ import fetch from "node-fetch";
 export const command = {
     name: 'femboy',
     aliases: ['trans', 'transgenre'],
-    description: 'Permet d\'envoyer une image d\'une neko nue.',
+    description: 'Permet d\'envoyer une image d\'une transgenre.',
+    cooldown: 10,
     nsfw: true,
     async execute(message, args) {
         try {

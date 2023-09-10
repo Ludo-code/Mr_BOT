@@ -3,7 +3,7 @@ import { ChannelType, EmbedBuilder } from "discord.js";
 export const command = {
     name: 'info-utilisateur',
     aliases: ['userinfo', 'infoutilisateur', 'info_utilisateur'],
-    description: 'Check the user info',
+    description: 'Voir les informations de l\'utilisateur',
     async execute(message, args) {
         try {
             let member = message.mentions.members.first() || message.member;

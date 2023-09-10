@@ -4,7 +4,7 @@ import fetch from "node-fetch";
 export const command = {
     name: 'calin',
     description: 'Envoie une image de câlin aléatoire.',
-    cooldown: 30,
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/hug'))?.json();

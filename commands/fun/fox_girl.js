@@ -5,6 +5,7 @@ export const command = {
     name: 'fox_girl',
     aliases: ['foxgirl', 'fox-girl'],
     description: 'Envoie une image de neko aléatoire',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/fox_girl'))?.json();

@@ -5,6 +5,7 @@ export const command = {
     name: 'embrasse',
     aliases: ['embrasser', 'bisou', 'bisous'],
     description: 'Envoie une image de quelqu\'un qui embrasse.',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/kiss'))?.json();

@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 export const command = {
     name: 'chat',
     description: 'Envoie une image de chat aléatoire.',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let embed = new EmbedBuilder()

@@ -5,7 +5,7 @@ export const command = {
     name: 'gifle',
     aliases: ['baffe'],
     description: 'Envoie une image de quelqu\'un qui gifle',
-    cooldown: 30,
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/slap'))?.json();

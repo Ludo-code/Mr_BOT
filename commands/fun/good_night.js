@@ -6,6 +6,7 @@ export const command = {
     name: 'bonne_nuit',
     aliases: ['bonnenuit', 'bonne-nuit'],
     description: 'Envoie une image aléatoire de Bonne Nuit.',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch(`https://g.tenor.com/v1/random?id=8776030&key=${process.env.TENOR_API_KEY}&limit=1&q=good+night+anime`))?.json();

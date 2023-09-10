@@ -7,7 +7,7 @@ export const command = {
     description: 'Permet de rapporter une idée. Il est possible de joindre un fichier ou plusieurs.',
     usage: '<message>',
     args: true,
-    cooldown: 30,
+    cooldown: 43200,
     async execute(message, args) {
         if (!args?.length) return;
 

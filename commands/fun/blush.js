@@ -5,6 +5,7 @@ export const command = {
     name: 'rougit',
     aliases: ['rougir'],
     description: 'Envoie une image de personne qui rougis aléatoire.',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.best/api/v2/blush'))?.json();

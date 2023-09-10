@@ -5,7 +5,8 @@ export const command = {
     name: 'suce',
     aliases: ['blowjob', 'sucer'],
     description: 'Envoie une image de quelqu\'un qui suce.',
-    cooldown: 30,
+    cooldown: 10,
+    nsfw: true,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://api.waifu.pics/nsfw/blowjob'))?.json();

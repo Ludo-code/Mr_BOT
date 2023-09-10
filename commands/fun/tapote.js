@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 export const command = {
     name: 'tapote',
     description: 'Permet d\'envoyer une image de quelqu\'un qui tapote',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/pat'))?.json();

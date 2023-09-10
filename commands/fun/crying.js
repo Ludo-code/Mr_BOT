@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 export const command = {
     name: 'pleure',
     description: 'Envoie une image de quelq\'un qui pleure',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.best/api/v2/cry'))?.json();

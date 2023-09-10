@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 export const command = {
     name: 'panda',
     description: 'Envoie une image de Panda aléatoire.',
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://some-random-api.ml/img/panda/'))?.json();

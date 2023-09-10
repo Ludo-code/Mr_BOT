@@ -4,6 +4,7 @@ import fetch from "node-fetch";
 export const command = {
     name: 'nekonue',
     description: 'Permet d\'envoyer une image d\'une neko nue.',
+    cooldown: 10,
     nsfw: true,
     async execute(message, args) {
         try {

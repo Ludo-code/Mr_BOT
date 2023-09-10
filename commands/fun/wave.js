@@ -5,7 +5,7 @@ export const command = {
     name: 'bonjour',
     aliases: ['salut', 'bonsoir'],
     description: 'Permet d\'envoyer une image d\'une personne qui salut.',
-    nsfw: true,
+    cooldown: 10,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.best/api/v2/wave'))?.json();
