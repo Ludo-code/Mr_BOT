@@ -3,7 +3,7 @@ import { EmbedBuilder } from "discord.js";
 export const command = {
 	name: 'ping',
 	aliases: ['beep', 'pong'],
-	description: 'Replies with pong!',
+	description: 'Permet de connaître la latence du bot.',
 	async execute(message, args) {
 		let sent = await message.reply({
 			content: `🎉 Pong!`,
@@ -11,7 +11,7 @@ export const command = {
 		try {
 			let embed = new EmbedBuilder()
 				.setTitle('🎉 Pong!')
-				.setDescription(`- Heartbeat : **${message.client.ws.ping}ms**\n- Roundtrip latency : **${sent.createdTimestamp - message.createdTimestamp}ms**.`)
+				.setDescription(`- Bâtement de coeur : **${message.client.ws.ping}ms**\n- Latence : **${sent.createdTimestamp - message.createdTimestamp}ms**.`)
 				.setColor('Random')
 			sent.edit({
 				content: '',

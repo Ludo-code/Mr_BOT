@@ -1,11 +1,11 @@
 export const command = {
-    name: 'delete_complete',
-    aliases: ['erase_complete', 'clear_complete'],
-    description: 'Clears the whole channel',
+    name: 'efface_complet',
+    aliases: ['erase_complete', 'clear_complete', 'clear_complete'],
+    description: 'Supprime la totalité des messages du salon.',
     staffOnly: true,
     async execute(message, args) {
         try {
-            await message.channel.send(`This channel will be deleted <t:${Math.round(Date.now() / 1000 + 15)}:R>`);
+            await message.channel.send(`Le salon va être supprimé dans <t:${Math.round(Date.now() / 1000 + 15)}:R>`);
             setTimeout(async () => {
                 let clonedChannel = await message.channel.clone();
                 const originalPosition = message.channel.position;
@@ -14,7 +14,7 @@ export const command = {
             }, 10000);
         } catch (error) {
             console.error(error);
-            await message.channel.send(`Could not run this command. \`Error: ${error.message}\``);
+            await message.channel.send(`Impossible de faire focntionner cette commande. \`Erreur : ${error.message}\``);
         }
     },
 };

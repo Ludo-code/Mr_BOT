@@ -4,7 +4,7 @@ const { ownerId } = config;
 
 export const command = {
     name: 'idea',
-    description: 'Send your idea! You can also upload files (optional).',
+    description: 'Permet de rapporter une idée. Il est possible de joindre un fichier ou plusieurs.',
     usage: '<message>',
     args: true,
     cooldown: 30,
@@ -26,12 +26,12 @@ export const command = {
         if (!owner) return;
 
         let embed = new EmbedBuilder()
-            .setTitle(`Idea of ${message.author.username}`)
+            .setTitle(`Idée de ${message.author.username}`)
             .setDescription(msg)
             .addFields(
                 {
-                    name: 'User',
-                    value: `> name: ${message.author.username}\n> ID: ${message.author.id}`
+                    name: 'Utilisateur',
+                    value: `> nom : ${message.author.username}\n> ID: ${message.author.id}`
                 }
             )
             .setThumbnail(message.author.displayAvatarURL({
@@ -46,10 +46,10 @@ export const command = {
                 files: attachments,
             });
 
-            await message.reply('✅ Sent your idea.')
+            await message.reply('✅ L\'idée à bien été envoyé.')
         } catch (error) {
             console.error(error);
-            await message.reply('❌ Could not send your idea.')
+            await message.reply('❌ Impossible d\'envoyer l\'idée.')
         }
     },
 };

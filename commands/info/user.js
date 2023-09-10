@@ -1,8 +1,8 @@
 import { ChannelType, EmbedBuilder } from "discord.js";
 
 export const command = {
-    name: 'user',
-    aliases: ['userinfo'],
+    name: 'info-utilisateur',
+    aliases: ['userinfo', 'infoutilisateur', 'info_utilisateur'],
     description: 'Check the user info',
     async execute(message, args) {
         try {
@@ -13,18 +13,18 @@ export const command = {
                 .setColor('Random')
                 .addFields(
                     {
-                        name: 'Created',
+                        name: 'Date de Création du compte',
                         value: `- <t:${Math.round(member.user.createdTimestamp / 1000)}:f>\n- <t:${Math.round(member.user.createdTimestamp / 1000)}:R>`,
                         inline: true
                     },
                     {
-                        name: 'Joined',
+                        name: 'Date à laquel il à rejoint le serveur',
                         value: `- <t:${Math.round(member.joinedTimestamp / 1000)}:f>\n- <t:${Math.round(member.joinedTimestamp / 1000)}:R>`,
                         inline: true
                     },
                     {
                         name: 'Info',
-                        value: `- Username: **${member.user.username}**\n- Nickname: **${member.nickname || 'None'}**\n- Tag: **${member.user.tag}**\nID: **${member.user.id}**`,
+                        value: `- Nom d\'utilisateur : **${member.user.username}**\n- Pseudonyme : **${member.nickname || 'Aucun'}**\n- Tag : **${member.user.tag}**\nID: **${member.user.id}**`,
                     },
                 )
                 .setThumbnail(member.user.displayAvatarURL({
@@ -33,7 +33,7 @@ export const command = {
                     forceStatic: false
                 }))
                 .setFooter({
-                    text: `Requested by: @${message.author.username} [${message.author.id}]`
+                    text: `Demandé par : @${message.author.username} [${message.author.id}]`
                 })
                 .setTimestamp();
 

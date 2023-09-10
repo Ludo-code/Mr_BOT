@@ -4,7 +4,7 @@ const { ownerId } = config;
 
 export const command = {
     name: 'bug',
-    description: 'Report a bug! You can also upload files (optional).',
+    description: 'Permet de rapporter un bug. Il est possible de joindre un fichier ou plusieurs.',
     usage: '<message>',
     args: true,
     cooldown: 10,
@@ -26,12 +26,12 @@ export const command = {
         if (!owner) return;
 
         let embed = new EmbedBuilder()
-            .setTitle(`Bug report by ${message.author.username}`)
+            .setTitle(`Bug report par ${message.author.username}`)
             .setDescription(msg)
             .addFields(
                 {
-                    name: 'User',
-                    value: `> name: ${message.author.username}\n> ID: ${message.author.id}`
+                    name: 'Utilisateur',
+                    value: `> nom ${message.author.username}\n> ID: ${message.author.id}`
                 }
             )
             .setThumbnail(message.author.displayAvatarURL({
@@ -46,10 +46,10 @@ export const command = {
                 files: attachments,
             });
 
-            await message.reply('✅ Sent your bug report.')
+            await message.reply('✅ Le rapport de bug à bien été envoyé.')
         } catch (error) {
             console.error(error);
-            await message.reply('❌ Could not send your bug report.')
+            await message.reply('❌ Impossible d\'envoyer le rapport de bug.')
         }
     },
 };

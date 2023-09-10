@@ -2,8 +2,9 @@ import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Ticket } from "../../schema/schema.js";
 
 export const command = {
-    name: 'close-ticket',
-    description: 'Close the ticket.',
+    name: 'fermer',
+    aliases: ['fermeture'],
+    description: 'Permet de fermer le ticket.',
     async execute(message, args) {
         let t = await Ticket.findOne({
             where: {
@@ -13,11 +14,11 @@ export const command = {
         });
 
         if (!t || (message.author.id != t.toJSON()?.userId && !message.member.permissions.has(PermissionsBitField.Flags.Administrator))) {
-            return await message.reply(`Sorry! This is not your ticket channel. Please run this command in your ticket channel to close the ticket.`);
+            return await message.reply(`Désolé! Ceci n'est pas votre canal de ticket. Veuillez exécuter cette commande dans votre canal de ticket pour fermer le ticket.`);
         }
 
         if (t) await t.destroy().catch(e => console.log(e));
-        await message.reply(`Closing the ticket and deleting this channel <t:${Math.round(Date.now() / 1000 + 10)}:R>`)
+        await message.reply(`Fermeture du ticket et supression du salon <t:${Math.round(Date.now() / 1000 + 10)}:R>`)
         setTimeout(async () => {
             await message.channel.delete();
         }, 10 * 1000);

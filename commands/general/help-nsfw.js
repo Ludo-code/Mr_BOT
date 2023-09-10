@@ -2,8 +2,9 @@ import { Colors, EmbedBuilder } from "discord.js";
 import { Pagination } from 'pagination.djs';
 
 export const command = {
-    name: 'help-nsfw',
-    description: 'Lists all the nsfw commands',
+    name: 'aide_nsfw',
+    aliases: ['aide-nsfw', 'help-nsfw'],
+    description: 'Affiche l\'aide des commandes nsfw.',
     async execute(message, args) {
         try {
             let commandName = args[0];
@@ -11,12 +12,12 @@ export const command = {
                 message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
             if (cmd) {
                 if (!cmd.nsfw) {
-                    return await message.reply(`Please use **${prefix}help** command for non nsfw commands.`)
+                    return await message.reply(`Merci d'utiliser **${prefix}aide** pour les commandes non nsfw.`)
                 }
                 let descText = cmd.description ? cmd.description : '';
                 descText += (
-                    `\n\n**Nsfw: ** ${cmd.nsfw ? `true` : `false`}`
-                    + `\n\n**Argument(s) requird: ** ${cmd.args ? `true` : `false`}`
+                    `\n\n**Nsfw: ** ${cmd.nsfw ? `actif` : `inactif`}`
+                    + `\n\n**Argument(s) requis: ** ${cmd.args ? `actif` : `inactif`}`
                 );
 
                 let cmdembed = new EmbedBuilder()
@@ -29,7 +30,7 @@ export const command = {
                     value: `\`${prefix}${cmd.name} ${cmd.usage}\``
                 });
                 if (cmd.aliases?.length) cmdembed.addFields({
-                    name: `Aliases`,
+                    name: `Alias`,
                     value: `\`${cmd.aliases.join('`, `')}\``
                 });
 

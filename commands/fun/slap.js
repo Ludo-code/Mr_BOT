@@ -2,18 +2,19 @@ import { EmbedBuilder } from "discord.js";
 import fetch from "node-fetch";
 
 export const command = {
-    name: 'slap',
-    description: 'Send a random slap image',
+    name: 'gifle',
+    aliases: ['baffe'],
+    description: 'Envoie une image de quelqu\'un qui gifle',
     cooldown: 30,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/slap'))?.json();
-            if (!res?.url) return await message.reply('Could not fetch the image');
+            if (!res?.url) return await message.reply('Impossible de récupérer l\'image');
 
             let mentionedmember = message.mentions.members.first();
 
             let embed = new EmbedBuilder()
-                .setTitle(`A slap for you, ${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)}`)
+                .setTitle(`${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)} se fait gifler.`)
                 .setColor('Random')
                 .setImage(res.url);
 

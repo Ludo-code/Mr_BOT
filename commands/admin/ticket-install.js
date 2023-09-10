@@ -2,25 +2,25 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder
 
 export const command = {
     name: 'ticket-install',
-    description: 'Installs ticket in the channel!',
+    description: 'Permet d\'envoyer le message de création de ticket',
     staffOnly: true,
     async execute(message, args) {
         try {
             let channel = message.mentions.channels.first() || message.channel;
             if (channel.type != ChannelType.GuildText) {
-                return await message.reply(`Please provide a text channel.`);
+                return await message.reply(`Merci de donner le nom d'un salon...`);
             }
 
             let embed = new EmbedBuilder()
                 .setTitle(`Ticket`)
-                .setDescription(`Please click 🎫 button below to create a ticket.`);
+                .setDescription(`Cliquez sur le bouton 🎫 pour vous créez un ticket.`);
 
             let row = new ActionRowBuilder()
                 .setComponents(
                     new ButtonBuilder()
                         .setCustomId('ticketcreate')
                         .setEmoji('🎫')
-                        .setLabel('Create Ticket')
+                        .setLabel('Créer un ticket')
                         .setStyle(ButtonStyle.Primary)
                 );
 
@@ -29,10 +29,10 @@ export const command = {
                 components: [row],
             });
 
-            await message.reply(`Installed the Ticket embed in ${channel}`);
+            await message.reply(`Le message de création de ticket à été mis avec succès dans ${channel}`);
         } catch (error) {
             console.error(error);
-            await message.reply(`Could not install the Ticket embed in ${channel}. Please check if I have permission to send message and embed links in that channel.`);
+            await message.reply(`Impossible de mettre le message de création de ticket dans ${channel}. Merci de vérifier si le bot à les permissions d'envoyer un message et d'intégrer des liens dans ce salon.`);
         }
     },
 };

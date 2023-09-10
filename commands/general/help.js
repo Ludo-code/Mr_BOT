@@ -4,8 +4,9 @@ import config from '../../config.js';
 const { prefix } = config;
 
 export const command = {
-    name: 'help',
-    description: 'Lists all the commands',
+    name: 'aide',
+    aliases: ['help'],
+    description: 'Affiche la liste de toute les commandes',
     async execute(message, args) {
         try {
             let commandName = args[0];
@@ -13,13 +14,13 @@ export const command = {
                 message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
             if (cmd) {
                 if (cmd.nsfw) {
-                    return await message.reply(`Please use **${prefix}help-nsfw** command for nsfw commands.`)
+                    return await message.reply(`Merci d'utiliser **${prefix}aide-nsfw** pour obtenir la liste des commandes nsfw.`)
                 }
 
                 let descText = cmd.description ? cmd.description : '';
                 descText += (
-                    `\n\n**Nsfw: ** ${cmd.nsfw ? `\`true\`` : `\`false\``}`
-                    + `\n**Argument(s) requird: ** ${cmd.args ? `\`true\`` : `\`false\``}\n`
+                    `\n\n**Nsfw : ** ${cmd.nsfw ? `\`actif\`` : `\`inactif\``}`
+                    + `\n**Argument(s) requis : ** ${cmd.args ? `\`actif\`` : `\`inactif\``}\n`
                 );
 
                 let cmdembed = new EmbedBuilder()
@@ -27,11 +28,11 @@ export const command = {
                     .setDescription(descText)
                     .setColor('Random');
                 if (cmd.usage) cmdembed.addFields({
-                    name: 'Usage',
+                    name: 'Utilisation',
                     value: `\`${prefix}${cmd.name} ${cmd.usage}\``
                 });
                 if (cmd.aliases?.length) cmdembed.addFields({
-                    name: `Aliases`,
+                    name: `Alias`,
                     value: `\`${cmd.aliases.join('`, `')}\``
                 });
 
@@ -51,7 +52,7 @@ export const command = {
                     const chunk = commands.slice(i, i + chunkSize);
                     let txt = chunk.map(c => `» ${c.name} ‣ ${c.description}`).join('\n')
                     let embed = new EmbedBuilder()
-                        .setTitle('Commands')
+                        .setTitle('Commandes')
                         .setDescription(txt)
                         .setColor(Colors.Blue)
                         .setFooter({

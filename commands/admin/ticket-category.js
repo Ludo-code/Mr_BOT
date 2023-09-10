@@ -2,8 +2,9 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder
 import { Guild } from "../../schema/schema.js";
 
 export const command = {
-    name: 'ticket-category',
-    description: 'Set the ticket category channel',
+    name: 'catégorie-ticket',
+    aliases: ['categorie-ticket', 'ticket-category'],
+    description: 'Permet de définir une catégorie dans laquel les ticket seront créer.',
     args: true,
     usage: '<category_channel>',
     staffOnly: true,
@@ -19,7 +20,7 @@ export const command = {
             }
 
             if (!channel || channel.type != ChannelType.GuildCategory) {
-                return await message.reply(`Please mention a category channel or provide a category channel ID.`);
+                return await message.reply(`Merci de mentionner le nom de la catégorie ou donner son ID.`);
             }
 
             let [g] = await Guild.findOrCreate({
@@ -31,11 +32,11 @@ export const command = {
             g.ticketCategoryChannelID = channel.id;
             await g.save();
 
-            await message.reply(`Ticket category channel set to ${channel}.`);
+            await message.reply(`La catégorie de cration des ticket est maintenant sur ${channel}.`);
 
         } catch (error) {
             console.error(error);
-            await message.reply(`Could not set the ticket category channel.`);
+            await message.reply(`Impossible de créer la catégorie.`);
         }
     },
 };

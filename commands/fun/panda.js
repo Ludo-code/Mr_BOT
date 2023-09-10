@@ -3,14 +3,14 @@ import fetch from "node-fetch";
 
 export const command = {
     name: 'panda',
-    description: 'Send a random panda image',
+    description: 'Envoie une image de Panda aléatoire.',
     async execute(message, args) {
         try {
             let res = await (await fetch('https://some-random-api.ml/img/panda/'))?.json();
-            if (!res?.link) return await message.reply('Could not fetch the image');
+            if (!res?.link) return await message.reply('Impossible de récupérer l\'image.');
             
             let embed = new EmbedBuilder()
-                .setTitle(`A panda image for you, ${message.member.nickname || message.author.username}`)
+                .setTitle(`Une image de pande pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor('Random')
                 .setImage(res.link);
 

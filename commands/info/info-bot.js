@@ -4,11 +4,11 @@ const { websiteURL, githubURL, supportServerURL } = config;
 
 export const command = {
     name: 'info-bot',
-    description: 'Shows the bot details',
+    description: 'Affiche les informations sur le bot',
     async execute(message, args) {
         try {
-            let desc = `## Statistics\n- Servers: **${message.client.guilds.cache.size}**\n- Users: **${message.client.guilds.cache.reduce((acc, val) => acc + (val.memberCount ?? 0), 0)}**\n- Channels: **${message.client.channels.cache.size}**\n\n`;
-            desc += `## Links\n- Website: ${websiteURL}\n- GitHub: ${githubURL}\n- Support Server: ${supportServerURL}`
+            let desc = `## Statistique\n- Serveurs : **${message.client.guilds.cache.size}**\n- Utilisateurs : **${message.client.guilds.cache.reduce((acc, val) => acc + (val.memberCount ?? 0), 0)}**\n- Salons : **${message.client.channels.cache.size}**\n\n`;
+            desc += `## Liens\n- Site Internet: ${websiteURL}\n- GitHub : ${githubURL}\n- Serveur de Support: ${supportServerURL}`
             let embed = new EmbedBuilder()
                 .setDescription(desc)
                 .setThumbnail(message.client.user.displayAvatarURL({
@@ -17,7 +17,7 @@ export const command = {
                     forceStatic: false
                 }))
                 .setFooter({
-                    text: `Requested by: @${message.author.username} [${message.author.id}]`
+                    text: `Demandé par : @${message.author.username} [${message.author.id}]`
                 });
 
             await message.reply({

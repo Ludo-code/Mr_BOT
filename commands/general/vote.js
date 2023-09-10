@@ -3,8 +3,8 @@ const { voteURL } = config;
 export const command = {
     name: 'vote',
     aliases: ['voting'],
-    description: 'Sends the URL to vote for the bot',
+    description: 'Envoie le lien pour voter',
     async execute(message, args) {
-        await message.reply(voteURL || 'No vote URL');
+        await message.reply(voteURL || 'Pas d\'url de vote pour le moment');
     },
 };

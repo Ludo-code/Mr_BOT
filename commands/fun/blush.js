@@ -1,0 +1,25 @@
+import { EmbedBuilder } from "discord.js";
+import fetch from "node-fetch";
+
+export const command = {
+    name: 'rougit',
+    aliases: ['rougir'],
+    description: 'Envoie une image de personne qui rougis aléatoire.',
+    async execute(message, args) {
+        try {
+            let res = await (await fetch('https://nekos.best/api/v2/blush'))?.json();
+            if (!res?.results[0].url) return await message.reply('Impossible de récupérer l\'image.');
+            
+            let embed = new EmbedBuilder()
+                .setTitle(`${message.member.nickname || message.author.username} rougit.`)
+                .setColor('Random')
+                .setImage(res.results[0].url);
+
+            await message.reply({
+                embeds: [embed],
+            });
+        } catch (error) {
+            console.error(error);
+        }
+    },
+};

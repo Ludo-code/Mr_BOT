@@ -60,6 +60,10 @@ export const event = {
                     }
                 });
 
+                if (!message.channel.nsfw) {
+                    return message.reply('Tu ne peux pas exécuter des commandes nfsw en dehors d\'un salon de ce type !')
+                }
+
                 if (!g || !g.toJSON()?.nsfwEnabled) {
                     return await message.reply(`Les commandes NSFW sont désactié sur se serveur...`);
                 }
@@ -81,7 +85,7 @@ export const event = {
             await command.execute(message, args, commandName);
         } catch (error) {
             console.error(error);
-            message.reply("Désolé, une erreur est survenu lors de l'éxécution d'une commande !");
+            message.reply('Désolé, une erreur est survenu lors de l\'éxécution d\'une commande !');
         }
     },
 };

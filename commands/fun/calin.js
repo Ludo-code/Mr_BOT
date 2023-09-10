@@ -3,23 +3,22 @@ import fetch from "node-fetch";
 
 export const command = {
     name: 'calin',
-    description: 'Send a random calin image',
+    description: 'Envoie une image de câlin aléatoire.',
     cooldown: 30,
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/hug'))?.json();
-            if (!res?.url) return await message.reply('Could not fetch the image');
+            if (!res?.url) return await message.reply('Impossible de récupérer l\'image.');
            
             let mentionedmember = message.mentions.members.first();
 
             let embed = new EmbedBuilder()
-                .setTitle(`A hug for you, ${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)}`)
+                .setTitle(`${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)} te fais un câlin.`)
                 .setColor('Random')
                 .setImage(res.url);
 
 
             await message.reply({
-                ...(mentionedmember && { content: `${mentionedmember}` }),
                 embeds: [embed],
             });
         } catch (error) {

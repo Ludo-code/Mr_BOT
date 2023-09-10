@@ -3,7 +3,7 @@ import { ChannelType, EmbedBuilder } from "discord.js";
 export const command = {
     name: 'info-serv',
     aliases: ['serverinfo'],
-    description: 'Check the server info',
+    description: 'Permet d\'obtenir les informations du serveur.',
     async execute(message, args) {
         try {
             let guild = message.guild;
@@ -27,22 +27,22 @@ export const command = {
                 .setColor('Random')
                 .addFields(
                     {
-                        name: 'Members',
-                        value: `- **${guild.memberCount}** members\n  - **${botsCount}** bots\n  - **${guild.memberCount - botsCount}** non-bot users\n- Owner: **${guild.members.cache.get(guild.ownerId).user.username}** (ID: **${guild.ownerId}**)`,
+                        name: 'Membres',
+                        value: `- **${guild.memberCount}** membres\n  - **${botsCount}** bots\n  - **${guild.memberCount - botsCount}** membres non-bot\n- Propriétaire : **${guild.members.cache.get(guild.ownerId).user.username}** (ID : **${guild.ownerId}**)`,
                         inline: true
                     },
                     {
-                        name: 'Channels',
-                        value: `- **${textChannels}** Text, **${voiceChannels}** Voice, **${announcementChannels}** Announcement, **${forumChannels}** Forum, **${stageChannels}** Stage\n- System channel: ${guild.systemChannelId ? `<#${guild.systemChannelId}>` : '**None**'}\n- AFK channel: ${guild.afkChannelId ? `<#${guild.afkChannelId}>` : '**None**'}`,
+                        name: 'Salons',
+                        value: `- **${textChannels}** Textuelle, **${voiceChannels}** Vocaux, **${announcementChannels}** Annonce, **${forumChannels}** Forum, **${stageChannels}** Évènements\n- Salons Systèmes : ${guild.systemChannelId ? `<#${guild.systemChannelId}>` : '**Aucun**'}\n- Salon AFK : ${guild.afkChannelId ? `<#${guild.afkChannelId}>` : '**Aucun**'}`,
                         inline: true
                     },
                     {
-                        name: 'Others',
-                        value: `- Created: <t:${Math.round(guild.createdTimestamp / 1000)}:R>\n- Roles: **${guild.roles.cache.map(r => r).filter(r => r.id != guild.id).length}**\n- Emojis: **${guild.emojis.cache.size}**`,
+                        name: 'Autres',
+                        value: `- Crée le : <t:${Math.round(guild.createdTimestamp / 1000)}:R>\n- Roles: **${guild.roles.cache.map(r => r).filter(r => r.id != guild.id).length}**\n- Emojis: **${guild.emojis.cache.size}**`,
                     }
                 )
                 .setFooter({
-                    text: `Requested by: @${message.author.username} [${message.author.id}]`
+                    text: `Demandé par : @${message.author.username} [${message.author.id}]`
                 })
                 .setTimestamp();
 

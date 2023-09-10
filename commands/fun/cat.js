@@ -2,12 +2,12 @@ import { EmbedBuilder } from "discord.js";
 import fetch from "node-fetch";
 
 export const command = {
-    name: 'cat',
-    description: 'Send a random cat image',
+    name: 'chat',
+    description: 'Envoie une image de chat aléatoire.',
     async execute(message, args) {
         try {
             let embed = new EmbedBuilder()
-                .setTitle(`A cat image for you, ${message.member.nickname || message.author.username}`)
+                .setTitle(`Une image de chat pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor('Random')
                 .setImage(`https://cataas.com/cat/says/%20?noCache=${Date.now()}_${String(Math.random()).replace(/\./g,'')}`);
 
