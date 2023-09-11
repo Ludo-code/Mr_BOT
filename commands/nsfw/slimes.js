@@ -4,8 +4,7 @@ import 'dotenv/config';
 
 export const command = {
     name: 'slime',
-    aliases: ['slime'],
-    description: 'Permet d\'envoyer une image de quelqu\'un quise fait engluer.',
+    description: 'Permet d\'envoyer une image de quelqu\'un qui se fait engluer.',
     cooldown: 10,
     nsfw: true,
     async execute(message, args) {

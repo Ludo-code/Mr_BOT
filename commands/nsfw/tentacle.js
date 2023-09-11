@@ -9,7 +9,7 @@ export const command = {
     nsfw: true,
     async execute(message, args) {
         try {
-            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/tentacle', {
+            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/gif/tentacle', {
   headers: {
     'Authorization': `${process.env.FLUXPOINT_API_KEY}`
   }
