@@ -20,7 +20,6 @@ export const command = {
                 .setImage(res.results[0]?.media[0]?.gif?.url);
 
             await message.reply({
-                ...(mentionedmember && { content: `${mentionedmember}` }),
                 embeds: [embed],
             });
         } catch (error) {

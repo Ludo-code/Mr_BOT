@@ -20,7 +20,6 @@ export const command = {
 
 
             await message.reply({
-                ...(mentionedmember && { content: `${mentionedmember}` }),
                 embeds: [embed],
             });
         } catch (error) {
