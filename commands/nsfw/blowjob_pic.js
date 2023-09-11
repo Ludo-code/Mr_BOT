@@ -1,5 +1,6 @@
 import { EmbedBuilder } from "discord.js";
 import fetch from "node-fetch";
+import 'dotenv/config';
 
 export const command = {
     name: 'suce_img',
