@@ -14,14 +14,14 @@ export const command = {
     'Authorization': `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
-            if (!res?.url) return await message.reply('Impossible de récupérer l\'image.');
+            if (!res?.file) return await message.reply('Impossible de récupérer l\'image.');
            
             let mentionedmember = message.mentions.members.first();
 
             let embed = new EmbedBuilder()
                 .setTitle(`${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)} se fais baiser.`)
                 .setColor('Random')
-                .setImage(res.url);
+                .setImage(res.file);
 
 
             await message.reply({

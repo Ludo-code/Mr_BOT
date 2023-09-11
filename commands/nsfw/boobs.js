@@ -15,12 +15,12 @@ export const command = {
     'Authorization': `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
-            if (!res?.url) return await message.reply('Impossible de récupérer l\'image');
+            if (!res?.file) return await message.reply('Impossible de récupérer l\'image');
             
             let embed = new EmbedBuilder()
                 .setTitle(`Une image de seins pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor('Random')
-                .setImage(res.url);
+                .setImage(res.file);
 
             await message.reply({
                 embeds: [embed],
