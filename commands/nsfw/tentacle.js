@@ -2,13 +2,13 @@ import { EmbedBuilder } from "discord.js";
 import fetch from "node-fetch";
 
 export const command = {
-    name: 'nekonue',
-    description: 'Permet d\'envoyer une image d\'une neko nue.',
+    name: 'tentacle',
+    description: 'Permet d\'envoyer une image de tentacle.',
     cooldown: 10,
     nsfw: true,
     async execute(message, args) {
         try {
-            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/neko', {
+            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/tentacle', {
   headers: {
     'Authorization': `${process.env.FLUXPOINT_API_KEY}`
   }
@@ -16,7 +16,7 @@ export const command = {
             if (!res?.url) return await message.reply('Impossible de récupérer l\'image');
             
             let embed = new EmbedBuilder()
-                .setTitle(`Une image d'une neko nue pour toi, ${message.member.nickname || message.author.username}`)
+                .setTitle(`Une image de tentacle pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor('Random')
                 .setImage(res.url);
 

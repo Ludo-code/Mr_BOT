@@ -9,7 +9,11 @@ export const command = {
     nsfw: true,
     async execute(message, args) {
         try {
-            let res = await (await fetch('https://api.waifu.pics/nsfw/trap'))?.json();
+            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/trap', {
+  headers: {
+    'Authorization': `${process.env.FLUXPOINT_API_KEY}`
+  }
+}))?.json();
             if (!res?.url) return await message.reply('Impossible de récupérer l\'image');
             
             let embed = new EmbedBuilder()
