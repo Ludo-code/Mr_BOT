@@ -4,7 +4,7 @@ import 'dotenv/config';
 
 export const command = {
     name: 'chatte_img',
-    aliases: ['pussy', 'pussy_img', 'pussy-img', 'pussyimg', 'chatte-img', 'chatteimg'],
+    aliases: ['pussy_img', 'pussy-img', 'pussyimg', 'chatte-img', 'chatteimg'],
     description: 'Permet d\'envoyer une image d\'une chatte.',
     cooldwon: 10,
     nsfw: true,
