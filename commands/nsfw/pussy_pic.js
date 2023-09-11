@@ -3,21 +3,23 @@ import fetch from "node-fetch";
 import 'dotenv/config';
 
 export const command = {
-    name: 'nekonue',
-    description: 'Permet d\'envoyer une image d\'une neko nue.',
-    cooldown: 10,
+    name: 'chatte_img',
+    aliases: ['pussy', 'pussy_img', 'pussy-img', 'pussyimg', 'chatte-img', 'chatteimg'],
+    description: 'Permet d\'envoyer une image d\'une chatte.',
+    cooldwon: 10,
     nsfw: true,
     async execute(message, args) {
         try {
-            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/neko', {
+            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/pussy', {
   headers: {
     'Authorization': `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
+
             if (!res?.file) return await message.reply('Impossible de récupérer l\'image');
             
             let embed = new EmbedBuilder()
-                .setTitle(`Une image d'une neko nue pour toi, ${message.member.nickname || message.author.username}`)
+                .setTitle(`Une image d'une chatte pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor('Random')
                 .setImage(res.file);
 

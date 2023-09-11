@@ -3,14 +3,14 @@ import fetch from "node-fetch";
 import 'dotenv/config';
 
 export const command = {
-    name: 'futa',
-    aliases: ['futanari'],
-    description: 'Permet d\'envoyer une image d\'une futanari.',
+    name: 'cum_img',
+    aliases: ['ejac_img', 'ejaculation_img', 'cumimg', 'cum-img', 'ejac-img', 'ejacimg'],
+    description: 'Envoie une image de quelqu\'un qui éjacule.',
     cooldown: 10,
     nsfw: true,
     async execute(message, args) {
         try {
-            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/futa', {
+            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/cum', {
   headers: {
     'Authorization': `${process.env.FLUXPOINT_API_KEY}`
   }
@@ -20,7 +20,7 @@ export const command = {
             let mentionedmember = message.mentions.members.first();
 
             let embed = new EmbedBuilder()
-                .setTitle(`${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)} se fais défleurer par surprise.`)
+                .setTitle(`${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)} se fait recouvrir.`)
                 .setColor('Random')
                 .setImage(res.file);
 
