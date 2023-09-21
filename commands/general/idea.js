@@ -3,7 +3,8 @@ import config from "../../config.js";
 const { ownerId } = config;
 
 export const command = {
-    name: 'idea',
+    name: 'idee',
+    aliases: ['idée'],
     description: 'Permet de rapporter une idée. Il est possible de joindre un fichier ou plusieurs.',
     usage: '<message>',
     args: true,
