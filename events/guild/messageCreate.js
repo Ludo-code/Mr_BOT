@@ -27,6 +27,17 @@ export const event = {
                 return await message.reply(`Tu as besoin de la permission \`Administrateur\` pour exécuter la commande...`);
             }
 
+            //Checking args
+            if (command.args && !args.length) {
+                let reply = `Tu n'a entré aucun nom de commande correct, ${message.author}!`;
+            
+                    if (command.usage) {
+                        reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
+                    }
+            
+                    return message.channel.send(reply);
+                }
+            
             //checking for cooldown
             if (command.cooldown && typeof command.cooldown == 'number') {
                 if (!cooldowns.has(command.name)) {
@@ -68,18 +79,6 @@ export const event = {
                     return await message.reply(`Les commandes NSFW sont désactié sur se serveur...`);
                 }
             }
-
-            //Checking args
-            if (command.args && !args.length) {
-                let reply = `Tu n'a entré aucun nom de commande correct, ${message.author}!`;
-
-                if (command.usage) {
-                    reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
-                }
-
-                return message.channel.send(reply);
-            }
-
             //execute
 
             await command.execute(message, args, commandName);
