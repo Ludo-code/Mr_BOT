@@ -1,4 +1,4 @@
-export const permissionsFR = {
+export default {
     CREATE_INSTANT_INVITE: 'Permet la création d\'invitations instantanées',
     KICK_MEMBERS: 'Permet d\'expulser des membres',
     BAN_MEMBERS: 'Permet de banir des membres',
