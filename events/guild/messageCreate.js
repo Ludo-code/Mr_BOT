@@ -37,6 +37,23 @@ export const event = {
             
                     return message.channel.send(reply);
                 }
+
+            //checking nsfw
+            if (command.nsfw) {
+                let [g] = await Guild.findOrCreate({
+                    where: {
+                        guildId: message.guild.id,
+                    }
+                });
+
+                if (!message.channel.nsfw) {
+                    return message.reply('Tu ne peux pas exécuter des commandes nfsw en dehors d\'un salon de ce type !')
+                }
+
+                if (!g || !g.toJSON()?.nsfwEnabled) {
+                    return await message.reply(`Les commandes NSFW sont désactié sur se serveur...`);
+                }
+            }
             
             //checking for cooldown
             if (command.cooldown && typeof command.cooldown == 'number') {
@@ -63,22 +80,6 @@ export const event = {
                 }
             }
 
-            //checking nsfw
-            if (command.nsfw) {
-                let [g] = await Guild.findOrCreate({
-                    where: {
-                        guildId: message.guild.id,
-                    }
-                });
-
-                if (!message.channel.nsfw) {
-                    return message.reply('Tu ne peux pas exécuter des commandes nfsw en dehors d\'un salon de ce type !')
-                }
-
-                if (!g || !g.toJSON()?.nsfwEnabled) {
-                    return await message.reply(`Les commandes NSFW sont désactié sur se serveur...`);
-                }
-            }
             //execute
 
             await command.execute(message, args, commandName);
