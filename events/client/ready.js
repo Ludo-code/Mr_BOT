@@ -5,11 +5,12 @@ export const event = {
 	once: true,
 	async execute(client) {
 		console.log(`Prêt ? Le bot est connecté en tant que ${client.user.tag} ( ${client.user.id} )`);
+		const version = require('../../package.json')
 		const activitees = [
 		  " m*aide",
 		  " m*aide_nsfw",
 		  `${client.guilds.cache.size} serveurs !`,
-		  `la version 3.0.0...`,
+		  `la version ${version}...`,
 		];
 		let nombre = 0;
 		setInterval(() => {
