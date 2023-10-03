@@ -1,10 +1,11 @@
-import { Colors, EmbedBuilder } from "discord.js";
+import { Colors, EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Pagination } from 'pagination.djs';
 
 export const command = {
     name: 'aide_nsfw',
     aliases: ['aide-nsfw', 'help-nsfw'],
     description: 'Affiche l\'aide des commandes nsfw.',
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let commandName = args[0];

@@ -1,8 +1,9 @@
-import { ChannelType, EmbedBuilder } from "discord.js";
+import { ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export const command = {
     name: 'avatar',
     description: 'Permet de récupérer l\'avatar d\'une personne',
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let member = message.mentions.members.first() || message.member;

@@ -1,3 +1,5 @@
+import { PermissionsBitField } from "discord.js";
+
 export const command = {
     name: 'efface',
     aliases: ['delete', 'erase', 'effacer', 'éffacer', 'clear'],
@@ -5,6 +7,7 @@ export const command = {
     usage: '<number>',
     args: true,
     staffOnly: true,
+	clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ManageMessages],
     async execute(message, args) {
         const amount = parseInt(args[0]) + 1;
 

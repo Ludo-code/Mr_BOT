@@ -1,4 +1,4 @@
-import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder } from "discord.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Guild } from "../../schema/schema.js";
 
 export const command = {
@@ -8,6 +8,7 @@ export const command = {
     args: true,
     usage: '<category_channel>',
     staffOnly: true,
+    clientpermissions: [PermissionsBitField.Flags.SendMessages],
     async execute(message, args) {
         try {
             let channel = message.mentions.channels.first();

@@ -1,9 +1,10 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export const command = {
 	name: 'ping',
 	aliases: ['beep', 'pong'],
 	description: 'Permet de connaître la latence du bot.',
+	clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
 	async execute(message, args) {
 		let sent = await message.reply({
 			content: `🎉 Pong!`,

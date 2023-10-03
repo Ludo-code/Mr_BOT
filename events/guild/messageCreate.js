@@ -27,34 +27,17 @@ export const event = {
                 return await message.reply(`Tu as besoin de la permission \`Administrateur\` pour exécuter la commande...`);
             }
 
-            //Checking args
-            if (command.args && !args.length) {
-                let reply = `Tu n'a entré aucun nom de commande correct, ${message.author}!`;
-            
-                    if (command.usage) {
-                        reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
-                    }
-            
-                    return message.channel.send(reply);
-                }
-
-            //checking nsfw
-            if (command.nsfw) {
-                let [g] = await Guild.findOrCreate({
-                    where: {
-                        guildId: message.guild.id,
-                    }
-                });
-
-                if (!message.channel.nsfw) {
-                    return message.reply('Tu ne peux pas exécuter des commandes nfsw en dehors d\'un salon de ce type !')
-                }
-
-                if (!g || !g.toJSON()?.nsfwEnabled) {
-                    return await message.reply(`Les commandes NSFW sont désactié sur se serveur...`);
+            //chcking for client permissions
+            if (command.clientpermissions) {
+                let missingperms = message.guild.members.me.permissions.missing(new PermissionsBitField(command.clientpermissions));
+                if (missingperms?.length) {
+                    try {
+                        return await message.reply(`Désolé tu n'a pas la/les permission(s) suivante : \`${missingperms.join('`, `')}\` pour exécuter cette commande.`);
+                    } catch (error) {}
+                    return;
                 }
             }
-            
+
             //checking for cooldown
             if (command.cooldown && typeof command.cooldown == 'number') {
                 if (!cooldowns.has(command.name)) {
@@ -78,6 +61,34 @@ export const event = {
                     timestamps.set(`${message.guild.id}_${message.author.id}`, now);
                     setTimeout(() => timestamps.delete(`${message.guild.id}_${message.author.id}`), cooldownAmount);
                 }
+            }
+
+            //checking nsfw
+            if (command.nsfw) {
+                let [g] = await Guild.findOrCreate({
+                    where: {
+                        guildId: message.guild.id,
+                    }
+                });
+
+                if (!message.channel.nsfw) {
+                    return message.reply('Tu ne peux pas exécuter des commandes nfsw en dehors d\'un salon de ce type !')
+                }
+
+                if (!g || !g.toJSON()?.nsfwEnabled) {
+                    return await message.reply(`Les commandes NSFW sont désactié sur se serveur...`);
+                }
+            }
+
+            //Checking args
+            if (command.args && !args.length) {
+                let reply = `Tu n'a entré aucun nom de commande correct, ${message.author}!`;
+
+                if (command.usage) {
+                    reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
+                }
+
+                return message.channel.send(reply);
             }
 
             //execute

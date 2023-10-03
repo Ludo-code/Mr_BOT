@@ -10,7 +10,7 @@ export const event = {
 		  " m*aide",
 		  " m*aide_nsfw",
 		  `${client.guilds.cache.size} serveurs !`,
-		  `la version ${pkgjson.version}...`,
+		  `la version ${pkgjson.version}...`
 		];
 		let nombre = 0;
 		setInterval(() => {

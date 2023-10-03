@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
 
 export const command = {
@@ -6,6 +6,7 @@ export const command = {
     aliases: ['rougir'],
     description: 'Envoie une image de personne qui rougis aléatoire.',
     cooldown: 10,
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.best/api/v2/blush'))?.json();

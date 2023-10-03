@@ -1,10 +1,11 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
 
 export const command = {
     name: 'neko',
     description: 'Envoie une image de neko aléatoire',
     cooldown: 10,
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let res = await (await fetch('https://nekos.life/api/v2/img/neko'))?.json();

@@ -1,3 +1,4 @@
+import { PermissionsBitField } from "discord.js";
 import { Guild } from "../../schema/schema.js";
 
 export const command = {
@@ -6,6 +7,7 @@ export const command = {
     args: true,
     usage: '<actif|inactif>',
     staffOnly: true,
+    clientpermissions: [PermissionsBitField.Flags.SendMessages],
     async execute(message, args) {
 
         if (!args || !args[0] || !['actif', 'inactif'].includes(args[0]?.toLowerCase())) {
