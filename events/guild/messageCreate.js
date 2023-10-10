@@ -27,13 +27,17 @@ export const event = {
                 return await message.reply(`Tu as besoin de la permission \`Administrateur\` pour exécuter la commande...`);
             }
 
-            //chcking for client permissions
+            //checking for client permissions
             if (command.clientpermissions) {
-                let missingperms = message.guild.members.me.permissions.missing(new PermissionsBitField(command.clientpermissions));
+                let missingperms = message.guild.members.me.permissionsIn(message.channel).missing(new PermissionsBitField(command.clientpermissions));
                 if (missingperms?.length) {
                     try {
-                        return await message.reply(`Désolé tu n'a pas la/les permission(s) suivante : \`${missingperms.join('`, `')}\` pour exécuter cette commande.`);
-                    } catch (error) {}
+                        return await message.reply(`Désolé tu n'a pas \`${missingperms.join('`, `')}\` comme permission pour exécuter cette commande.`);
+                    } catch (error) {
+                        try {
+                            await message.author.send(`Désolé, je ne peux pas envoyer de message dans le serveur...Je n'ai peut être pas la permission \`Envoyer des messages\`.`)
+                        } catch (error) {}
+                    }
                     return;
                 }
             }
