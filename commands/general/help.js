@@ -1,4 +1,4 @@
-import { Colors, EmbedBuilder } from "discord.js";
+import { Colors, EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Pagination } from 'pagination.djs';
 import config from '../../config.js';
 const { prefix } = config;
@@ -7,6 +7,7 @@ export const command = {
     name: 'aide',
     aliases: ['help'],
     description: 'Affiche la liste de toute les commandes',
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let commandName = args[0];

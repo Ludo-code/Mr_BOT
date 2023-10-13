@@ -5,6 +5,7 @@ export const command = {
     name: 'fermer',
     aliases: ['fermeture'],
     description: 'Permet de fermer le ticket.',
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ManageChannels],
     async execute(message, args) {
         let t = await Ticket.findOne({
             where: {

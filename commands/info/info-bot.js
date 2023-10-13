@@ -1,10 +1,11 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import config from "../../config.js";
 const { websiteURL, githubURL, supportServerURL } = config;
 
 export const command = {
     name: 'info-bot',
     description: 'Affiche les informations sur le bot',
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let desc = `## Statistique\n- Serveurs : **${message.client.guilds.cache.size}**\n- Utilisateurs : **${message.client.guilds.cache.reduce((acc, val) => acc + (val.memberCount ?? 0), 0)}**\n- Salons : **${message.client.channels.cache.size}**\n\n`;

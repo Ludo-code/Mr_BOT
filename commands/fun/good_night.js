@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
 import 'dotenv/config';
 
@@ -7,6 +7,7 @@ export const command = {
     aliases: ['bonnenuit', 'bonne-nuit'],
     description: 'Envoie une image aléatoire de Bonne Nuit.',
     cooldown: 10,
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let res = await (await fetch(`https://g.tenor.com/v1/random?id=8776030&key=${process.env.TENOR_API_KEY}&limit=1&q=good+night+anime`))?.json();

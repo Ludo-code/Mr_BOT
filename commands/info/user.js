@@ -1,9 +1,10 @@
-import { ChannelType, EmbedBuilder } from "discord.js";
+import { ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export const command = {
     name: 'info-utilisateur',
     aliases: ['userinfo', 'infoutilisateur', 'info_utilisateur'],
     description: 'Voir les informations de l\'utilisateur',
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let member = message.mentions.members.first() || message.member;

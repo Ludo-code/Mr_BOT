@@ -1,4 +1,5 @@
 import {ActivityType, Events} from 'discord.js';
+import pkgjson from '../../package.json' assert { type: 'json' };
 
 export const event = {
 	name: Events.ClientReady,
@@ -9,7 +10,7 @@ export const event = {
 		  " m*aide",
 		  " m*aide_nsfw",
 		  `${client.guilds.cache.size} serveurs !`,
-		  `la version 3.0.0...`,
+		  `la version ${pkgjson.version}...`
 		];
 		let nombre = 0;
 		setInterval(() => {

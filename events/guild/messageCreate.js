@@ -1,6 +1,7 @@
 import { ChannelType, Collection, Events, PermissionsBitField } from 'discord.js';
 import { Guild } from '../../schema/schema.js';
 import config from '../../config.js';
+import PermissionsFR from '../../permissionsFr.js';
 const { prefix } = config;
 
 const cooldowns = new Collection();
@@ -25,6 +26,30 @@ export const event = {
 
             if (command.staffOnly && !message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
                 return await message.reply(`Tu as besoin de la permission \`Administrateur\` pour exécuter la commande...`);
+            }
+
+            //checking for client permissions
+            if (command.clientpermissions) {
+                let missingperms = message.guild.members.me.permissionsIn(message.channel).missing(new PermissionsBitField(command.clientpermissions));
+                missingperms = missingperms.toString().toUpperCase();
+                let frenchMissingPerms = "";
+                for (const [key, values] of Object.entries(PermissionsFR)) {
+                  if (values.includes(PermissionsFR[key]) && missingperms.includes(key)) {
+                    frenchMissingPerms += PermissionsFR[key] + "; ";
+                  }
+                }
+                frenchMissingPerms = frenchMissingPerms.slice(0, -2);
+                
+                if (missingperms?.length) {
+                    try {
+                        return await message.reply(`Désolé tu n'a pas \`${frenchMissingPerms}\` comme permission pour exécuter cette commande.`);
+                    } catch (error) {
+                        try {
+                            await message.author.send(`Désolé, je ne peux pas envoyer de message dans le serveur...Je n'ai peut être pas la permission \`Envoyer des messages\`.`)
+                        } catch (error) {}
+                    }
+                    return;
+                }
             }
 
             //checking for cooldown

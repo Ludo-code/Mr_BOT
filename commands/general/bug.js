@@ -1,4 +1,4 @@
-import { AttachmentBuilder, Colors, EmbedBuilder } from "discord.js";
+import { AttachmentBuilder, Colors, EmbedBuilder, PermissionsBitField } from "discord.js";
 import config from "../../config.js";
 const { ownerId } = config;
 
@@ -8,6 +8,7 @@ export const command = {
     usage: '<message>',
     args: true,
     cooldown: 43200,
+    clientpermissions: [PermissionsBitField.Flags.SendMessages],
     async execute(message, args) {
         if (!args?.length) return;
 

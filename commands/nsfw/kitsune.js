@@ -1,4 +1,4 @@
-import { EmbedBuilder } from "discord.js";
+import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
 import 'dotenv/config';
 
@@ -7,6 +7,7 @@ export const command = {
     description: 'Permet d\'envoyer une image d\'une kitsune.',
     cooldown: 10,
     nsfw: true,
+    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/kitsune', {
