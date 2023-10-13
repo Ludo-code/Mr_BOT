@@ -1,7 +1,7 @@
 import { ChannelType, Collection, Events, PermissionsBitField } from 'discord.js';
 import { Guild } from '../../schema/schema.js';
 import config from '../../config.js';
-import PermissionsFR from '../../permissionsFr.js';
+import PermissionsFR from '../../permissionsFR.js';
 const { prefix } = config;
 
 const cooldowns = new Collection();
