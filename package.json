@@ -11,11 +11,11 @@
   "author": "Ludo-code",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.13.0",
-    "dotenv": "^16.3.1",
-    "mariadb": "^3.2.0",
+    "discord.js": "^14.15.3",
+    "dotenv": "^16.4.5",
+    "mariadb": "^3.3.1",
     "node-fetch": "^3.3.2",
-    "pagination.djs": "^4.0.12",
-    "sequelize": "^6.32.1"
+    "pagination.djs": "^4.0.15",
+    "sequelize": "^6.37.3"
   }
 }
