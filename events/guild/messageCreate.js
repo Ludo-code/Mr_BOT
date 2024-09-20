@@ -28,7 +28,6 @@ export const event = {
                 return await message.reply(`Tu as besoin de la permission \`Administrateur\` pour exécuter la commande...`);
             }
 
-            //checking for client permissions
             if (command.clientpermissions) {
                 let missingperms = message.guild.members.me.permissionsIn(message.channel).missing(new PermissionsBitField(command.clientpermissions));
                 missingperms = missingperms.toString().toUpperCase();
@@ -52,7 +51,6 @@ export const event = {
                 }
             }
 
-            //checking for cooldown
             if (command.cooldown && typeof command.cooldown == 'number') {
                 if (!cooldowns.has(command.name)) {
                     cooldowns.set(command.name, new Collection());
@@ -77,7 +75,6 @@ export const event = {
                 }
             }
 
-            //checking nsfw
             if (command.nsfw) {
                 let [g] = await Guild.findOrCreate({
                     where: {
@@ -94,7 +91,6 @@ export const event = {
                 }
             }
 
-            //Checking args
             if (command.args && !args.length) {
                 let reply = `Tu n'a entré aucun nom de commande correct, ${message.author}!`;
 
@@ -104,8 +100,6 @@ export const event = {
 
                 return message.channel.send(reply);
             }
-
-            //execute
 
             await command.execute(message, args, commandName);
         } catch (error) {
