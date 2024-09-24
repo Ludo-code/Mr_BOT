@@ -12,7 +12,7 @@ export const command = {
             if (!res?.link) return await message.reply('Impossible de récupérer l\'image.');
             
             let embed = new EmbedBuilder()
-                .setTitle(`Une image de pande pour toi, ${message.member.nickname || message.author.username}`)
+                .setTitle(`Une image de panda pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor('Random')
                 .setImage(res.link);
 
