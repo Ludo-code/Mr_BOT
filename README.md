@@ -40,6 +40,7 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
    BOT_TOKEN=<DISCORD_BOT_TOKEN>
    TENOR_API_KEY=<TENOR_API_KEY>
    FLUXPOINT_API_KEY=<FLUXPOINT_API_KEY>
+   UPTIME_KUMA_URL=<UPTIME_KUMA_URL>
    DB_NAME=<DATABASE_NAME>
    DB_USERNAME=<DATABASE_USERNAME>
    DB_PASSWORD=<DATABASE_PASSWORD>
@@ -51,6 +52,7 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
    - **BOT_TOKEN** : Le token de votre bot Discord, généré depuis [Discord Developer Portal](https://discord.com/developers/applications).
    - **TENOR_API_KEY** : Votre clé API Tenor (pour les GIFs).
    - **FLUXPOINT_API_KEY** : Votre clé API Fluxpoint.
+   - **UPTIME_KUMA_URL** : Votre URL push uptime kuma mettre vide si vous n'en avez pas.
    - **DB_NAME** : Nom de la base de données que vous utilisez.
    - **DB_USERNAME** : Nom d'utilisateur pour la base de données.
    - **DB_PASSWORD** : Mot de passe pour la base de données.
