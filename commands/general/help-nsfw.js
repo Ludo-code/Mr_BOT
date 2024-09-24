@@ -5,6 +5,7 @@ export const command = {
     name: 'aide_nsfw',
     aliases: ['aide-nsfw', 'help-nsfw'],
     description: 'Affiche l\'aide des commandes nsfw.',
+    nsfw: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {

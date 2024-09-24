@@ -14,7 +14,7 @@ export const command = {
                 const originalPosition = message.channel.position;
                 await message.channel.delete().catch(() => null);
                 await clonedChannel.setPosition(originalPosition);
-            }, 10000);
+            }, 15000);
         } catch (error) {
             console.error(error);
             await message.channel.send(`Impossible de faire focntionner cette commande. \`Erreur : ${error.message}\``);
