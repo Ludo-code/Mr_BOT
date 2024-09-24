@@ -2,7 +2,6 @@ export default {
     prefix: "m*",
     ownerId: '268432158262165504',
     clientId: '636098912859717634',
-    guildId: '797562340807409704',
     voteURL: 'https://top.gg/bot/636098912859717634?s=0418acfa64d7e',
     websiteURL: 'https://mr-bot.tech-ludo.fr',
     githubURL: 'https://github.com/Ludo-code/Mr_BOT',
