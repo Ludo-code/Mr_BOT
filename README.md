@@ -7,6 +7,7 @@ Bienvenue sur **Mr_BOT**, un bot Discord complet et créé de toutes pièces, pr
 - Intégration avec l'API Tenor pour la gestion de GIFs.
 - Utilisation de l'API Fluxpoint pour des fonctionnalités supplémentaires.
 - Support d'une base de données (MariaDB) pour la persistance des données.
+- Système de log avec `winston` et gestion de la durée de rétention des logs.
 - Personnalisable et open source pour ajouter vos propres fonctionnalités.
 
 ## Prérequis
@@ -64,6 +65,16 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
    ```bash
    npm start
    ```
+
+## Système de logs
+
+Le bot utilise `winston` pour le logging avec rotation automatique des fichiers :
+
+- Les fichiers de log sont créés quotidiennement avec un nom de fichier basé sur la date (`logs/Mr_BOT-DD-MM-YYYY.log`).
+- Les anciens fichiers de log sont automatiquement compressés et conservés pendant 180 jours (6 mois).
+- Après 6 mois, les fichiers de log sont automatiquement supprimés.
+
+Pour personnaliser la configuration des logs, vous pouvez modifier le fichier `logger` dans le code source, en particulier les options `filename`, `maxSize`, `maxFiles`, et `zippedArchive` dans le transport `DailyRotateFile`.
 
 ## API utilisées
 
