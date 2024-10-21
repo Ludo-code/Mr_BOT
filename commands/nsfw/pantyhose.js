@@ -1,27 +1,27 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
-import 'dotenv/config';
+import "dotenv/config";
 
 export const command = {
-    name: 'pantyhose',
-    aliases: ['collant', 'bas'],
-    description: 'Permet d\'envoyer une image de collant.',
+    name: "pantyhose",
+    aliases: ["collant", "bas"],
+    description: "Permet d\'envoyer une image de collant.",
     cooldwon: 10,
     nsfw: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch('https://gallery.fluxpoint.dev/api/nsfw/img/pantyhose', {
+            let res = await (await fetch("https://gallery.fluxpoint.dev/api/nsfw/img/pantyhose", {
   headers: {
-    'Authorization': `${process.env.FLUXPOINT_API_KEY}`
+    "Authorization": `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
 
-            if (!res?.file) return await message.reply('Impossible de récupérer l\'image');
+            if (!res?.file) return await message.reply("Impossible de récupérer l\'image");
             
             let embed = new EmbedBuilder()
                 .setTitle(`Une image de femme en collant pour toi, ${message.member.nickname || message.author.username}`)
-                .setColor('Random')
+                .setColor("Random")
                 .setImage(res.file);
 
             await message.reply({

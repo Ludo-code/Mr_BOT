@@ -1,9 +1,9 @@
 import { PermissionsBitField } from "discord.js";
 
 export const command = {
-    name: 'efface_complet',
-    aliases: ['erase_complete', 'clear_complete', 'clear_complete'],
-    description: 'Supprime la totalité des messages du salon.',
+    name: "efface_complet",
+    aliases: ["erase_complete", "clear_complete", "clear_complete"],
+    description: "Supprime la totalité des messages du salon.",
     staffOnly: true,
 	clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ManageChannels],
     async execute(message, args) {

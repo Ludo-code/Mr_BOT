@@ -3,8 +3,8 @@ import config from "../../config.js";
 const { websiteURL, githubURL, supportServerURL } = config;
 
 export const command = {
-    name: 'info-bot',
-    description: 'Affiche les informations sur le bot',
+    name: "info-bot",
+    description: "Affiche les informations sur le bot",
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
@@ -14,7 +14,7 @@ export const command = {
                 .setDescription(desc)
                 .setThumbnail(message.client.user.displayAvatarURL({
                     size: 1024,
-                    extension: 'png',
+                    extension: "png",
                     forceStatic: false
                 }))
                 .setFooter({

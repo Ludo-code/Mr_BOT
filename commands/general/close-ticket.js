@@ -2,9 +2,9 @@ import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Ticket } from "../../schema/schema.js";
 
 export const command = {
-    name: 'fermer',
-    aliases: ['fermeture'],
-    description: 'Permet de fermer le ticket.',
+    name: "fermer",
+    aliases: ["fermeture"],
+    description: "Permet de fermer le ticket.",
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ManageChannels],
     async execute(message, args) {
         let t = await Ticket.findOne({
@@ -15,7 +15,7 @@ export const command = {
         });
 
         if (!t || (message.author.id != t.toJSON()?.userId && !message.member.permissions.has(PermissionsBitField.Flags.Administrator))) {
-            return await message.reply(`Désolé! Ceci n'est pas votre canal de ticket. Veuillez exécuter cette commande dans votre canal de ticket pour fermer le ticket.`);
+            return await message.reply(`Désolé! Ceci n"est pas votre canal de ticket. Veuillez exécuter cette commande dans votre canal de ticket pour fermer le ticket.`);
         }
 
         if (t) await t.destroy().catch(e => console.log(e));
