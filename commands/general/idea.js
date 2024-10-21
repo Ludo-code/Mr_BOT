@@ -3,17 +3,17 @@ import config from "../../config.js";
 const { ownerId } = config;
 
 export const command = {
-    name: 'idee',
-    aliases: ['idée'],
-    description: 'Permet de rapporter une idée. Il est possible de joindre un fichier ou plusieurs.',
-    usage: '<message>',
+    name: "idee",
+    aliases: ["idée"],
+    description: "Permet de rapporter une idée. Il est possible de joindre un fichier ou plusieurs.",
+    usage: "<message>",
     args: true,
     cooldown: 43200,
     clientpermissions: [PermissionsBitField.Flags.SendMessages],
     async execute(message, args) {
         if (!args?.length) return;
 
-        let msg = args.join(' ');
+        let msg = args.join(" ");
         let attachments = message.attachments.map(a => {
             return new AttachmentBuilder(a.url);
         })
@@ -32,14 +32,14 @@ export const command = {
             .setDescription(msg)
             .addFields(
                 {
-                    name: 'Utilisateur',
+                    name: "Utilisateur",
                     value: `> nom : ${message.author.username}\n> ID: ${message.author.id}`
                 }
             )
             .setThumbnail(message.author.displayAvatarURL({
                 size: 1024,
                 forceStatic: false,
-                extension: 'png'
+                extension: "png"
             }))
             .setColor(Colors.Yellow)
         try {
@@ -48,10 +48,10 @@ export const command = {
                 files: attachments,
             });
 
-            await message.reply('✅ L\'idée à bien été envoyé.')
+            await message.reply("✅ L\'idée à bien été envoyé.")
         } catch (error) {
             console.error(error);
-            await message.reply('❌ Impossible d\'envoyer l\'idée.')
+            await message.reply("❌ Impossible d\'envoyer l\'idée.")
         }
     },
 };

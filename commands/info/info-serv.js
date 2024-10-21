@@ -1,9 +1,9 @@
 import { ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export const command = {
-    name: 'info-serv',
-    aliases: ['serverinfo'],
-    description: 'Permet d\'obtenir les informations du serveur.',
+    name: "info-serv",
+    aliases: ["serverinfo"],
+    description: "Permet d\'obtenir les informations du serveur.",
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
@@ -25,20 +25,20 @@ export const command = {
 
             let embed = new EmbedBuilder()
                 .setTitle(`${guild.name} [${guild.id}]`)
-                .setColor('Random')
+                .setColor("Random")
                 .addFields(
                     {
-                        name: 'Membres',
+                        name: "Membres",
                         value: `- **${guild.memberCount}** membres\n  - **${botsCount}** bots\n  - **${guild.memberCount - botsCount}** membres non-bot\n- Propriétaire : **${guild.members.cache.get(guild.ownerId).user.username}** (ID : **${guild.ownerId}**)`,
                         inline: true
                     },
                     {
-                        name: 'Salons',
-                        value: `- **${textChannels}** Textuelle, **${voiceChannels}** Vocaux, **${announcementChannels}** Annonce, **${forumChannels}** Forum, **${stageChannels}** Évènements\n- Salons Systèmes : ${guild.systemChannelId ? `<#${guild.systemChannelId}>` : '**Aucun**'}\n- Salon AFK : ${guild.afkChannelId ? `<#${guild.afkChannelId}>` : '**Aucun**'}`,
+                        name: "Salons",
+                        value: `- **${textChannels}** Textuelle, **${voiceChannels}** Vocaux, **${announcementChannels}** Annonce, **${forumChannels}** Forum, **${stageChannels}** Évènements\n- Salons Systèmes : ${guild.systemChannelId ? `<#${guild.systemChannelId}>` : "**Aucun**"}\n- Salon AFK : ${guild.afkChannelId ? `<#${guild.afkChannelId}>` : "**Aucun**"}`,
                         inline: true
                     },
                     {
-                        name: 'Autres',
+                        name: "Autres",
                         value: `- Crée le : <t:${Math.round(guild.createdTimestamp / 1000)}:R>\n- Roles: **${guild.roles.cache.map(r => r).filter(r => r.id != guild.id).length}**\n- Emojis: **${guild.emojis.cache.size}**`,
                     }
                 )
@@ -49,7 +49,7 @@ export const command = {
 
             if (message.guild.icon) embed.setThumbnail(message.guild.iconURL({
                 size: 1024,
-                extension: 'png',
+                extension: "png",
                 forceStatic: false
             }))
 

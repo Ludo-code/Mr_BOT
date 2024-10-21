@@ -1,8 +1,8 @@
 import { ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export const command = {
-    name: 'avatar',
-    description: 'Permet de récupérer l\'avatar d\'une personne',
+    name: "avatar",
+    description: "Permet de récupérer l\'avatar d\'une personne",
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
@@ -12,7 +12,7 @@ export const command = {
                 .setTitle(`L\'avatar de ${member.nickname || member.user.username}`)
                 .setImage(member.user.displayAvatarURL({
                     size: 2048,
-                    extension: 'png',
+                    extension: "png",
                     forceStatic: false
                 }))
                 .setFooter({
