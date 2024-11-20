@@ -2,11 +2,11 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder
 import { Guild } from "../../schema/schema.js";
 
 export const command = {
-    name: 'catégorie-ticket',
-    aliases: ['categorie-ticket', 'ticket-category'],
-    description: 'Permet de définir une catégorie dans laquel les ticket seront créer.',
+    name: "catégorie-ticket",
+    aliases: ["categorie-ticket", "ticket-category"],
+    description: "Permet de définir une catégorie dans laquel les ticket seront créer.",
     args: true,
-    usage: '<category_channel>',
+    usage: "<category_channel>",
     staffOnly: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages],
     async execute(message, args) {

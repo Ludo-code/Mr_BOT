@@ -1,5 +1,5 @@
-import { Events } from 'discord.js';
-import handleButton from '../../handler/buttonhandler.js';
+import { Events } from "discord.js";
+import handleButton from "../../handler/buttonhandler.js";
 
 export const event = {
 	name: Events.InteractionCreate,

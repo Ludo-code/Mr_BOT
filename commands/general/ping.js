@@ -1,9 +1,9 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export const command = {
-	name: 'ping',
-	aliases: ['beep', 'pong'],
-	description: 'Permet de connaître la latence du bot.',
+	name: "ping",
+	aliases: ["beep", "pong"],
+	description: "Permet de connaître la latence du bot.",
 	clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
 	async execute(message, args) {
 		let sent = await message.reply({
@@ -11,11 +11,11 @@ export const command = {
 		});
 		try {
 			let embed = new EmbedBuilder()
-				.setTitle('🎉 Pong!')
+				.setTitle("🎉 Pong!")
 				.setDescription(`- Bâtement de coeur : **${message.client.ws.ping}ms**\n- Latence : **${sent.createdTimestamp - message.createdTimestamp}ms**.`)
-				.setColor('Random')
+				.setColor("Random")
 			sent.edit({
-				content: '',
+				content: "",
 				embeds: [embed]
 			});
 		} catch (e) {

@@ -1,9 +1,9 @@
 import { PermissionsBitField } from "discord.js";
 
 export const command = {
-    name: 'efface_complet',
-    aliases: ['erase_complete', 'clear_complete', 'clear_complete'],
-    description: 'Supprime la totalité des messages du salon.',
+    name: "efface_complet",
+    aliases: ["erase_complete", "clear_complete", "clear_complete"],
+    description: "Supprime la totalité des messages du salon.",
     staffOnly: true,
 	clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ManageChannels],
     async execute(message, args) {
@@ -14,7 +14,7 @@ export const command = {
                 const originalPosition = message.channel.position;
                 await message.channel.delete().catch(() => null);
                 await clonedChannel.setPosition(originalPosition);
-            }, 10000);
+            }, 15000);
         } catch (error) {
             console.error(error);
             await message.channel.send(`Impossible de faire focntionner cette commande. \`Erreur : ${error.message}\``);
