@@ -1,5 +1,5 @@
 import {ActivityType, Events} from "discord.js";
-import pkgjson from "../../package.json" assert { type: "json" };
+import pkgjson from "../../package.json" with { type: "json" };
 import "dotenv/config";
 import https from "https";
 
