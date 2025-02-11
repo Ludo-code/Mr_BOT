@@ -44,5 +44,5 @@ const PermissionsFR = {
   USESOUNDBOARD: 'Utiliser Soundboard',
   USEEXTERNALSOUNDS: 'Utiliser des sons externes',
   SENDVOICEMESSAGES: 'Envoyer des messages vocaux'
-};
-export default PermissionsFR;
+}
+export default PermissionsFR
