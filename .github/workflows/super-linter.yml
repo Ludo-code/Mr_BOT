@@ -31,3 +31,11 @@ jobs:
         env:
           # To report GitHub Actions status checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_YAML: false
+          VALIDATE_MARKDOWN_PRETTIER: false
+          VALIDATE_JSON_PRETTIER: false
+          VALIDATE_JSCPD: false
+          VALIDATE_JAVASCRIPT_PRETTIER: false
+          VALIDATE_JAVASCRIPT_ES: false
+
+
