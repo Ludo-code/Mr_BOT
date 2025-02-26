@@ -3,7 +3,7 @@ import winston from "winston";
 import "winston-daily-rotate-file";
 import { Guild } from "../../schema/schema.js";
 import config from "../../config.js";
-import PermissionsFR from "../../permissionsFR.js";
+import PermissionsFR from "../../lang/FR/permissionsFR.js";
 
 const { prefix } = config;
 const cooldowns = new Collection();
