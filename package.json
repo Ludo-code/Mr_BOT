@@ -1,6 +1,6 @@
 {
   "name": "mrbot",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "type": "module",
   "description": "Mr Bot",
   "main": "index.js",
@@ -11,12 +11,17 @@
   "author": "Ludo-code",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^14.17.3",
+    "discord.js": "^14.18.0",
     "dotenv": "^16.4.7",
     "mariadb": "^3.4.0",
     "node-fetch": "^3.3.2",
     "sequelize": "^6.37.5",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "eslint": "^9.21.0",
+    "globals": "^16.0.0"
   }
 }

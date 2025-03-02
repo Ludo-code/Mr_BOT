@@ -26,14 +26,7 @@ export const event = {
 			return;
 		}
 		const makePushRequest = () => {
-			https.get(uptimeKumaUrl, (res) => {
-				let data = "";
-				res.on("data", (chunk) => {
-					data += chunk;
-				});
-				res.on("end", () => {
-					//console.log("Réponse de Uptime Kuma:", data);
-				});
+			https.get(uptimeKumaUrl, () => {
 			}).on("error", (err) => {
 				console.error("Erreur lors de la requête Uptime Kuma:", err.message);
 			});
