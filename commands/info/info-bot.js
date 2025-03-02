@@ -6,7 +6,7 @@ export const command = {
   name: 'info-bot',
   description: 'Affiche les informations sur le bot',
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     try {
       let desc = `## Statistiques\n- Serveurs : **${message.client.guilds.cache.size}**\n- Utilisateurs : **${message.client.guilds.cache.reduce((acc, val) => acc + (val.memberCount ?? 0), 0)}**\n- Salons : **${message.client.channels.cache.size}**\n\n`
       desc += `## Liens\n- Site Internet: ${websiteURL}\n- GitHub : ${githubURL}\n- Serveur de Support: ${supportServerURL}`

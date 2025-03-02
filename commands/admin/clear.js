@@ -14,7 +14,7 @@ export const command = {
     if (isNaN(amount)) {
       return message.reply('La valeur mise ne ressemble pas à un nombre.')
     } else if (amount < 1 || amount > 100) {
-      return message.reply("Vous avez besoin d\'entrer un nombre entre 1 et 100. Si vous souhaitez supprimer tout les messages `efface_complet` permet de le faire.")
+      return message.reply("Vous avez besoin d'entrer un nombre entre 1 et 100. Si vous souhaitez supprimer tout les messages `efface_complet` permet de le faire.")
     }
 
     try {

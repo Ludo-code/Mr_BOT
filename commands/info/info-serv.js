@@ -3,9 +3,9 @@ import { ChannelType, EmbedBuilder, PermissionsBitField } from 'discord.js'
 export const command = {
   name: 'info-serv',
   aliases: ['serverinfo'],
-  description: "Permet d\'obtenir les informations du serveur.",
+  description: "Permet d'obtenir les informations du serveur.",
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     try {
       const guild = message.guild
 

@@ -8,10 +8,10 @@ export const command = {
   description: 'Envoie une image aléatoire de Bonne Nuit.',
   cooldown: 10,
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     try {
       const res = await (await fetch(`https://g.tenor.com/v1/random?id=8776030&key=${process.env.TENOR_API_KEY}&limit=1&q=good+night+anime`))?.json()
-      if (!res?.results || !res.results[0]?.media || !res.results[0]?.media[0]?.gif?.url) return await message.reply('Impossible d\obtenir l\image')
+      if (!res?.results || !res.results[0]?.media || !res.results[0]?.media[0]?.gif?.url) return await message.reply("Impossible d'obtenir l'image")
 
       const mentionedmember = message.mentions.members.first()
 

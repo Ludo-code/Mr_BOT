@@ -6,7 +6,7 @@ export const command = {
   aliases: ['voting'],
   description: 'Envoie le lien pour voter',
   clientpermissions: [PermissionsBitField.Flags.SendMessages],
-  async execute (message, args) {
-    await message.reply(voteURL || "Pas d\'url de vote pour le moment")
+  async execute (message) {
+    await message.reply(voteURL || "Pas d'url de vote pour le moment")
   }
 }

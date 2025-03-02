@@ -3,13 +3,13 @@ import fetch from 'node-fetch'
 
 export const command = {
   name: 'tapote',
-  description: "Permet d\'envoyer une image de quelqu\'un qui tapote",
+  description: "Permet d'envoyer une image de quelqu'un qui tapote",
   cooldown: 10,
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     try {
       const res = await (await fetch('https://nekos.life/api/v2/img/pat'))?.json()
-      if (!res?.url) return await message.reply("Impossible de récupérer l\'image.")
+      if (!res?.url) return await message.reply("Impossible de récupérer l'image.")
 
       const mentionedmember = message.mentions.members.first()
 

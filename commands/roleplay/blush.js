@@ -7,10 +7,10 @@ export const command = {
   description: 'Envoie une image de personne qui rougis aléatoire.',
   cooldown: 10,
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     try {
       const res = await (await fetch('https://nekos.best/api/v2/blush'))?.json()
-      if (!res?.results[0].url) return await message.reply("Impossible de récupérer l\'image.")
+      if (!res?.results[0].url) return await message.reply("Impossible de récupérer l'image.")
 
       const embed = new EmbedBuilder()
         .setTitle(`${message.member.nickname || message.author.username} rougit.`)

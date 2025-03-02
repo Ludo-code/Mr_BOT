@@ -67,7 +67,7 @@ const handleButton = async (interaction) => {
     try {
       await interaction.deferUpdate()
 
-      const [, action, currentPageStr, totalPagesStr] = interaction.customId.split('_')
+      const [, action, currentPageStr] = interaction.customId.split('_')
       const currentPage = parseInt(currentPageStr, 10)
 
       const commands = Array.from(interaction.client.commands.values())

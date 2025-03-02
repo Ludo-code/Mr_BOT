@@ -6,10 +6,10 @@ export const command = {
   description: 'Envoie une image de câlin aléatoire.',
   cooldown: 10,
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     try {
       const res = await (await fetch('https://nekos.life/api/v2/img/hug'))?.json()
-      if (!res?.url) return await message.reply("Impossible de récupérer l\'image.")
+      if (!res?.url) return await message.reply("Impossible de récupérer l'image.")
 
       const mentionedmember = message.mentions.members.first()
 

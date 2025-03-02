@@ -6,10 +6,10 @@ export const command = {
   description: 'Envoie une image de Panda aléatoire.',
   cooldown: 10,
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     try {
       const res = await (await fetch('https://some-random-api.com/img/panda'))?.json()
-      if (!res?.link) return await message.reply("Impossible de récupérer l\'image.")
+      if (!res?.link) return await message.reply("Impossible de récupérer l'image.")
 
       const embed = new EmbedBuilder()
         .setTitle(`Une image de panda pour toi, ${message.member.nickname || message.author.username}`)

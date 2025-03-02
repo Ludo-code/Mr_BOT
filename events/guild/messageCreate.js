@@ -70,7 +70,7 @@ export const event = {
           } catch (error) {
             logger.error(`Erreur lors de l"envoi de la réponse pour permissions manquantes: ${error.message}`)
             try {
-              await message.author.send("Désolé, je ne peux pas envoyer de message dans le serveur...Je n\'ai peut-être pas la permission `Envoyer des messages`.")
+              await message.author.send("Désolé, je ne peux pas envoyer de message dans le serveur...Je n'ai peut-être pas la permission `Envoyer des messages`.")
             } catch (error) {
               logger.error(`Erreur lors de l"envoi du DM à l"utilisateur: ${error.message}`)
             }
@@ -112,7 +112,7 @@ export const event = {
 
         if (!message.channel.nsfw) {
           logger.warn(`Commande NSFW utilisée en dehors d"un salon NSFW: ${commandName} par ${message.author.tag}`)
-          return message.reply("Tu ne peux pas exécuter des commandes NSFW en dehors d\'un salon de ce type !")
+          return message.reply("Tu ne peux pas exécuter des commandes NSFW en dehors d'un salon de ce type !")
         }
 
         if (!g || !g.toJSON()?.nsfwEnabled) {
@@ -134,7 +134,7 @@ export const event = {
       await command.execute(message, args, commandName)
     } catch (error) {
       logger.error(`Erreur lors de l"exécution de la commande: ${error.message}`)
-      message.reply("Désolé, une erreur est survenue lors de l\'exécution de la commande !")
+      message.reply("Désolé, une erreur est survenue lors de l'exécution de la commande !")
     }
   }
 }

@@ -11,7 +11,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, pr
 try {
   await sequelize.authenticate()
   console.log('Connection à la bdd réussi !')
-} catch (error) {
+} catch {
   console.log('Connection à la base de donné en échec')
 }
 

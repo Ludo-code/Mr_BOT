@@ -1,4 +1,4 @@
-import { EmbedBuilder, PermissionsBitField } from 'discord.js'
+import { PermissionsBitField } from 'discord.js'
 import { Ticket } from '../../schema/schema.js'
 
 export const command = {
@@ -6,7 +6,7 @@ export const command = {
   aliases: ['fermeture'],
   description: 'Permet de fermer le ticket.',
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ManageChannels],
-  async execute (message, args) {
+  async execute (message) {
     const t = await Ticket.findOne({
       where: {
         channelId: message.channel.id,

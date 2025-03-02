@@ -2,12 +2,12 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder
 
 export const command = {
   name: 'ticket-install',
-  description: "Permet d\'envoyer le message de création de ticket",
+  description: "Permet d'envoyer le message de création de ticket",
   staffOnly: true,
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
+    const channel = message.mentions.channels.first() || message.channel
     try {
-      const channel = message.mentions.channels.first() || message.channel
       if (channel.type != ChannelType.GuildText) {
         return await message.reply('Merci de donner le nom d"un salon...')
       }

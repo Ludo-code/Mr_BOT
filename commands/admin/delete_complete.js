@@ -6,7 +6,7 @@ export const command = {
   description: 'Supprime la totalité des messages du salon.',
   staffOnly: true,
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.ManageChannels],
-  async execute (message, args) {
+  async execute (message) {
     try {
       await message.channel.send(`Le salon va être supprimé dans <t:${Math.round(Date.now() / 1000 + 15)}:R>`)
       setTimeout(async () => {

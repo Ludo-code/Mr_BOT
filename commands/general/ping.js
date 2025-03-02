@@ -5,7 +5,7 @@ export const command = {
   aliases: ['beep', 'pong'],
   description: 'Permet de connaître la latence du bot.',
   clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
-  async execute (message, args) {
+  async execute (message) {
     const sent = await message.reply({
       content: '🎉 Pong!'
     })
