@@ -5,18 +5,18 @@ import "dotenv/config";
 export const command = {
     name: "suce",
     aliases: ["blowjob", "sucer"],
-    description: "Envoie une image de quelqu\'un qui suce.",
+    description: "Envoie une image de quelqu'un qui suce.",
     cooldown: 10,
     nsfw: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://gallery.fluxpoint.dev/api/nsfw/gif/blowjob", {
+            let res = await (await fetch("https://api.fluxpoint.dev/nsfw/gif/blowjob", {
   headers: {
     "Authorization": `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
-            if (!res?.file) return await message.reply("Impossible de récupérer l\'image.");
+            if (!res?.file) return await message.reply("Impossible de récupérer l'image.");
            
             let mentionedmember = message.mentions.members.first();
 

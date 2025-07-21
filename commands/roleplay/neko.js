@@ -8,13 +8,13 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://nekos.life/api/v2/img/neko"))?.json();
-            if (!res?.url) return await message.reply("Impossible de récupérer l\'image");
+            let res = await (await fetch("https://nekos.best/api/v2/neko"))?.json();
+            if (!res?.results || !res?.results[0]?.url) return await message.reply("impossible de récupérer l'image");
             
             let embed = new EmbedBuilder()
                 .setTitle(`Une image de neko pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor("Random")
-                .setImage(res.url);
+                .setImage(res.results[0].url);
 
             await message.reply({
                 embeds: [embed],

@@ -48,7 +48,7 @@ export const event = {
             }
 
             if (command.staffOnly && !message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
-                logger.warn(`Tentative d"exécution de commande réservée au staff: ${commandName} par ${message.author.tag}`);
+                logger.warn(`Tentative d'exécution de commande réservée au staff: ${commandName} par ${message.author.tag}`);
                 return await message.reply("Tu as besoin de la permission `Administrateur` pour exécuter cette commande...");
             }
 
@@ -66,13 +66,13 @@ export const event = {
                 if (missingperms?.length) {
                     logger.warn(`Permissions manquantes pour exécuter ${commandName}: ${frenchMissingPerms}`);
                     try {
-                        return await message.reply(`Désolé tu n"as pas \`${frenchMissingPerms}\` comme permission pour exécuter cette commande.`);
+                        return await message.reply(`Désolé tu n'as pas \`${frenchMissingPerms}\` comme permission pour exécuter cette commande.`);
                     } catch (error) {
-                        logger.error(`Erreur lors de l"envoi de la réponse pour permissions manquantes: ${error.message}`);
+                        logger.error(`Erreur lors de l'envoi de la réponse pour permissions manquantes: ${error.message}`);
                         try {
-                            await message.author.send("Désolé, je ne peux pas envoyer de message dans le serveur...Je n\'ai peut-être pas la permission `Envoyer des messages`.");
+                            await message.author.send("Désolé, je ne peux pas envoyer de message dans le serveur...Je n'ai peut-être pas la permission `Envoyer des messages`.");
                         } catch (error) {
-                            logger.error(`Erreur lors de l"envoi du DM à l"utilisateur: ${error.message}`);
+                            logger.error(`Erreur lors de l'envoi du DM à l'utilisateur: ${error.message}`);
                         }
                     }
                     return;
@@ -96,7 +96,7 @@ export const event = {
                     const timeLeft = (expirationTime - now) / 1000;
                     if (now < expirationTime && timeLeft > 0.9) {
                         logger.info(`Cooldown actif pour ${commandName} par ${message.author.tag}, restant: ${timeLeft.toFixed(1)}s`);
-                        return await message.reply({ content: `⏰ Merci d"attendre <t:${Math.round(expirationTime / 1000)}:R> avant d"utiliser la commande **${command.name}** de nouveau.`, ephemeral: true });
+                        return await message.reply({ content: `⏰ Merci d'attendre <t:${Math.round(expirationTime / 1000)}:R> avant d'utiliser la commande **${command.name}** de nouveau.`, ephemeral: true });
                     }
                     timestamps.set(`${message.guild.id}_${message.author.id}`, now);
                     setTimeout(() => timestamps.delete(`${message.guild.id}_${message.author.id}`), cooldownAmount);
@@ -111,8 +111,8 @@ export const event = {
                 });
 
                 if (!message.channel.nsfw) {
-                    logger.warn(`Commande NSFW utilisée en dehors d"un salon NSFW: ${commandName} par ${message.author.tag}`);
-                    return message.reply("Tu ne peux pas exécuter des commandes NSFW en dehors d\'un salon de ce type !");
+                    logger.warn(`Commande NSFW utilisée en dehors d'un salon NSFW: ${commandName} par ${message.author.tag}`);
+                    return message.reply("Tu ne peux pas exécuter des commandes NSFW en dehors d'un salon de ce type !");
                 }
 
                 if (!g || !g.toJSON()?.nsfwEnabled) {
@@ -123,9 +123,9 @@ export const event = {
 
             if (command.args && !args.length) {
                 logger.info(`Arguments manquants pour la commande ${commandName} par ${message.author.tag}`);
-                let reply = `Tu n"as entré aucun nom de commande correct, ${message.author}!`;
+                let reply = `Tu n'as entré aucun nom de commande correct, ${message.author}!`;
                 if (command.usage) {
-                    reply += `\nL"usage correct est : \`${prefix}${command.name} ${command.usage}\``;
+                    reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
                 }
                 return message.channel.send(reply);
             }
@@ -133,8 +133,8 @@ export const event = {
             logger.info(`Exécution de la commande ${commandName} par ${message.author.tag}`);
             await command.execute(message, args, commandName);
         } catch (error) {
-            logger.error(`Erreur lors de l"exécution de la commande: ${error.message}`);
-            message.reply("Désolé, une erreur est survenue lors de l\'exécution de la commande !");
+            logger.error(`Erreur lors de l'exécution de la commande: ${error.message}`);
+            message.reply("Désolé, une erreur est survenue lors de l'exécution de la commande !");
         }
     },
 };

@@ -30,7 +30,7 @@ const PermissionsFR = {
     MANAGEROLES: "Gérer les rôles",
     MANAGEWEBHOOKS: "Gérer les webhooks",
     MANAGEGUILDEXPRESSIONS: "Gérer les expressions",
-    USEAPPLICATIONCOMMANDS: "Utiliser les commandes de l\' application",
+    USEAPPLICATIONCOMMANDS: "Utiliser les commandes de l'application",
     REQUESTTOSPEAK: "Demande de prise de parole",
     MANAGEEVENTS: "Gérer les évènements",
     MANAGETHREADS: "Gérer les fils",

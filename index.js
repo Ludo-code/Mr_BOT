@@ -44,7 +44,7 @@ for (const folder of eventFolers) {
             client.on(event.name, (...args) => event.execute(...args));
         }
 
-        console.log(`📣 L"évènement suivant à été chargé : ${event.name}`)
+        console.log(`📣 L'évènement suivant à été chargé : ${event.name}`)
     }
 }
 

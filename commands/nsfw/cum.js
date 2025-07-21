@@ -5,18 +5,18 @@ import "dotenv/config";
 export const command = {
     name: "cum_gif",
     aliases: ["ejac_gif", "ejaculation_gif", "cumgif", "cum-gif", "ejac-gif", "ejacgif"],
-    description: "Envoie une image de quelqu\'un qui éjacule.",
+    description: "Envoie une image de quelqu'un qui éjacule.",
     cooldown: 10,
     nsfw: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://gallery.fluxpoint.dev/api/nsfw/gif/cum", {
+            let res = await (await fetch("https://api.fluxpoint.dev/nsfw/gif/cum", {
   headers: {
     "Authorization": `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
-            if (!res?.file) return await message.reply("Impossible de récupérer l\'image.");
+            if (!res?.file) return await message.reply("Impossible de récupérer l'image.");
            
             let mentionedmember = message.mentions.members.first();
 

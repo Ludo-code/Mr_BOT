@@ -48,10 +48,10 @@ export const command = {
                 files: attachments,
             });
 
-            await message.reply("✅ L\'idée à bien été envoyé.")
+            await message.reply("✅ L'idée à bien été envoyé.")
         } catch (error) {
             console.error(error);
-            await message.reply("❌ Impossible d\'envoyer l\'idée.")
+            await message.reply("❌ Impossible d'envoyer l'idée.")
         }
     },
 };

@@ -5,22 +5,22 @@ import "dotenv/config";
 export const command = {
     name: "chatte_img",
     aliases: ["pussy_img", "pussy-img", "pussyimg", "chatte-img", "chatteimg"],
-    description: "Permet d\'envoyer une image d\'une chatte.",
+    description: "Permet d'envoyer une image d'une chatte.",
     cooldwon: 10,
     nsfw: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://gallery.fluxpoint.dev/api/nsfw/img/pussy", {
+            let res = await (await fetch("https://api.fluxpoint.dev/nsfw/img/pussy", {
   headers: {
     "Authorization": `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
 
-            if (!res?.file) return await message.reply("Impossible de récupérer l\'image");
+            if (!res?.file) return await message.reply("Impossible de récupérer l'image");
             
             let embed = new EmbedBuilder()
-                .setTitle(`Une image d"une chatte pour toi, ${message.member.nickname || message.author.username}`)
+                .setTitle(`Une image d'une chatte pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor("Random")
                 .setImage(res.file);
 

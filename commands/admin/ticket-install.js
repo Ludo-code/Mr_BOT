@@ -2,14 +2,14 @@ import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder
 
 export const command = {
     name: "ticket-install",
-    description: "Permet d\'envoyer le message de création de ticket",
+    description: "Permet d'envoyer le message de création de ticket",
     staffOnly: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
             let channel = message.mentions.channels.first() || message.channel;
             if (channel.type != ChannelType.GuildText) {
-                return await message.reply(`Merci de donner le nom d"un salon...`);
+                return await message.reply(`Merci de donner le nom d'un salon...`);
             }
 
             let embed = new EmbedBuilder()
@@ -33,7 +33,7 @@ export const command = {
             await message.reply(`Le message de création de ticket à été mis avec succès dans ${channel}`);
         } catch (error) {
             console.error(error);
-            await message.reply(`Impossible de mettre le message de création de ticket dans ${channel}. Merci de vérifier si le bot à les permissions d"envoyer un message et d"intégrer des liens dans ce salon.`);
+            await message.reply(`Impossible de mettre le message de création de ticket dans ${channel}. Merci de vérifier si le bot à les permissions d'envoyer un message et d'intégrer des liens dans ce salon.`);
         }
     },
 };

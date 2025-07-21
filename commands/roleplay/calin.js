@@ -8,15 +8,15 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://nekos.life/api/v2/img/hug"))?.json();
-            if (!res?.url) return await message.reply("Impossible de récupérer l\'image.");
+            let res = await (await fetch("https://nekos.best/api/v2/hug"))?.json();
+            if (!res?.results || !res?.results[0]?.url) return await message.reply("impossible de récupérer l'image");
            
             let mentionedmember = message.mentions.members.first();
 
             let embed = new EmbedBuilder()
                 .setTitle(`${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)} te fais un câlin.`)
                 .setColor("Random")
-                .setImage(res.url);
+                .setImage(res.results[0].url);
 
 
             await message.reply({
