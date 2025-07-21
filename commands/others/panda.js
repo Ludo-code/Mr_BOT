@@ -9,7 +9,7 @@ export const command = {
     async execute(message, args) {
         try {
             let res = await (await fetch("https://some-random-api.com/img/panda"))?.json();
-            if (!res?.link) return await message.reply("Impossible de récupérer l\'image.");
+            if (!res?.link) return await message.reply("Impossible de récupérer l'image.");
             
             let embed = new EmbedBuilder()
                 .setTitle(`Une image de panda pour toi, ${message.member.nickname || message.author.username}`)

@@ -11,7 +11,7 @@ export const command = {
     async execute(message, args) {
         try {
             let res = await (await fetch(`https://g.tenor.com/v1/random?id=8776030&key=${process.env.TENOR_API_KEY}&limit=1&q=good+night+anime`))?.json();
-            if (!res?.results || !res.results[0]?.media || !res.results[0]?.media[0]?.gif?.url) return await message.reply("Impossible d\obtenir l\image");
+            if (!res?.results || !res.results[0]?.media || !res.results[0]?.media[0]?.gif?.url) return await message.reply("Impossible d'obtenir l'image");
 
             let mentionedmember = message.mentions.members.first();
 

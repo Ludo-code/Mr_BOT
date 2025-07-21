@@ -4,18 +4,18 @@ import "dotenv/config";
 
 export const command = {
     name: "hentai",
-    description: "Permet d\'envoyer une image de hentai.",
+    description: "Permet d'envoyer une image de hentai.",
     cooldown: 10,
     nsfw: true,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://gallery.fluxpoint.dev/api/nsfw/gif/hentai", {
+            let res = await (await fetch("https://api.fluxpoint.dev/nsfw/gif/hentai", {
   headers: {
     "Authorization": `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
-            if (!res?.file) return await message.reply("Impossible de récupérer l\'image");
+            if (!res?.file) return await message.reply("Impossible de récupérer l'image");
             
             let embed = new EmbedBuilder()
                 .setTitle(`Une image de hentai pour toi, ${message.member.nickname || message.author.username}`)

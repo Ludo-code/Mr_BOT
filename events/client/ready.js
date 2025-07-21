@@ -9,8 +9,8 @@ export const event = {
 	async execute(client) {
 		console.log(`Prêt ? Le bot est connecté en tant que ${client.user.tag} ( ${client.user.id} )`);
 		const activitees = [
-			" m*aide",
-			" m*aide_nsfw",
+			"m*aide",
+			"m*aide_nsfw",
 			`${client.guilds.cache.size} serveurs !`,
 			`la version ${pkgjson.version}...`
 		];

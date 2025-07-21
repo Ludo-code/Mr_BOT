@@ -15,7 +15,7 @@ export const command = {
         });
 
         if (!t || (message.author.id != t.toJSON()?.userId && !message.member.permissions.has(PermissionsBitField.Flags.Administrator))) {
-            return await message.reply(`Désolé! Ceci n"est pas votre canal de ticket. Veuillez exécuter cette commande dans votre canal de ticket pour fermer le ticket.`);
+            return await message.reply(`Désolé ! Ceci n'est pas votre canal de ticket. Veuillez exécuter cette commande dans votre canal de ticket pour fermer le ticket.`);
         }
 
         if (t) await t.destroy().catch(e => console.log(e));

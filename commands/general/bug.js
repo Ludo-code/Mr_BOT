@@ -50,7 +50,7 @@ export const command = {
             await message.reply("✅ Le rapport de bug à bien été envoyé.")
         } catch (error) {
             console.error(error);
-            await message.reply("❌ Impossible d\'envoyer le rapport de bug.")
+            await message.reply("❌ Impossible d'envoyer le rapport de bug.")
         }
     },
 };

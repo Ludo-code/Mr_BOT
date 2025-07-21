@@ -10,7 +10,7 @@ export const command = {
     async execute(message, args) {
         try {
             let res = await (await fetch("https://nekos.best/api/v2/blush"))?.json();
-            if (!res?.results[0].url) return await message.reply("Impossible de récupérer l\'image.");
+            if (!res?.results || !res?.results[0]?.url) return await message.reply("impossible de récupérer l'image");
             
             let embed = new EmbedBuilder()
                 .setTitle(`${message.member.nickname || message.author.username} rougit.`)

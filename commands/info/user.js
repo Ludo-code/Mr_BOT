@@ -3,7 +3,7 @@ import { ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 export const command = {
     name: "info-utilisateur",
     aliases: ["userinfo", "infoutilisateur", "info_utilisateur"],
-    description: "Voir les informations de l\'utilisateur",
+    description: "Voir les informations de l'utilisateur",
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
@@ -25,7 +25,7 @@ export const command = {
                     },
                     {
                         name: "Info",
-                        value: `- Nom d\'utilisateur : **${member.user.username}**\n- Pseudonyme : **${member.nickname || "Aucun"}**\n- Tag : **${member.user.tag}**\nID: **${member.user.id}**`,
+                        value: `- Nom d'utilisateur : **${member.user.username}**\n- Pseudonyme : **${member.nickname || "Aucun"}**\n- Tag : **${member.user.tag}**\nID: **${member.user.id}**`,
                     },
                 )
                 .setThumbnail(member.user.displayAvatarURL({
