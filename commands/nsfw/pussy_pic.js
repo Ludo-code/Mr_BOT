@@ -16,7 +16,6 @@ export const command = {
     "Authorization": `${process.env.FLUXPOINT_API_KEY}`
   }
 }))?.json();
-
             if (!res?.file) return await message.reply("Impossible de récupérer l'image");
             
             let embed = new EmbedBuilder()
