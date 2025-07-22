@@ -3,6 +3,7 @@ import fetch from "node-fetch";
 
 export const command = {
     name: "chat",
+    aliases: ["cat", "kitty"],
     description: "Envoie une image de chat aléatoire.",
     cooldown: 10,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],

@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 
 export const command = {
     name: "gifle",
-    aliases: ["baffe"],
+    aliases: ["baffe", "slap"],
     description: "Envoie une image de quelqu'un qui gifle",
     cooldown: 10,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],

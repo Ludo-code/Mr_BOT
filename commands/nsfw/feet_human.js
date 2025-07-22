@@ -4,7 +4,7 @@ import "dotenv/config";
 
 export const command = {
     name: "feet_humain",
-    aliases: ["feet", "pieds"],
+    aliases: ["feet", "pieds", "pieds_humain", "feet_human"],
     description: "Envoie une image aléatoire de pieds.",
     cooldown: 10,
     nsfw: true,
