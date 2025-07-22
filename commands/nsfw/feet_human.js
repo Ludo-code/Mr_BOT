@@ -11,20 +11,41 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch(`https://www.reddit.com/r/feet/hot.json?limit=50`))?.json();
+            let res = await (await fetch(`https://www.reddit.com/r/feet/new.json?limit=50`)).json();
             if (!res?.data?.children || res.data.children.length === 0) return await message.reply("Impossible d'obtenir l'image");
 
-            const allposts = res?.data?.children;
-            const fileterimagepost = allposts
-                .map((post) => post.data.url)
-                .filter(url => url.match(/\.(jpg|jpeg|png|gif)$/));
-            
-            if (fileterimagepost.length === 0) return await message.reply("Impossible d'obtenir l'image");
+            const allposts = res.data.children;
+
+            function extractGalleryImages(post) {
+                const mediaMetadata = post.data.media_metadata;
+                if (!mediaMetadata) return [];
+                return Object.values(mediaMetadata)
+                    .map(meta => {
+                        if (meta.e === "Image" && meta.s && meta.s.u) {
+                            return meta.s.u.replace(/&amp;/g, "&");
+                        }
+                        return null;
+                    })
+                    .filter(Boolean);
+            }
+
+            let imageUrls = [];
+            for (const post of allposts) {
+                if (post.data.is_gallery && post.data.media_metadata) {
+                    imageUrls.push(...extractGalleryImages(post));
+                } else if (post.data.url && post.data.url.match(/\.(jpg|jpeg|png|gif)$/)) {
+                    imageUrls.push(post.data.url);
+                }
+            }
+
+            if (imageUrls.length === 0) return await message.reply("Impossible d'obtenir l'image");
+
+            const randomizedpicture = imageUrls[Math.floor(Math.random() * imageUrls.length)];
 
             let embed = new EmbedBuilder()
                 .setTitle(`Une image de pied pour toi, ${message.member.nickname || message.author.username}`)
                 .setColor("Random")
-                .setImage(res.data.children[Math.floor(Math.random() * fileterimagepost.length)].data.url);
+                .setImage(randomizedpicture);
 
             await message.reply({
                 embeds: [embed],
