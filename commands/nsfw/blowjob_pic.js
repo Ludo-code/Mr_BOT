@@ -4,7 +4,7 @@ import "dotenv/config";
 
 export const command = {
     name: "suce_img",
-    aliases: ["suce-img", "suceimg"],
+    aliases: ["suce-img", "suceimg", "blowjob_pic"],
     description: "Permet d'envoyer une image de quelqu'un qui suce.",
     cooldown: 10,
     nsfw: true,

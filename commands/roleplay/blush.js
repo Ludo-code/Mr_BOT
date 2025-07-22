@@ -3,7 +3,7 @@ import fetch from "node-fetch";
 
 export const command = {
     name: "rougit",
-    aliases: ["rougir"],
+    aliases: ["rougir", "blush"],
     description: "Envoie une image de personne qui rougis aléatoire.",
     cooldown: 10,
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],

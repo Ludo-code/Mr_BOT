@@ -79,6 +79,33 @@ export const event = {
                 }
             }
 
+            if (command.nsfw) {
+                let [g] = await Guild.findOrCreate({
+                    where: {
+                        guildId: message.guild.id,
+                    }
+                });
+
+                if (!message.channel.nsfw) {
+                    logger.warn(`Commande NSFW utilisée en dehors d'un salon NSFW: ${commandName} par ${message.author.tag}`);
+                    return message.reply("Tu ne peux pas exécuter des commandes NSFW en dehors d'un salon de ce type !");
+                }
+
+                if (!g || !g.toJSON()?.nsfwEnabled) {
+                    logger.warn(`Commandes NSFW désactivées sur le serveur: ${commandName} par ${message.author.tag}`);
+                    return await message.reply("Les commandes NSFW sont désactivées sur ce serveur...");
+                }
+            }
+
+            if (command.args && !args.length) {
+                logger.info(`Arguments manquants pour la commande ${commandName} par ${message.author.tag}`);
+                let reply = `Tu n'as pas écrit de message, la syntaxe de la commande est incorrect, ${message.author}!`;
+                if (command.usage) {
+                    reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
+                }
+                return message.channel.send(reply);
+            }
+
             if (command.cooldown && typeof command.cooldown === "number") {
                 if (!cooldowns.has(command.name)) {
                     cooldowns.set(command.name, new Collection());
@@ -101,33 +128,6 @@ export const event = {
                     timestamps.set(`${message.guild.id}_${message.author.id}`, now);
                     setTimeout(() => timestamps.delete(`${message.guild.id}_${message.author.id}`), cooldownAmount);
                 }
-            }
-
-            if (command.nsfw) {
-                let [g] = await Guild.findOrCreate({
-                    where: {
-                        guildId: message.guild.id,
-                    }
-                });
-
-                if (!message.channel.nsfw) {
-                    logger.warn(`Commande NSFW utilisée en dehors d'un salon NSFW: ${commandName} par ${message.author.tag}`);
-                    return message.reply("Tu ne peux pas exécuter des commandes NSFW en dehors d'un salon de ce type !");
-                }
-
-                if (!g || !g.toJSON()?.nsfwEnabled) {
-                    logger.warn(`Commandes NSFW désactivées sur le serveur: ${commandName} par ${message.author.tag}`);
-                    return await message.reply("Les commandes NSFW sont désactivées sur ce serveur...");
-                }
-            }
-
-            if (command.args && !args.length) {
-                logger.info(`Arguments manquants pour la commande ${commandName} par ${message.author.tag}`);
-                let reply = `Tu n'as entré aucun nom de commande correct, ${message.author}!`;
-                if (command.usage) {
-                    reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
-                }
-                return message.channel.send(reply);
             }
 
             logger.info(`Exécution de la commande ${commandName} par ${message.author.tag}`);
