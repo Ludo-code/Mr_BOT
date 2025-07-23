@@ -2,7 +2,7 @@
 
 Bienvenue sur **Mr_BOT**, un bot Discord complet et créé de toutes pièces, prêt à être utilisé et modifié selon vos besoins ! Ce projet est actuellement actif et utilise plusieurs API gratuites pour offrir une variété de fonctionnalités à votre serveur Discord.
 
-[![Lint](https://github.com/Ludo-code/Mr_BOT/actions/workflows/super-linter.yml/badge.svg)](https://github.com/Ludo-code/Mr_BOT/actions/workflows/super-linter.yml)
+[![CodeQL](https://github.com/Ludo-code/Mr_BOT/actions/workflows/github-code-scanning/codeql/badge.svg?branch=master)](https://github.com/Ludo-code/Mr_BOT/actions/workflows/github-code-scanning/codeql)
 
 ## Fonctionnalités principales
 
