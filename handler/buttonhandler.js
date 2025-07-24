@@ -64,12 +64,23 @@ const handleButton = async (interaction) => {
         }
     }
 
-    if (interaction.customId.startsWith("aide_")) {
+    if (interaction.customId.startsWith("aide_") && !interaction.customId.startsWith("aide_nsfw_")) {
         try {
             await interaction.deferUpdate();
 
-            const [, action, currentPageStr, totalPagesStr] = interaction.customId.split("_");
+            const parts = interaction.customId.split("_");
+            const action = parts[1];
+            const currentPageStr = parts[2];
+            const totalPagesStr = parts[3];
+            const userId = parts[4];
             const currentPage = parseInt(currentPageStr, 10);
+
+            if (String(interaction.user.id) !== String(userId)) {
+                return await interaction.followUp({
+                    content: "Seul l'utilisateur ayant initié cette commande peut utiliser ces boutons.",
+                    ephemeral: true
+                });
+            }
 
             const commands = Array.from(interaction.client.commands.values())
                 .filter(cmd => !cmd.nsfw && typeof cmd.name === "string")
@@ -100,22 +111,105 @@ const handleButton = async (interaction) => {
 
             const row = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
-                    .setCustomId(`aide_first_${newPage}_${totalPages}`)
+                    .setCustomId(`aide_first_${newPage}_${totalPages}_${userId}`)
                     .setLabel("⏮️")
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(newPage === 0),
                 new ButtonBuilder()
-                    .setCustomId(`aide_prev_${newPage}_${totalPages}`)
+                    .setCustomId(`aide_prev_${newPage}_${totalPages}_${userId}`)
                     .setLabel("◀️")
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(newPage === 0),
                 new ButtonBuilder()
-                    .setCustomId(`aide_next_${newPage}_${totalPages}`)
+                    .setCustomId(`aide_next_${newPage}_${totalPages}_${userId}`)
                     .setLabel("▶️")
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(newPage === totalPages - 1),
                 new ButtonBuilder()
-                    .setCustomId(`aide_last_${newPage}_${totalPages}`)
+                    .setCustomId(`aide_last_${newPage}_${totalPages}_${userId}`)
+                    .setLabel("⏭️")
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(newPage === totalPages - 1)
+            );
+
+            await interaction.editReply({
+                embeds: [updatedEmbed],
+                components: [row],
+            });
+        } catch (error) {
+            console.error(error);
+            if (!interaction.deferred && !interaction.replied) {
+                await interaction.reply({
+                    content: "Une erreur est survenue lors de la manipulation de ce bouton.",
+                    ephemeral: true,
+                });
+            }
+        }
+    }
+
+    if (interaction.customId.startsWith("aide_nsfw_")) {
+        try {
+            await interaction.deferUpdate();
+
+            const parts = interaction.customId.split("_");
+            const action = parts[2];
+            const currentPageStr = parts[3];
+            const totalPagesStr = parts[4];
+            const userId = parts[5];
+            const currentPage = parseInt(currentPageStr, 10);
+
+            if (String(interaction.user.id) !== String(userId)) {
+                return await interaction.followUp({
+                    content: "Seul l'utilisateur ayant initié cette commande peut utiliser ces boutons.",
+                    ephemeral: true
+                });
+            }
+
+            const commands = Array.from(interaction.client.commands.values())
+                .filter(cmd => cmd.nsfw && typeof cmd.name === "string")
+                .sort((a, b) => a.name.localeCompare(b.name));
+
+            const chunkSize = 10;
+            const totalCommands = commands.length;
+            const totalPages = Math.ceil(totalCommands / chunkSize);
+
+            let newPage = currentPage;
+            if (action === "first") newPage = 0;
+            else if (action === "prev") newPage = Math.max(0, currentPage - 1);
+            else if (action === "next") newPage = Math.min(totalPages - 1, currentPage + 1);
+            else if (action === "last") newPage = totalPages - 1;
+
+            const start = newPage * chunkSize;
+            const end = start + chunkSize;
+            const pageCommands = commands.slice(start, end);
+            const commandList = pageCommands
+                .map(cmd => `» ${cmd.name} ‣ ${cmd.description || "Aucune description."}`)
+                .join("\n");
+
+            const updatedEmbed = new EmbedBuilder()
+                .setTitle("Commandes NSFW")
+                .setDescription(commandList)
+                .setColor("Blue")
+                .setFooter({ text: `Page: ${newPage + 1}/${totalPages}` });
+
+            const row = new ActionRowBuilder().addComponents(
+                new ButtonBuilder()
+                    .setCustomId(`aide_nsfw_first_${newPage}_${totalPages}_${userId}`)
+                    .setLabel("⏮️")
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(newPage === 0),
+                new ButtonBuilder()
+                    .setCustomId(`aide_nsfw_prev_${newPage}_${totalPages}_${userId}`)
+                    .setLabel("◀️")
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(newPage === 0),
+                new ButtonBuilder()
+                    .setCustomId(`aide_nsfw_next_${newPage}_${totalPages}_${userId}`)
+                    .setLabel("▶️")
+                    .setStyle(ButtonStyle.Secondary)
+                    .setDisabled(newPage === totalPages - 1),
+                new ButtonBuilder()
+                    .setCustomId(`aide_nsfw_last_${newPage}_${totalPages}_${userId}`)
                     .setLabel("⏭️")
                     .setStyle(ButtonStyle.Secondary)
                     .setDisabled(newPage === totalPages - 1)

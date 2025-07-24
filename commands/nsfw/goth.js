@@ -1,5 +1,6 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
+import { getRedditToken } from "../../utils/redditTokenRenew.js";
 import "dotenv/config";
 
 export const command = {
@@ -11,11 +12,19 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
+            const token = await getRedditToken();
+
             const subreddits = ["gothsluts", "gothgirlsgw"];
             let allposts = [];
 
             for (const subreddit of subreddits) {
-                let res = await (await fetch(`https://www.reddit.com/r/${subreddit}/new.json?limit=50`)).json();
+                let res = await fetch(`https://oauth.reddit.com/r/${subreddit}/new.json?limit=50`, {
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                        "User-Agent": `${process.env.REDDIT_USER_AGENT}`
+                    }
+                });
+                res = await res.json();
                 if (res?.data?.children && res.data.children.length > 0) {
                     allposts.push(...res.data.children);
                 }
