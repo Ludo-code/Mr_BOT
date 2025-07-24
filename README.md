@@ -90,8 +90,9 @@ Pour personnaliser la configuration des logs, vous pouvez modifier le fichier `l
 
 ## API utilisées
 
-- [Tenor API](https://tenor.com/gifapi/documentation) - Utilisée pour envoyer des GIFs directement dans les canaux Discord.
-- [Fluxpoint API](https://docs.fluxpoint.dev/home) - Utilisée pour des fonctionnalités diverses comme des citations, images, etc.
+- [Tenor API](https://tenor.com/gifapi/documentation) – Utilisée pour envoyer des GIFs directement dans les canaux Discord.
+- [Fluxpoint API](https://docs.fluxpoint.dev/home) – Utilisée pour des fonctionnalités diverses comme des citations, images, etc.
+- [Reddit API](https://www.reddit.com/dev/api/) – Utilisée pour récupérer des publications Reddit selon des critères définis (ex : subreddit, post populaire ou aléatoire). Requiert l’App Reddit configurée via [Reddit Apps](https://www.reddit.com/prefs/apps).
 
 ## Contributions
 
