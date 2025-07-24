@@ -58,25 +58,26 @@ export const command = {
                 }
 
                 const currentPage = 0;
+                const userId = message.author.id;
 
                 const row = new ActionRowBuilder().addComponents(
                     new ButtonBuilder()
-                        .setCustomId(`aide_first_${currentPage}_${embeds.length}`)
+                        .setCustomId(`aide_first_${currentPage}_${embeds.length}_${userId}`)
                         .setLabel("⏮️")
                         .setStyle(ButtonStyle.Secondary)
                         .setDisabled(currentPage === 0),
                     new ButtonBuilder()
-                        .setCustomId(`aide_prev_${currentPage}_${embeds.length}`)
+                        .setCustomId(`aide_prev_${currentPage}_${embeds.length}_${userId}`)
                         .setLabel("◀️")
                         .setStyle(ButtonStyle.Secondary)
                         .setDisabled(currentPage === 0),
                     new ButtonBuilder()
-                        .setCustomId(`aide_next_${currentPage}_${embeds.length}`)
+                        .setCustomId(`aide_next_${currentPage}_${embeds.length}_${userId}`)
                         .setLabel("▶️")
                         .setStyle(ButtonStyle.Secondary)
                         .setDisabled(currentPage === embeds.length - 1),
                     new ButtonBuilder()
-                        .setCustomId(`aide_last_${currentPage}_${embeds.length}`)
+                        .setCustomId(`aide_last_${currentPage}_${embeds.length}_${userId}`)
                         .setLabel("⏭️")
                         .setStyle(ButtonStyle.Secondary)
                         .setDisabled(currentPage === embeds.length - 1)
