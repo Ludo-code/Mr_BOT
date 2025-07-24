@@ -20,7 +20,7 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
 - [npm](https://www.npmjs.com/)
 - Un serveur Discord pour tester le bot
 - Un compte sur [Discord Developer Portal](https://discord.com/developers/applications) pour générer un token de bot
-- Des clés API pour les services Tenor et Fluxpoint (gratuites)
+- Des clés API pour les services Tenor et Reddit (gratuites) & Fluxpoint (payant)
 
 ## Installation
 
