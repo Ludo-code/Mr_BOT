@@ -4,5 +4,5 @@ export default [
     "Nouveauté des mises à jour : \n\n- le 26/09/2023 Correction de divers bugs dont 1 critique.",
     "Nouveauté des mises à jour : \n\n- le 21/10/2024 Correction de divers bugs, Uniformisation des quotes",
     "Nouveauté des mises à jour : \n\n- le 20/11/2024 Nouvelles aides",
-    "Nouveauté des mises à jour : \n\n- le 22/07/2025 Correction de divers bugs, Ajout de nouvelles commandes",
+    "Nouveauté des mises à jour : \n\n- le 25/07/2025 Correction de divers bugs, Ajout de nouvelles commandes",
 ];
