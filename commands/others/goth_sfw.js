@@ -1,5 +1,6 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
+import { getRedditToken } from "../../utils/redditTokenRenew.js";
 import "dotenv/config";
 
 export const command = {
@@ -10,7 +11,15 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch(`https://www.reddit.com/r/GothGirls/new.json?limit=50`)).json();
+            const token = await getRedditToken();
+
+            let res = await fetch("https://oauth.reddit.com/r/GothGirls/new.json?limit=50", {
+                headers: {
+                    "Authorization": `Bearer ${token}`,
+                    "User-Agent": `${REDDIT_USER_AGENT}`
+                }
+            });
+            res = await res.json();
             if (!res?.data?.children || res.data.children.length === 0) return await message.reply("Impossible d'obtenir l'image");
 
             const allposts = res.data.children;
