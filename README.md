@@ -41,8 +41,12 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
 
    ```env
    BOT_TOKEN=<DISCORD_BOT_TOKEN>
+   TENOR_API_KEY_NAME=<TENOR_API_KEY_NAME>
    TENOR_API_KEY=<TENOR_API_KEY>
    FLUXPOINT_API_KEY=<FLUXPOINT_API_KEY>
+   REDDIT_CLIENT_ID=<REDDIT_CLIENT_ID>
+   REDDIT_CLIENT_SECRET=<REDDIT_CLIENT_SECRET>
+   REDDIT_USER_AGENT=<REDDIT_USER_AGENT>
    UPTIME_KUMA_URL=<UPTIME_KUMA_URL>
    DB_NAME=<DATABASE_NAME>
    DB_USERNAME=<DATABASE_USERNAME>
@@ -52,16 +56,22 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
    DB_DIALECT=mariadb
    ```
 
-   - **BOT_TOKEN** : Le token de votre bot Discord, généré depuis [Discord Developer Portal](https://discord.com/developers/applications).
-   - **TENOR_API_KEY** : Votre clé API Tenor (pour les GIFs).
-   - **FLUXPOINT_API_KEY** : Votre clé API Fluxpoint.
-   - **UPTIME_KUMA_URL** : Votre URL push uptime kuma mettre vide si vous n'en avez pas.
-   - **DB_NAME** : Nom de la base de données que vous utilisez.
-   - **DB_USERNAME** : Nom d'utilisateur pour la base de données.
-   - **DB_PASSWORD** : Mot de passe pour la base de données.
-   - **DB_HOST** : Adresse ou IP du serveur de base de données.
-   - **DB_PORT** : Port utilisé par la base de données (par défaut pour MariaDB : 3306).
-   - **DB_DIALECT** : `mariadb` (défini dans l'exemple pour MariaDB, peut être changé selon votre configuration).
+| Variable               | Description | Obligatoire |
+|------------------------|-------------|-------------|
+| `BOT_TOKEN`            | 🎮 Token du bot Discord, récupérable depuis [Discord Developer Portal](https://discord.com/developers/applications). | ✅ Oui |
+| `TENOR_API_KEY_NAME`   | 🔑 Nom d’identifiant pour la clé Tenor (valeur libre, selon vos préférences). | ✅ Oui |
+| `TENOR_API_KEY`        | 🎬 Clé API Tenor (pour les GIFs). | ✅ Oui |
+| `FLUXPOINT_API_KEY`    | 🧪 Clé API Fluxpoint (payante, one time buy). | ✅ Oui |
+| `REDDIT_CLIENT_ID`     | 👽 Identifiant client Reddit généré via votre application Reddit. | ✅ Oui |
+| `REDDIT_CLIENT_SECRET` | 🧠 Secret client Reddit associé à votre App. | ✅ Oui |
+| `REDDIT_USER_AGENT`    | 🛰️ Nom d’agent utilisateur Reddit (**obligatoire**, à définir selon votre App, ex. `DiscordBot`). | ✅ Oui |
+| `UPTIME_KUMA_URL`      | 📡 URL push Uptime Kuma (laisser vide si non utilisé). | ❌ Non |
+| `DB_NAME`              | 🗃️ Nom de la base de données. | ✅ Oui |
+| `DB_USERNAME`          | 👤 Utilisateur de la base de données. | ✅ Oui |
+| `DB_PASSWORD`          | 🔐 Mot de passe de la base de données. | ✅ Oui |
+| `DB_HOST`              | 🌐 Adresse ou IP du serveur de base de données. | ✅ Oui |
+| `DB_PORT`              | 🚪 Port utilisé (par défaut MariaDB : `3306`). | ✅ Oui |
+| `DB_DIALECT`           | 🛠️ Dialecte utilisé (`mariadb`, `mysql`, etc.). | ✅ Oui |
 
 4. **Lancer le bot :**
    ```bash
