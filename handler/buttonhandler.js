@@ -69,15 +69,12 @@ const handleButton = async (interaction) => {
             await interaction.deferUpdate();
 
             const parts = interaction.customId.split("_");
-            // aide_first_0_2_123456789 => ["aide", "first", "0", "2", "123456789"]
             const action = parts[1];
             const currentPageStr = parts[2];
             const totalPagesStr = parts[3];
             const userId = parts[4];
             const currentPage = parseInt(currentPageStr, 10);
 
-            // Discord sometimes uses interaction.user.id and sometimes interaction.member.user.id
-            // Always use interaction.user.id for consistency
             if (String(interaction.user.id) !== String(userId)) {
                 return await interaction.followUp({
                     content: "Seul l'utilisateur ayant initié cette commande peut utiliser ces boutons.",
@@ -155,15 +152,12 @@ const handleButton = async (interaction) => {
             await interaction.deferUpdate();
 
             const parts = interaction.customId.split("_");
-            // aide_nsfw_first_0_2_123456789 => ["aide", "nsfw", "first", "0", "2", "123456789"]
             const action = parts[2];
             const currentPageStr = parts[3];
             const totalPagesStr = parts[4];
             const userId = parts[5];
             const currentPage = parseInt(currentPageStr, 10);
 
-            // Discord sometimes uses interaction.user.id and sometimes interaction.member.user.id
-            // Always use interaction.user.id for consistency
             if (String(interaction.user.id) !== String(userId)) {
                 return await interaction.followUp({
                     content: "Seul l'utilisateur ayant initié cette commande peut utiliser ces boutons.",
