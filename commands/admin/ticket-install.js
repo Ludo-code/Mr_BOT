@@ -1,3 +1,4 @@
+import logger from "../../utils/logger.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 
 export const command = {
@@ -32,7 +33,7 @@ export const command = {
 
             await message.reply(`Le message de création de ticket à été mis avec succès dans ${channel}`);
         } catch (error) {
-            console.error(error);
+            logger.error(error);
             await message.reply(`Impossible de mettre le message de création de ticket dans ${channel}. Merci de vérifier si le bot à les permissions d'envoyer un message et d'intégrer des liens dans ce salon.`);
         }
     },

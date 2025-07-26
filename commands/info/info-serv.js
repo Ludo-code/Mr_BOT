@@ -1,4 +1,5 @@
 import { ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
+import logger from "../../utils/logger.js";
 
 export const command = {
     name: "info-serv",
@@ -57,7 +58,7 @@ export const command = {
                 embeds: [embed],
             })
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     },
 };

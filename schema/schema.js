@@ -1,5 +1,6 @@
 import { DataTypes, Sequelize } from "sequelize";
 import "dotenv/config";
+import logger from "../utils/logger.js";
 
 const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, process.env.DB_PASSWORD, {
     dialect: process.env.DB_DIALECT,
@@ -10,9 +11,9 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USERNAME, pr
 
 try {
     await sequelize.authenticate();
-    console.log("Connection à la bdd réussi !");
+    logger.info("Connection à la bdd réussi !");
 } catch (error) {
-    console.log("Connection à la base de donné en échec");
+    logger.info("Connection à la base de donné en échec");
 }
 
 const Guild = sequelize.define("Guild", {

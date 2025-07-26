@@ -1,5 +1,6 @@
 import { Events } from "discord.js";
 import handleButton from "../../handler/buttonhandler.js";
+import logger from "../../utils/logger.js";
 
 export const event = {
 	name: Events.InteractionCreate,
@@ -8,7 +9,7 @@ export const event = {
 			try {
 				await handleButton(interaction);
 			} catch (error) {
-				console.error(error);
+				logger.error(error);
 			}
 		}
 	},
