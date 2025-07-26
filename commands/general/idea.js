@@ -1,5 +1,6 @@
 import { AttachmentBuilder, Colors, EmbedBuilder, PermissionsBitField } from "discord.js";
 import config from "../../config.js";
+import logger from "../../utils/logger.js";
 const { ownerId } = config;
 
 export const command = {
@@ -22,7 +23,7 @@ export const command = {
         try {
             owner = await message.client.users.fetch(ownerId);
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
 
         if (!owner) return;
@@ -50,7 +51,7 @@ export const command = {
 
             await message.reply("✅ L'idée à bien été envoyé.")
         } catch (error) {
-            console.error(error);
+            logger.error(error);
             await message.reply("❌ Impossible d'envoyer l'idée.")
         }
     },

@@ -2,12 +2,13 @@ import {ActivityType, Events} from "discord.js";
 import pkgjson from "../../package.json" with { type: "json" };
 import "dotenv/config";
 import https from "https";
+import logger from "../../utils/logger.js";
 
 export const event = {
 	name: Events.ClientReady,
 	once: true,
 	async execute(client) {
-		console.log(`Prêt ? Le bot est connecté en tant que ${client.user.tag} ( ${client.user.id} )`);
+		logger.info(`Prêt ? Le bot est connecté en tant que ${client.user.tag} ( ${client.user.id} )`);
 		const activitees = [
 			"m*aide",
 			"m*aide_nsfw",
@@ -22,7 +23,7 @@ export const event = {
 		}, 12000);
 		const uptimeKumaUrl = process.env.UPTIME_KUMA_URL;
 		if (!uptimeKumaUrl) {
-			console.error("URL Uptime Kuma non définie dans le fichier .env");
+			logger.error("URL Uptime Kuma non définie dans le fichier .env");
 			return;
 		}
 		const makePushRequest = () => {
@@ -32,10 +33,10 @@ export const event = {
 					data += chunk;
 				});
 				res.on("end", () => {
-					//console.log("Réponse de Uptime Kuma:", data);
+					//logger.info("Réponse de Uptime Kuma:", data);
 				});
 			}).on("error", (err) => {
-				console.error("Erreur lors de la requête Uptime Kuma:", err.message);
+				logger.error("Erreur lors de la requête Uptime Kuma: " + err.message);
 			});
 		};
 		makePushRequest();

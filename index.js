@@ -2,9 +2,10 @@ import "dotenv/config";
 import fs from "node:fs";
 import path, { dirname } from "node:path";
 import { fileURLToPath } from "url";
-const __dirname = dirname(fileURLToPath(import.meta.url));
-
 import { Client, Collection, GatewayIntentBits } from "discord.js";
+import logger from "./utils/logger.js";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const client = new Client({
     intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildMembers]
@@ -23,9 +24,9 @@ for (const folder of commandFolers) {
 
         if ("name" in command && "execute" in command) {
             client.commands.set(command.name, command);
-            console.log(`✔️ La commande suivante à été chargé : ${command.name}`);
+            logger.info(`✔️ La commande suivante à été chargé : ${command.name}`);
         } else {
-            console.log(`[ATTENTION] La commande "./commands/${folder}/${file}" manque un "name" ou une propriété "execute"`);
+            logger.info(`[ATTENTION] La commande "./commands/${folder}/${file}" manque un "name" ou une propriété "execute"`);
         }
     }
 }
@@ -44,8 +45,15 @@ for (const folder of eventFolers) {
             client.on(event.name, (...args) => event.execute(...args));
         }
 
-        console.log(`📣 L'évènement suivant à été chargé : ${event.name}`)
+        logger.info(`📣 L'évènement suivant à été chargé : ${event.name}`)
     }
 }
+
+process.on("uncaughtException", (err) => {
+    logger.error(`Uncaught Exception: ${err.stack || err}`);
+});
+process.on("unhandledRejection", (reason) => {
+    logger.error(`Unhandled Rejection: ${reason}`);
+});
 
 client.login(process.env.BOT_TOKEN);

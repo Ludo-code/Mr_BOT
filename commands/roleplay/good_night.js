@@ -1,3 +1,4 @@
+import logger from "../../utils/logger.js";
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
 import "dotenv/config";
@@ -24,7 +25,7 @@ export const command = {
                 embeds: [embed],
             });
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     },
 };

@@ -1,5 +1,6 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
+import logger from "../../utils/logger.js";
 
 export const command = {
     name: "chat",
@@ -21,7 +22,7 @@ export const command = {
                 embeds: [embed],
             });
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     },
 };

@@ -1,5 +1,6 @@
 import { ChannelType, PermissionFlagsBits, ActionRowBuilder, ButtonBuilder, ButtonStyle, EmbedBuilder } from "discord.js";
 import { Guild, Ticket } from "../schema/schema.js";
+import logger from "../utils/logger.js";
 
 const handleButton = async (interaction) => {
     if (!interaction.isButton()) return;
@@ -60,7 +61,7 @@ const handleButton = async (interaction) => {
             });
 
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     }
 
@@ -137,7 +138,7 @@ const handleButton = async (interaction) => {
                 components: [row],
             });
         } catch (error) {
-            console.error(error);
+            logger.error(error);
             if (!interaction.deferred && !interaction.replied) {
                 await interaction.reply({
                     content: "Une erreur est survenue lors de la manipulation de ce bouton.",
@@ -220,7 +221,7 @@ const handleButton = async (interaction) => {
                 components: [row],
             });
         } catch (error) {
-            console.error(error);
+            logger.error(error);
             if (!interaction.deferred && !interaction.replied) {
                 await interaction.reply({
                     content: "Une erreur est survenue lors de la manipulation de ce bouton.",

@@ -1,5 +1,6 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Ticket } from "../../schema/schema.js";
+import logger from "../../utils/logger.js";
 
 export const command = {
     name: "fermer",
@@ -18,7 +19,7 @@ export const command = {
             return await message.reply(`Désolé ! Ceci n'est pas votre canal de ticket. Veuillez exécuter cette commande dans votre canal de ticket pour fermer le ticket.`);
         }
 
-        if (t) await t.destroy().catch(e => console.log(e));
+        if (t) await t.destroy().catch(e => logger.error(e));
         await message.reply(`Fermeture du ticket et supression du salon <t:${Math.round(Date.now() / 1000 + 10)}:R>`)
         setTimeout(async () => {
             await message.channel.delete();

@@ -2,6 +2,7 @@ import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
 import { getRedditToken } from "../../utils/redditTokenRenew.js";
 import "dotenv/config";
+import logger from "../../utils/logger.js";
 
 export const command = {
     name: "feet_humain",
@@ -60,7 +61,7 @@ export const command = {
                 embeds: [embed],
             });
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     },
 };

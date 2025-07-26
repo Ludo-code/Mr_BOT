@@ -88,6 +88,24 @@ Le bot utilise `winston` pour le logging avec rotation automatique des fichiers 
 
 Pour personnaliser la configuration des logs, vous pouvez modifier le fichier `logger` dans le code source, en particulier les options `filename`, `maxSize`, `maxFiles`, et `zippedArchive` dans le transport `DailyRotateFile`.
 
+### Désactivation de l’enregistrement des logs avec Winston
+
+Par défaut, Mr_BOT utilise Winston pour afficher les logs dans la console **et** les enregistrer dans des fichiers avec rotation automatique.  
+Si vous souhaitez que les logs soient uniquement affichés dans la console (et ne soient plus enregistrés dans des fichiers), il vous suffit de modifier la configuration du logger.
+
+**Exemple :**
+
+Dans le fichier `utils/logger.js`, remplacez la section `transports` par :
+
+```javascript
+transports: [
+    new winston.transports.Console()
+],
+```
+
+Ainsi, Winston n’utilisera plus le transport de fichiers et n’enregistrera plus les logs sur le disque.  
+Seuls les logs affichés dans la console seront visibles.
+
 ## API utilisées
 
 - [Tenor API](https://tenor.com/gifapi/documentation) – Utilisée pour envoyer des GIFs directement dans les canaux Discord.

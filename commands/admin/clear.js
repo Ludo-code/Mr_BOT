@@ -1,3 +1,4 @@
+import logger from "../../utils/logger.js";
 import { PermissionsBitField } from "discord.js";
 
 export const command = {
@@ -26,7 +27,7 @@ export const command = {
                 })
                 .catch(err => message.channel.send(err));
         } catch (error) {
-            console.error(error);
+            logger.error(error);
             message.channel.send(`Impossible de supprimer les messages ! Utiliser \`efface_complet\` à la place si vous souhaitez suprrimer tout les messages.\n\`Erreur : ${error.message}\``);
         }
     },
