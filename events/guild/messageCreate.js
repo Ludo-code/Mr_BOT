@@ -1,30 +1,11 @@
 import { ChannelType, Collection, Events, PermissionsBitField } from "discord.js";
-import winston from "winston";
-import "winston-daily-rotate-file";
+import logger from "../../utils/logger.js";
 import { Guild } from "../../schema/schema.js";
 import config from "../../config.js";
 import PermissionsFR from "../../permissionsFR.js";
 
 const { prefix } = config;
 const cooldowns = new Collection();
-
-const logger = winston.createLogger({
-    level: "info",
-    format: winston.format.combine(
-        winston.format.timestamp(),
-        winston.format.printf(({ timestamp, level, message }) => `${timestamp} [${level.toUpperCase()}]: ${message}`)
-    ),
-    transports: [
-        new winston.transports.Console(),
-        new winston.transports.DailyRotateFile({
-            filename: "logs/Mr_BOT-%DATE%.log",
-            datePattern: "DD-MM-YYYY",
-            maxSize: "20m",
-            maxFiles: "180d",
-            zippedArchive: true,
-        }),
-    ],
-});
 
 export const event = {
     name: Events.MessageCreate,
