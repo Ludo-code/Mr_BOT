@@ -6,7 +6,7 @@ Bienvenue sur **Mr_BOT**, un bot Discord complet et créé de toutes pièces, pr
 
 ## Fonctionnalités principales
 
-- Intégration avec l'API Tenor pour la gestion de GIFs.
+- Intégration avec l'API Klipy pour la gestion de GIFs.
 - Utilisation de l'API Fluxpoint pour des fonctionnalités supplémentaires.
 - Support d'une base de données (MariaDB) pour la persistance des données.
 - Système de log avec `winston` et gestion de la durée de rétention des logs.
@@ -20,7 +20,7 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
 - [npm](https://www.npmjs.com/)
 - Un serveur Discord pour tester le bot
 - Un compte sur [Discord Developer Portal](https://discord.com/developers/applications) pour générer un token de bot
-- Des clés API pour les services Tenor et Reddit (gratuites) & Fluxpoint (payant)
+- Des clés API pour les services Klipy et Reddit (gratuites) & Fluxpoint (payant)
 
 ## Installation
 
@@ -41,8 +41,8 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
 
    ```env
    BOT_TOKEN=<DISCORD_BOT_TOKEN>
-   TENOR_API_KEY_NAME=<TENOR_API_KEY_NAME>
-   TENOR_API_KEY=<TENOR_API_KEY>
+   KLIPY_API_KEY_NAME=<KLIPY_API_KEY_NAME>
+   KLIPY_API_KEY=<KLIPY_API_KEY>
    FLUXPOINT_API_KEY=<FLUXPOINT_API_KEY>
    REDDIT_CLIENT_ID=<REDDIT_CLIENT_ID>
    REDDIT_CLIENT_SECRET=<REDDIT_CLIENT_SECRET>
@@ -59,8 +59,8 @@ Avant de pouvoir exécuter le bot, assurez-vous d'avoir les éléments suivants 
 | Variable               | Description | Obligatoire |
 |------------------------|-------------|-------------|
 | `BOT_TOKEN`            | 🎮 Token du bot Discord, récupérable depuis [Discord Developer Portal](https://discord.com/developers/applications). | ✅ Oui |
-| `TENOR_API_KEY_NAME`   | 🔑 Nom d’identifiant pour la clé Tenor (valeur libre, selon vos préférences). | ✅ Oui |
-| `TENOR_API_KEY`        | 🎬 Clé API Tenor (pour les GIFs). | ✅ Oui |
+| `KLIPY_API_KEY_NAME`   | 🔑 Nom d’identifiant pour la clé Klipy (valeur libre, selon vos préférences). | ✅ Oui |
+| `KLIPY_API_KEY`        | 🎬 Clé API Klipy (pour les GIFs). | ✅ Oui |
 | `FLUXPOINT_API_KEY`    | 🧪 Clé API Fluxpoint (payante, one time buy). | ✅ Oui |
 | `REDDIT_CLIENT_ID`     | 👽 Identifiant client Reddit généré via votre application Reddit. | ✅ Oui |
 | `REDDIT_CLIENT_SECRET` | 🧠 Secret client Reddit associé à votre App. | ✅ Oui |
@@ -90,7 +90,7 @@ Pour personnaliser la configuration des logs, vous pouvez modifier le fichier `l
 
 ## API utilisées
 
-- [Tenor API](https://tenor.com/gifapi/documentation) – Utilisée pour envoyer des GIFs directement dans les canaux Discord.
+- [Klipy API](https://docs.klipy.com/getting-started) – Utilisée pour envoyer des GIFs directement dans les canaux Discord.
 - [Fluxpoint API](https://docs.fluxpoint.dev/home) – Utilisée pour des fonctionnalités diverses comme des citations, images, etc.
 - [Reddit API](https://www.reddit.com/dev/api/) – Utilisée pour récupérer des publications Reddit selon des critères définis (ex : subreddit, post populaire ou aléatoire). Requiert l’App Reddit configurée via [Reddit Apps](https://www.reddit.com/prefs/apps).
 
