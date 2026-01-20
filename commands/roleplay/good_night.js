@@ -10,7 +10,7 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch(`https://api.klipy.com/api/v1/${process.env.KLIPY_API_KEY}/gifs/search?customer_id=${process.env.KLIPY_API_KEY_NAME}&limit=24&q=good+night+anime`))?.json();
+            let res = await (await fetch(`https://api.klipy.com/api/v1/${process.env.KLIPY_API_KEY}/gifs/search?customer_id=${process.env.KLIPY_API_KEY_NAME}&limit=50&q=good night anime`))?.json();
             if (!res?.data?.data || !res.data.data[0]?.file) return await message.reply("Impossible d'obtenir l'image");
 
             const randomizeresults = Math.floor(Math.random() * res.data.data.length);
