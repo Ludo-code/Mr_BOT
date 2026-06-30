@@ -1,6 +1,7 @@
 import logger from "../../utils/logger.js";
 import { ActionRowBuilder, ButtonBuilder, ButtonStyle, ChannelType, EmbedBuilder, PermissionsBitField } from "discord.js";
 import { Guild } from "../../schema/schema.js";
+import { getTranslations } from "../../lang/index.js";
 
 export const command = {
     name: "catégorie-ticket",
@@ -12,6 +13,9 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages],
     async execute(message, args) {
         try {
+            let [g] = await Guild.findOrCreate({ where: { guildId: message.guild.id } });
+            const translations = getTranslations(g?.toJSON()?.language || 'fr');
+
             let channel = message.mentions.channels.first();
             if (!channel && args[0]) {
                 try {
@@ -22,23 +26,23 @@ export const command = {
             }
 
             if (!channel || channel.type != ChannelType.GuildCategory) {
-                return await message.reply(`Merci de mentionner le nom de la catégorie ou donner son ID.`);
+                return await message.reply(translations.messages.CATEGORY_MENTION);
             }
 
-            let [g] = await Guild.findOrCreate({
+            let [guildRow] = await Guild.findOrCreate({
                 where: {
                     guildId: message.guild.id,
                 }
             });
 
-            g.ticketCategoryChannelID = channel.id;
-            await g.save();
+            guildRow.ticketCategoryChannelID = channel.id;
+            await guildRow.save();
 
-            await message.reply(`La catégorie de cration des ticket est maintenant sur ${channel}.`);
+            await message.reply(translations.messages.CATEGORY_SET.replace('{channel}', `${channel}`));
 
         } catch (error) {
             logger.error(error);
-            await message.reply(`Impossible de créer la catégorie.`);
+            await message.reply(translations.messages.CATEGORY_CREATE_ERROR);
         }
     },
 };
