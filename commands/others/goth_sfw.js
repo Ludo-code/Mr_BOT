@@ -14,7 +14,7 @@ export const command = {
         try {
             const token = await getRedditToken();
 
-            let res = await fetch("https://oauth.reddit.com/r/GothGirls/new.json?limit=50", {
+            let res = await fetch("https://oauth.reddit.com/r/GothGirls/new.json?limit=100", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "User-Agent": `${process.env.REDDIT_USER_AGENT}`

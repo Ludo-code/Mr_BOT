@@ -19,7 +19,7 @@ export const command = {
             let allposts = [];
 
             for (const subreddit of subreddits) {
-                let res = await fetch(`https://oauth.reddit.com/r/${subreddit}/new.json?limit=50`, {
+                let res = await fetch(`https://oauth.reddit.com/r/${subreddit}/new.json?limit=100`, {
                     headers: {
                         "Authorization": `Bearer ${token}`,
                         "User-Agent": `${process.env.REDDIT_USER_AGENT}`
