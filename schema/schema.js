@@ -20,6 +20,10 @@ const Guild = sequelize.define("Guild", {
     guildId: DataTypes.STRING,
     ticketCategoryChannelID: DataTypes.STRING,
     nsfwEnabled: DataTypes.BOOLEAN,
+    language: {
+        type: DataTypes.STRING,
+        defaultValue: 'fr',
+    },
 });
 
 const Ticket = sequelize.define("Ticket", {
@@ -28,6 +32,6 @@ const Ticket = sequelize.define("Ticket", {
     guildId: DataTypes.STRING,
 });
 
-await sequelize.sync();
+await sequelize.sync({ alter: true });
 
 export { Guild, Ticket };

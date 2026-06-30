@@ -2,7 +2,7 @@ import { ChannelType, Collection, Events, PermissionsBitField } from "discord.js
 import logger from "../../utils/logger.js";
 import { Guild } from "../../schema/schema.js";
 import config from "../../config.js";
-import PermissionsFR from "../../permissionsFR.js";
+import { getTranslations } from "../../lang/index.js";
 
 const { prefix } = config;
 const cooldowns = new Collection();
@@ -28,30 +28,38 @@ export const event = {
                 return;
             }
 
+            let [g] = await Guild.findOrCreate({
+                where: {
+                    guildId: message.guild.id,
+                }
+            });
+            const lang = g?.toJSON()?.language || 'fr';
+            const translations = getTranslations(lang);
+
             if (command.staffOnly && !message.member.permissions.has(PermissionsBitField.Flags.Administrator)) {
                 logger.warn(`Tentative d'exécution de commande réservée au staff: ${commandName} par ${message.author.tag}`);
-                return await message.reply("Tu as besoin de la permission `Administrateur` pour exécuter cette commande...");
+                return await message.reply(translations.messages.NEED_ADMIN_PERMISSION);
             }
 
             if (command.clientpermissions) {
                 let missingperms = message.guild.members.me.permissionsIn(message.channel).missing(new PermissionsBitField(command.clientpermissions));
                 missingperms = missingperms.toString().toUpperCase();
-                let frenchMissingPerms = "";
-                for (const [key, values] of Object.entries(PermissionsFR)) {
-                    if (values.includes(PermissionsFR[key]) && missingperms.includes(key)) {
-                        frenchMissingPerms += PermissionsFR[key] + "; ";
+                let humanMissingPerms = "";
+                for (const [key, value] of Object.entries(translations.permissions)) {
+                    if (missingperms.includes(key)) {
+                        humanMissingPerms += value + "; ";
                     }
                 }
-                frenchMissingPerms = frenchMissingPerms.slice(0, -2);
+                humanMissingPerms = humanMissingPerms.slice(0, -2);
 
                 if (missingperms?.length) {
-                    logger.warn(`Permissions manquantes pour exécuter ${commandName}: ${frenchMissingPerms}`);
+                    logger.warn(`Permissions manquantes pour exécuter ${commandName}: ${humanMissingPerms}`);
                     try {
-                        return await message.reply(`Désolé tu n'as pas \`${frenchMissingPerms}\` comme permission pour exécuter cette commande.`);
+                        return await message.reply(translations.messages.MISSING_PERMISSIONS.replace('{perms}', humanMissingPerms));
                     } catch (error) {
                         logger.error(`Erreur lors de l'envoi de la réponse pour permissions manquantes: ${error.message}`);
                         try {
-                            await message.author.send("Désolé, je ne peux pas envoyer de message dans le serveur...Je n'ai peut-être pas la permission `Envoyer des messages`.");
+                            await message.author.send(translations.messages.CANT_SEND_IN_SERVER_DM);
                         } catch (error) {
                             logger.error(`Erreur lors de l'envoi du DM à l'utilisateur: ${error.message}`);
                         }
@@ -61,28 +69,22 @@ export const event = {
             }
 
             if (command.nsfw) {
-                let [g] = await Guild.findOrCreate({
-                    where: {
-                        guildId: message.guild.id,
-                    }
-                });
-
                 if (!message.channel.nsfw) {
                     logger.warn(`Commande NSFW utilisée en dehors d'un salon NSFW: ${commandName} par ${message.author.tag}`);
-                    return message.reply("Tu ne peux pas exécuter des commandes NSFW en dehors d'un salon de ce type !");
+                    return message.reply(translations.messages.NSFW_ONLY_CHANNEL);
                 }
 
                 if (!g || !g.toJSON()?.nsfwEnabled) {
                     logger.warn(`Commandes NSFW désactivées sur le serveur: ${commandName} par ${message.author.tag}`);
-                    return await message.reply("Les commandes NSFW sont désactivées sur ce serveur...");
+                    return await message.reply(translations.messages.NSFW_DISABLED);
                 }
             }
 
             if (command.args && !args.length) {
                 logger.info(`Arguments manquants pour la commande ${commandName} par ${message.author.tag}`);
-                let reply = `Tu n'as pas écrit de message, la syntaxe de la commande est incorrect, ${message.author}!`;
+                let reply = translations.messages.MISSING_ARGS.replace('{user}', `${message.author}`);
                 if (command.usage) {
-                    reply += `\nL'usage correct est : \`${prefix}${command.name} ${command.usage}\``;
+                    reply += `\n${translations.messages.USAGE_PREFIX || 'Usage:'} \`${prefix}${command.name} ${command.usage}\``;
                 }
                 return message.channel.send(reply);
             }
@@ -104,7 +106,8 @@ export const event = {
                     const timeLeft = (expirationTime - now) / 1000;
                     if (now < expirationTime && timeLeft > 0.9) {
                         logger.info(`Cooldown actif pour ${commandName} par ${message.author.tag}, restant: ${timeLeft.toFixed(1)}s`);
-                        return await message.reply({ content: `⏰ Merci d'attendre <t:${Math.round(expirationTime / 1000)}:R> avant d'utiliser la commande **${command.name}** de nouveau.`, ephemeral: true });
+                        const cdMsg = translations.messages.COOLDOWN_MSG.replace('{ts}', Math.round(expirationTime / 1000)).replace('{cmd}', command.name);
+                        return await message.reply({ content: cdMsg, ephemeral: true });
                     }
                     timestamps.set(`${message.guild.id}_${message.author.id}`, now);
                     setTimeout(() => timestamps.delete(`${message.guild.id}_${message.author.id}`), cooldownAmount);
@@ -115,7 +118,7 @@ export const event = {
             await command.execute(message, args, commandName);
         } catch (error) {
             logger.error(`Erreur lors de l'exécution de la commande: ${error.message}`);
-            message.reply("Désolé, une erreur est survenue lors de l'exécution de la commande !");
+            message.reply(getTranslations('fr').messages.COMMAND_ERROR);
         }
     },
 };
