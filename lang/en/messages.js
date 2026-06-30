@@ -21,4 +21,12 @@ export default {
     CATEGORY_SET: "Ticket creation category is now set to {channel}.",
     CATEGORY_CREATE_ERROR: "Unable to set the category.",
     REQUESTED_BY: "Requested by: {user}",
+    NSFW_COMMANDS_TITLE: "NSFW Commands",
+    USE_HELP_FOR_NON_NSFW: "Please use **{prefix}help** for non-nsfw commands.",
+    USAGE_LABEL: "Usage",
+    ALIASES_LABEL: "Aliases",
+    PAGE_FOOTER: "Page: {current}/{total}",
+    GOOD_NIGHT_TITLE: "Bonne nuit, {user}",
+    POWERED_BY: "Powered by {service}",
+    LANGUAGE_SET: "Language set to {lang}.",
 };

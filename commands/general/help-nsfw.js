@@ -1,24 +1,24 @@
-import { Colors, EmbedBuilder, PermissionsBitField, ActionRowBuilder, ButtonBuilder, ButtonStyle } from "discord.js";
-import config from "../../config.js";
+import { ActionRowBuilder, ButtonBuilder, ButtonStyle, Colors, EmbedBuilder } from "discord.js";
 import logger from "../../utils/logger.js";
-
-const { prefix } = config;
+import { Guild } from "../../schema/schema.js";
+import { getTranslations } from "../../lang/index.js";
 
 export const command = {
     name: "aide_nsfw",
-    aliases: ["aide-nsfw", "help-nsfw"],
-    description: "Affiche l'aide des commandes nsfw.",
-    nsfw: true,
-    clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
+    aliases: ["help-nsfw", "help_nsfw"],
+    description: "Affiche les commandes NSFW",
     async execute(message, args) {
         try {
+            let [g] = await Guild.findOrCreate({ where: { guildId: message.guild.id } });
+            const translations = getTranslations(g?.toJSON()?.language || 'fr');
+
             let commandName = args[0];
             const cmd = message.client.commands.get(commandName) ||
                 message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
             if (cmd) {
                 if (!cmd.nsfw) {
-                    return await message.reply(`Merci d'utiliser **${prefix}aide** pour les commandes non nsfw.`)
+                    return await message.reply(translations.messages.USE_HELP_FOR_NON_NSFW.replace('{prefix}', require('../../config.js').default.prefix))
                 }
 
                 let descText = cmd.description ? cmd.description : "";
@@ -33,11 +33,11 @@ export const command = {
                     .setColor("Random");
 
                 if (cmd.usage) cmdembed.addFields({
-                    name: "Utilisation",
-                    value: `\`${prefix}${cmd.name} ${cmd.usage}\``
+                    name: translations.messages.USAGE_LABEL,
+                    value: `\`${require('../../config.js').default.prefix}${cmd.name} ${cmd.usage}\``
                 });
                 if (cmd.aliases?.length) cmdembed.addFields({
-                    name: `Alias`,
+                    name: translations.messages.ALIASES_LABEL,
                     value: `\`${cmd.aliases.join("`, `")}\``
                 });
 
@@ -51,10 +51,10 @@ export const command = {
                     const chunk = commands.slice(i, i + chunkSize);
                     const txt = chunk.map(c => `» ${c.name} ‣ ${c.description}`).join("\n");
                     const embed = new EmbedBuilder()
-                        .setTitle("Commandes NSFW")
+                        .setTitle(translations.messages.NSFW_COMMANDS_TITLE)
                         .setDescription(txt)
                         .setColor(Colors.Blue)
-                        .setFooter({ text: `Page: ${embeds.length + 1}/${Math.ceil(commands.length / chunkSize)}` });
+                        .setFooter({ text: translations.messages.PAGE_FOOTER.replace('{current}', `${embeds.length + 1}`).replace('{total}', `${Math.ceil(commands.length / chunkSize)}`) });
 
                     embeds.push(embed);
                 }

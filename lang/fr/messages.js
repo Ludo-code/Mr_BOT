@@ -21,4 +21,12 @@ export default {
     CATEGORY_SET: "La catégorie de cration des ticket est maintenant sur {channel}.",
     CATEGORY_CREATE_ERROR: "Impossible de créer la catégorie.",
     REQUESTED_BY: "Demandé par : {user}",
+    NSFW_COMMANDS_TITLE: "Commandes NSFW",
+    USE_HELP_FOR_NON_NSFW: "Merci d'utiliser **{prefix}aide** pour les commandes non nsfw.",
+    USAGE_LABEL: "Utilisation",
+    ALIASES_LABEL: "Alias",
+    PAGE_FOOTER: "Page: {current}/{total}",
+    GOOD_NIGHT_TITLE: "Bonne Nuit, {user}",
+    POWERED_BY: "Propulsé par {service}",
+    LANGUAGE_SET: "Langue définie sur {lang}.",
 };
