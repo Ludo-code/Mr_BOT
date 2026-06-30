@@ -1,4 +1,5 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
+import logger from "../../utils/logger.js";
 
 export const command = {
 	name: "ping",
@@ -19,7 +20,7 @@ export const command = {
 				embeds: [embed]
 			});
 		} catch (e) {
-			console.error(e);
+			logger.error(e);
 		}
 	},
 };

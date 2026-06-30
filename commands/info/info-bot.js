@@ -1,5 +1,6 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import config from "../../config.js";
+import logger from "../../utils/logger.js";
 const { websiteURL, githubURL, supportServerURL } = config;
 
 export const command = {
@@ -25,7 +26,7 @@ export const command = {
                 embeds: [embed],
             })
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     },
 };

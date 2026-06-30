@@ -1,3 +1,4 @@
+import logger from "../../utils/logger.js";
 import { PermissionsBitField } from "discord.js";
 
 export const command = {
@@ -16,7 +17,7 @@ export const command = {
                 await clonedChannel.setPosition(originalPosition);
             }, 15000);
         } catch (error) {
-            console.error(error);
+            logger.error(error);
             await message.channel.send(`Impossible de faire focntionner cette commande. \`Erreur : ${error.message}\``);
         }
     },

@@ -2,6 +2,7 @@ import { EmbedBuilder, PermissionsBitField } from "discord.js";
 import fetch from "node-fetch";
 import { getRedditToken } from "../../utils/redditTokenRenew.js";
 import "dotenv/config";
+import logger from "../../utils/logger.js";
 
 export const command = {
     name: "feet_humain",
@@ -14,7 +15,7 @@ export const command = {
         try {
             const token = await getRedditToken();
 
-            let res = await fetch("https://oauth.reddit.com/r/feet/new.json?limit=50", {
+            let res = await fetch("https://oauth.reddit.com/r/feet/new.json?limit=100", {
                 headers: {
                     "Authorization": `Bearer ${token}`,
                     "User-Agent": `${process.env.REDDIT_USER_AGENT}`
@@ -60,7 +61,7 @@ export const command = {
                 embeds: [embed],
             });
         } catch (error) {
-            console.error(error);
+            logger.error(error);
         }
     },
 };
