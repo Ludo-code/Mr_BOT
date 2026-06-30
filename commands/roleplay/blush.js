@@ -1,6 +1,6 @@
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
-import fetch from "node-fetch";
 import logger from "../../utils/logger.js";
+import { getNekos } from "../../utils/nekosBest.js";
 
 export const command = {
     name: "rougit",
@@ -10,13 +10,13 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://nekos.best/api/v2/blush"))?.json();
-            if (!res?.results || !res?.results[0]?.url) return await message.reply("impossible de récupérer l'image");
-            
+            const imageUrl = await getNekos("blush");
+            if (!imageUrl) return await message.reply("impossible de récupérer l'image");
+
             let embed = new EmbedBuilder()
                 .setTitle(`${message.member.nickname || message.author.username} rougit.`)
                 .setColor("Random")
-                .setImage(res.results[0].url);
+                .setImage(imageUrl);
 
             await message.reply({
                 embeds: [embed],

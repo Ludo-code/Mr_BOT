@@ -6,4 +6,5 @@ export default [
     "Nouveauté des mises à jour : \n\n- le 20/11/2024 Nouvelles aides",
     "Nouveauté des mises à jour : \n\n- le 25/07/2025 Correction de divers bugs, Ajout de nouvelles commandes",
     "Nouveauté des mises à jour : \n\n- le 19/01/2026 Migration de l'api Tenor vers Klipy",
+    "Nouveauté des mises à jour : \n\n- le 01/07/2026 Fix des images non affichées depuis l'api nekos.best",
 ];

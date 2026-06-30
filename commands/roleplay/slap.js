@@ -1,6 +1,6 @@
 import logger from "../../utils/logger.js";
 import { EmbedBuilder, PermissionsBitField } from "discord.js";
-import fetch from "node-fetch";
+import { getNekos } from "../../utils/nekosBest.js";
 
 export const command = {
     name: "gifle",
@@ -10,15 +10,15 @@ export const command = {
     clientpermissions: [PermissionsBitField.Flags.SendMessages, PermissionsBitField.Flags.EmbedLinks],
     async execute(message, args) {
         try {
-            let res = await (await fetch("https://nekos.best/api/v2/slap"))?.json();
-            if (!res?.results || !res?.results[0]?.url) return await message.reply("impossible de récupérer l'image");
+            const imageUrl = await getNekos("slap");
+            if (!imageUrl) return await message.reply("impossible de récupérer l'image");
 
             let mentionedmember = message.mentions.members.first();
 
             let embed = new EmbedBuilder()
                 .setTitle(`${mentionedmember ? (mentionedmember.nickname || mentionedmember.user.username) : (message.member.nickname || message.author.username)} se fait gifler.`)
                 .setColor("Random")
-                .setImage(res.results[0].url);
+                .setImage(imageUrl);
 
 
             await message.reply({
