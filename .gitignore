@@ -136,5 +136,4 @@ dist
 .pnp.*
 
 #Custom
-package-lock.json
 logs/
