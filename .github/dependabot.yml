@@ -3,5 +3,7 @@ updates:
   - package-ecosystem: npm
     directory: "/"
     schedule:
-      interval: daily
+      interval: cron
+      cronjob: "0 10,22 * * *"
+      timezone: Europe/Paris
     open-pull-requests-limit: 20
